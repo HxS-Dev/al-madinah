@@ -1,0 +1,193 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: #006736;
+  --color-secondary: #3C845D;
+  --color-black-1000: #020202;
+  --color-black-1100: #333333;
+  --color-black-1200: #262B3E;
+  --color-blue-1000: #062265;
+  --color-blue-2000: #242f6c;
+  --color-blue-1100: #6EC1E4;
+  --color-blue-1200: #1C244B;
+  --color-gray-1000: #4e586f;
+  --color-gray-1100: #eeeeee;
+  --color-gray-1200: #55595c;
+  --color-gray-1300: #B2AAAA;
+  --color-gray-1400: #bbbbbb;
+  --color-gray-1500: #54595F;
+  --color-gray-1600: #f4f4f4;
+  --color-cyan-1000: #3C845D;
+  --color-blue-cyan: #006736;
+  --color-green-cyan: #1abc9c;
+  --color-purple-1000: #4054b2;
+  --color-green-1000: #30B85A;
+  --color-green-1100: #61CE70;
+  --color-yellow-1000: #F5FF14;
+
+  --font-nunito-sans: var(--font-nunito-sans);
+  --font-poppins: var(--font-poppins);
+  --font-berkshire_swash: var(--font-berkshire_swash);
+
+  --breakpoint-xs: 320px;
+  --breakpoint-sm: 575px;
+  --breakpoint-md: 767px;
+  --breakpoint-lg: 991px;
+  --breakpoint-xl: 1199px;
+  --breakpoint-2xl: 1365px;
+  --breakpoint-3xl: 1600px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+
+
+.right-border {
+  border: 1px dashed #006736;
+  animation: circle 60s linear infinite;
+}
+
+@keyframes circle {
+  0%{
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100%{
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+
+.aims-slider .swiper-pagination-bullet-active{
+  @apply bg-black
+}
+
+ .swiper-button-prev {
+  left: 10%;
+}
+
+.aims-slider .swiper-button-next{
+  right: 10%;
+}
+
+.aims-slider .swiper-button-prev:after, .aims-slider .swiper-button-next:after {
+  font-size: 32px;
+  color: #fff;
+}
+
+
+.portablecontent p{
+  @apply text-gray-1000 text-lg my-1
+}
+
+.portablecontent h1{
+  @apply  py-4
+}
+
+.portablecontent2 > p{
+  @apply text-[15px] leading-loose text-gray-1000
+}
+
+.portablecontent2 > p{
+  @apply text-[15px] leading-loose text-gray-1000
+}
+
+.prose-1 > p{
+  @apply text-[15px] leading-loose text-gray-1000
+}
+
+.prose-1 > h3{
+  @apply text-2xl font-semibold font-poppins my-4 text-primary
+}
+
+.aims-slider .swiper-slide{
+  @apply !h-auto
+}
+
+
+.animate-buzz:hover{
+  animation-name: animation-buzz-out;
+  animation-duration: .75s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1
+}
+
+@keyframes animation-buzz-out {
+  10% {
+      transform: translateX(3px) rotate(2deg)
+  }
+
+  20% {
+      transform: translateX(-3px) rotate(-2deg)
+  }
+
+  30% {
+      transform: translateX(3px) rotate(2deg)
+  }
+
+  40% {
+      transform: translateX(-3px) rotate(-2deg)
+  }
+
+  50% {
+      transform: translateX(2px) rotate(1deg)
+  }
+
+  60% {
+      transform: translateX(-2px) rotate(-1deg)
+  }
+
+  70% {
+      transform: translateX(2px) rotate(1deg)
+  }
+
+  80% {
+      transform: translateX(-2px) rotate(-1deg)
+  }
+
+  90% {
+      transform: translateX(1px) rotate(0)
+  }
+
+  100% {
+      transform: translateX(-1px) rotate(0)
+  }
+}
+
+@keyframes spin-reverse {
+  to { transform: rotate(-360deg); }
+}
+.animate-spin-reverse {
+  animation: spin-reverse 1s linear infinite;
+}
+
+
+
