@@ -1,64 +1,293 @@
-import React from 'react'
-import Image from 'next/image'
+'use client';
+import React from 'react';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
 import type { Metadata } from "next";
-import AosClient from '@/app/components/AosClient';
-
-
-export const metadata: Metadata = {
-  title: " Hajj & Umrah | Al-Madinah Institute",
-  description: "Al-Madinah Institute is a UK registered charity based in Crawley, West Sussex. Discover our services, events, and resources for the community.",
-};
-
+import SubscribeSection from '@/app/components/SubscribeSection';
+import { GlassCard, FloatingCard } from '@/app/components/GlassCard';
+import { FadeInUp, SlideInLeft, SlideInRight, FloatingElement } from '@/app/components/AnimationUtils';
 
 const hajjImages = [
   '/images/Hajj-3.jpg',
   '/images/photo_2022-07-04_06-19-48.jpg',
   '/images/photo_2022-07-04_06-20-01.jpg',
-]
+];
 
 const umrahImages = [
   '/images/photo_2022-07-04_06-19-16.jpg',
   '/images/photo_2022-07-04_06-19-55.jpg',
-  '/images/photo_2022-07-04_06-20-32.jpg',
-]
+  '/images/photo_2022-07-04_06-20-01.jpg',
+];
 
-const HajjUmrah = () => {
+const HajjUmrahPage = () => {
+  const services = [
+    {
+      icon: "🕌",
+      title: "Hajj Guidance Seminars",
+      description: "Comprehensive workshops covering essential rituals, travel tips, and spiritual preparation for the sacred journey.",
+      features: ["Essential rituals training", "Travel preparation", "Spiritual guidance", "Group booking support"]
+    },
+    {
+      icon: "🌙",
+      title: "Umrah Workshops",
+      description: "Step-by-step guidance and practical advice for performing Umrah with confidence and understanding.",
+      features: ["Practical guidance", "Q&A with scholars", "Travel checklists", "Saudi regulations updates"]
+    },
+    {
+      icon: "👨‍🏫",
+      title: "Expert Guidance",
+      description: "Learn from experienced scholars and guides who have extensive knowledge of the pilgrimage requirements.",
+      features: ["Qualified instructors", "Personal consultation", "Group support", "Ongoing assistance"]
+    }
+  ];
+
+  const benefits = [
+    { icon: "📅", title: "Regular Updates", detail: "Stay informed with the latest requirements and regulations" },
+    { icon: "👥", title: "Group Support", detail: "Connect with fellow pilgrims and share experiences" },
+    { icon: "📞", title: "Ongoing Support", detail: "Continuous guidance before, during, and after your journey" },
+    { icon: "🌍", title: "Comprehensive Info", detail: "Everything you need to know for a successful pilgrimage" }
+  ];
+
   return (
-    <main className='overflow-hidden'>
-      <AosClient/>
-      <section className="w-full py-10 sm:py-14 lg:py-24 bg-gray-50">
-        <div className="w-full max-w-[1100px] mx-auto px-3 sm:px-5">
-          <h1  data-aos="fade-up" data-aos-delay="100" data-aos-offset="100" data-aos-duration="1000" className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary text-center mb-8 font-poppins">Hajj & Umrah</h1>
-          <div className="mb-12">
-            <h2  data-aos="fade-up" data-aos-delay="100" data-aos-offset="100" data-aos-duration="1000" className="text-xl sm:text-2xl font-semibold text-primary mb-4">Latest Hajj Updates</h2>
-            <p  data-aos="fade-up" data-aos-delay="150" data-aos-offset="100" data-aos-duration="1000" className="text-base text-gray-900 mb-6">
-              Al-Madinah Institute regularly organises Hajj guidance seminars and provides up-to-date information for prospective pilgrims. Our latest Hajj session covered essential rituals, travel tips, and spiritual preparation. We also offer support for group bookings and connect attendees with experienced guides. For the 2024 season, please check our events page for upcoming seminars and registration details.
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-              {hajjImages.map((src, idx) => (
-                <div  data-aos="fade-up" data-aos-delay="100" data-aos-offset="100" data-aos-duration="1000" key={idx} className="w-full h-[220px] sm:h-[200px] relative rounded-lg overflow-hidden shadow">
-                  <Image src={src} alt={`Hajj ${idx+1}`} fill className="object-cover w-full h-full" />
-                </div>
-              ))}
+    <main className='overflow-hidden bg-gradient-to-br from-green-50/30 via-white to-emerald-50/20 min-h-screen'>
+      {/* Hero Section */}
+      <section className='relative pt-24 pb-16 lg:pt-32 lg:pb-20'>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1b5e3f]/5 to-transparent"></div>
+        <div className="relative max-w-7xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-12"
+          >
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className='text-4xl lg:text-6xl xl:text-7xl font-bold text-gray-900 mb-6'
+            >
+              <span className="block bg-gradient-to-r from-[#1b5e3f] to-[#237a4f] bg-clip-text text-transparent">
+                Hajj & Umrah
+              </span>
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-xl lg:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed"
+            >
+              Guidance and support for your sacred pilgrimage journey
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="flex justify-center mb-8"
+            >
+              <div className="w-24 h-1 bg-gradient-to-r from-[#1b5e3f] to-[#237a4f] rounded-full"></div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className='py-16 lg:py-24'>
+        <div className="max-w-7xl mx-auto px-6">
+          <FadeInUp>
+            <div className="text-center mb-16">
+              <h2 className='text-3xl lg:text-5xl font-bold text-gray-900 mb-6'>
+                Our <span className="text-[#1b5e3f]">Services</span>
+              </h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                Comprehensive support and guidance for your pilgrimage journey
+              </p>
+              <div className="mt-8 flex justify-center">
+                <div className="w-24 h-1 bg-gradient-to-r from-[#1b5e3f] to-[#237a4f] rounded-full"></div>
+              </div>
             </div>
-          </div>
-          <div className="mb-12">
-            <h2  data-aos="fade-up" data-aos-delay="100" data-aos-offset="100" data-aos-duration="1000" className="text-xl sm:text-2xl font-semibold text-primary mb-4">Latest Umrah Updates</h2>
-            <p  data-aos="fade-up" data-aos-delay="150" data-aos-offset="100" data-aos-duration="1000" className="text-base text-gray-900 mb-6">
-              Our Umrah workshops provide step-by-step guidance, practical advice, and spiritual insights for all ages. The most recent Umrah event included a Q&A with scholars, travel checklists, and a review of the latest Saudi regulations. For group Umrah trips and one-to-one support, please contact our office or visit the events page for more information.
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-              {umrahImages.map((src, idx) => (
-                <div  data-aos="fade-up" data-aos-delay="100" data-aos-offset="100" data-aos-duration="1000" key={idx} className="w-full h-[220px] sm:h-[200px] relative rounded-lg overflow-hidden shadow">
-                  <Image src={src} alt={`Umrah ${idx+1}`} fill className="object-cover w-full h-full" />
-                </div>
-              ))}
-            </div>
+          </FadeInUp>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.2 }}
+                viewport={{ once: true }}
+                className="group"
+              >
+                <GlassCard className="p-8 h-full hover:shadow-2xl transition-all duration-500 text-center group-hover:scale-105">
+                  <div className="text-5xl mb-6">{service.icon}</div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-[#1b5e3f] transition-colors duration-300">
+                    {service.title}
+                  </h3>
+                  <p className="text-gray-600 mb-6 leading-relaxed">
+                    {service.description}
+                  </p>
+                  <ul className="space-y-3">
+                    {service.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-center gap-3 text-left">
+                        <div className="w-2 h-2 bg-[#1b5e3f] rounded-full flex-shrink-0"></div>
+                        <span className="text-gray-700">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </GlassCard>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
-    </main>
-  )
-}
 
-export default HajjUmrah
+      {/* Key Benefits */}
+      <section className='py-16 lg:py-24 bg-gradient-to-br from-green-50/50 to-emerald-50/30'>
+        <div className="max-w-7xl mx-auto px-6">
+          <FadeInUp>
+            <div className="text-center mb-16">
+              <h2 className='text-3xl lg:text-5xl font-bold text-gray-900 mb-6'>
+                Why Choose <span className="text-[#1b5e3f]">Al-Madinah Institute</span>
+              </h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                We provide comprehensive support for your sacred journey
+              </p>
+            </div>
+          </FadeInUp>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {benefits.map((benefit, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <GlassCard className="p-6 text-center hover:shadow-xl transition-shadow duration-300">
+                  <div className="text-4xl mb-4">{benefit.icon}</div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-2">{benefit.title}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">{benefit.detail}</p>
+                </GlassCard>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Hajj Section */}
+      <section className='py-16 lg:py-24'>
+        <div className="max-w-7xl mx-auto px-6">
+          <SlideInLeft>
+            <GlassCard className="p-8 lg:p-12 mb-16">
+              <div className="text-center mb-8">
+                <div className="text-6xl mb-6">🕌</div>
+                <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+                  Latest Hajj Updates
+                </h2>
+                <p className="text-lg text-gray-600 leading-relaxed max-w-4xl mx-auto">
+                  Al-Madinah Institute regularly organises Hajj guidance seminars and provides up-to-date information for prospective pilgrims. Our latest Hajj session covered essential rituals, travel tips, and spiritual preparation. We also offer support for group bookings and connect attendees with experienced guides. For the 2024 season, please check our events page for upcoming seminars and registration details.
+                </p>
+              </div>
+            </GlassCard>
+          </SlideInLeft>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {hajjImages.map((src, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: idx * 0.1 }}
+                viewport={{ once: true }}
+                className="group"
+              >
+                <div className="relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-500 h-64">
+                  <Image 
+                    src={src} 
+                    alt={`Hajj guidance ${idx + 1}`}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#1b5e3f]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Umrah Section */}
+      <section className='py-16 lg:py-24 bg-gradient-to-br from-green-50/50 to-emerald-50/30'>
+        <div className="max-w-7xl mx-auto px-6">
+          <SlideInRight>
+            <GlassCard className="p-8 lg:p-12 mb-16">
+              <div className="text-center mb-8">
+                <div className="text-6xl mb-6">🌙</div>
+                <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+                  Latest Umrah Updates
+                </h2>
+                <p className="text-lg text-gray-600 leading-relaxed max-w-4xl mx-auto">
+                  Our Umrah workshops provide step-by-step guidance, practical advice, and spiritual insights for all ages. The most recent Umrah event included a Q&A with scholars, travel checklists, and a review of the latest Saudi regulations. For group Umrah trips and one-to-one support, please contact our office or visit the events page for more information.
+                </p>
+              </div>
+            </GlassCard>
+          </SlideInRight>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {umrahImages.map((src, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: idx * 0.1 }}
+                viewport={{ once: true }}
+                className="group"
+              >
+                <div className="relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-500 h-64">
+                  <Image 
+                    src={src} 
+                    alt={`Umrah guidance ${idx + 1}`}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#1b5e3f]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className='py-16 lg:py-24'>
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <FadeInUp>
+            <GlassCard className="p-8 lg:p-12">
+              <div className="text-6xl mb-6">📞</div>
+              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+                Ready to Begin Your Journey?
+              </h2>
+              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                Contact us for more information about our Hajj and Umrah guidance programs, group bookings, or to register for upcoming seminars.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="bg-[#1b5e3f]/5 p-6 rounded-xl">
+                  <h3 className="text-xl font-bold text-[#1b5e3f] mb-2">Visit Our Events Page</h3>
+                  <p className="text-gray-700">Check for upcoming seminars and registration details</p>
+                </div>
+                <div className="bg-[#1b5e3f]/5 p-6 rounded-xl">
+                  <h3 className="text-xl font-bold text-[#1b5e3f] mb-2">Contact Our Office</h3>
+                  <p className="text-gray-700">Speak directly with our guidance team</p>
+                </div>
+              </div>
+            </GlassCard>
+          </FadeInUp>
+        </div>
+      </section>
+
+      <SubscribeSection />
+    </main>
+  );
+};
+
+export default HajjUmrahPage;

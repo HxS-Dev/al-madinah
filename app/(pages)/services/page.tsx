@@ -1,142 +1,123 @@
-import Image from 'next/image'
-import Link from 'next/link'
+'use client';
 import React from 'react'
 import type { Metadata } from "next";
 import SubscribeSection from '@/app/components/SubscribeSection';
-import AosClient from '@/app/components/AosClient';
-
-
-
-export const metadata: Metadata = {
-  title: " Services | Al-Madinah Institute",
-  description: "Al-Madinah Institute is a UK registered charity based in Crawley, West Sussex. Discover our services, events, and resources for the community.",
-};
-
+import ServicesSection from '@/app/components/ServicesSection';
+import { motion } from 'framer-motion';
 
 const Services = () => {
   return (
-    <main className='overflow-hidden'>
-      <AosClient/>
-      <section className='w-full py-14 lg:pb-40 pt-32  relative'>
-      <div className="absolute left-0 top-0 w-full h-full bg-[url(/images/istockphoto-bg.jpg)] opacity-10"></div>
+    <main className='overflow-hidden bg-gradient-to-br from-green-50/30 via-white to-emerald-50/20 min-h-screen'>
+      {/* Hero Section */}
+      <section className='relative pt-24 pb-16 lg:pt-32 lg:pb-20'>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1b5e3f]/5 to-transparent"></div>
+        <div className="relative max-w-7xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center"
+          >
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className='text-4xl lg:text-6xl xl:text-7xl font-bold text-gray-900 mb-6'
+            >
+              <span className="block">Our</span>
+              <span className="block bg-gradient-to-r from-[#1b5e3f] to-[#237a4f] bg-clip-text text-transparent">
+                Services
+              </span>
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-xl lg:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed"
+            >
+              Comprehensive Islamic education and spiritual guidance tailored to serve our diverse community with excellence and dedication
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="flex justify-center"
+            >
+              <div className="w-24 h-1 bg-gradient-to-r from-[#1b5e3f] to-[#237a4f] rounded-full"></div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
 
-        <div className="w-full max-w-[1440px] px-5 mx-auto relative z-10">
-        
-          <div className="w-full">
-            <div className="pb-10">
-            <h1 data-aos="fade-right" data-aos-delay="100" data-aos-offset="100" data-aos-duration="1000" className="lg:text-[50px] lg:text-5xl text-4xl text-primary font-poppins font-bold leading-none">Services</h1>
-            </div>
-            <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-5 lg:gap-y-16 gap-y-10">
-                  <Link
-                  data-aos="fade-up" data-aos-delay="100" data-aos-offset="100" data-aos-duration="1000"
-                    href={"/"}
-                    className="w-full group relative text-center transition-all duration-500 bg-white rounded-2xl shadow-xl hover:shadow-2xl border border-gray-200 pb-5 overflow-hidden"
-                  >
-                    <div className="relative overflow-hidden rounded-t-2xl">
-                      <Image
-                        width={280}
-                        height={200}
-                        className="w-full h-[200px] object-cover transition-all duration-700 group-hover:scale-105"
-                        src={"/images/dummy_4.png"}
-                        alt="no-img"
-                      />
-                      <div className="absolute inset-0 bg-blue-cyan/20 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
-                    </div>
-                    <h3 className="text-2xl font-bold transition-all duration-500 group-hover:text-blue-cyan text-gray-1200 text-center pt-4 pb-3 tracking-wide">
-                      Hifdh Class
-                    </h3>
-                    <span className="inline-flex items-center gap-2 transition-all duration-500 group-hover:bg-blue-cyan group-hover:text-white group-hover:border-blue-cyan py-2 px-6 rounded-full border-2 border-gray-1200 text-gray-1200 bg-white shadow group-hover:shadow-lg">
-                      <svg className="w-4 h-4 transition-transform duration-500 group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                      </svg>
-                      Learn More
-                    </span>
-                    <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-32 h-32 bg-blue-cyan/10 rounded-full blur-2xl z-0"></div>
-                  </Link>
+      {/* Services Section */}
+      <ServicesSection showTitle={false} isHomepage={false} />
 
-                  <Link
-                   data-aos="fade-up" data-aos-delay="150" data-aos-offset="100" data-aos-duration="1000"
-                    href={"/"}
-                    className="w-full group relative text-center transition-all duration-500 bg-white rounded-2xl shadow-xl hover:shadow-2xl border border-gray-200 pb-5 overflow-hidden"
-                  >
-                    <div className="relative overflow-hidden rounded-t-2xl">
-                      <Image
-                        width={280}
-                        height={200}
-                        className="w-full h-[200px] object-cover transition-all duration-700 group-hover:scale-105"
-                        src={"/images/dummy_5.png"}
-                        alt="no-img"
-                      />
-                      <div className="absolute inset-0 bg-blue-cyan/20 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
-                    </div>
-                    <h3 className="text-2xl font-bold transition-all duration-500 group-hover:text-blue-cyan text-gray-1200 text-center pt-4 pb-3 tracking-wide">
-                      Jumuah Khateeb
-                    </h3>
-                    <span className="inline-flex items-center gap-2 transition-all duration-500 group-hover:bg-blue-cyan group-hover:text-white group-hover:border-blue-cyan py-2 px-6 rounded-full border-2 border-gray-1200 text-gray-1200 bg-white shadow group-hover:shadow-lg">
-                      <svg className="w-4 h-4 transition-transform duration-500 group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                      </svg>
-                      Learn More
-                    </span>
-                    <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-32 h-32 bg-blue-cyan/10 rounded-full blur-2xl z-0"></div>
-                  </Link>
+      {/* Additional Info Section */}
+      <section className='py-16 lg:py-24 bg-gradient-to-br from-green-50/50 to-emerald-50/30'>
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className='text-3xl lg:text-5xl font-bold text-gray-900 mb-6'>
+              Why Choose <span className="text-[#1b5e3f]">Al-Madinah Institute</span>
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Experience authentic Islamic education with qualified scholars and a supportive community environment
+            </p>
+          </motion.div>
 
-                  <Link
-                   data-aos="fade-up" data-aos-delay="200" data-aos-offset="100" data-aos-duration="1000"
-                    href={"/"}
-                    className="w-full group relative text-center transition-all duration-500 bg-white rounded-2xl shadow-xl hover:shadow-2xl border border-gray-200 pb-5 overflow-hidden"
-                  >
-                    <div className="relative overflow-hidden rounded-t-2xl">
-                      <Image
-                        width={280}
-                        height={200}
-                        className="w-full h-[200px] object-cover transition-all duration-700 group-hover:scale-105"
-                        src={"/images/dummy_6.png"}
-                        alt="no-img"
-                      />
-                      <div className="absolute inset-0 bg-blue-cyan/20 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
-                    </div>
-                    <h3 className="text-2xl font-bold transition-all duration-500 group-hover:text-blue-cyan text-gray-1200 text-center pt-4 pb-3 tracking-wide">
-                      Further Education
-                    </h3>
-                    <span className="inline-flex items-center gap-2 transition-all duration-500 group-hover:bg-blue-cyan group-hover:text-white group-hover:border-blue-cyan py-2 px-6 rounded-full border-2 border-gray-1200 text-gray-1200 bg-white shadow group-hover:shadow-lg">
-                      <svg className="w-4 h-4 transition-transform duration-500 group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                      </svg>
-                      Learn More
-                    </span>
-                    <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-32 h-32 bg-blue-cyan/10 rounded-full blur-2xl z-0"></div>
-                  </Link>
-
-                  <Link
-                   data-aos="fade-up" data-aos-delay="250" data-aos-offset="100" data-aos-duration="1000"
-                    href={"/adult-islamic-studies"}
-                    className="w-full group relative text-center transition-all duration-500 bg-white rounded-2xl shadow-xl hover:shadow-2xl border border-gray-200 pb-5 overflow-hidden"
-                  >
-                    <div className="relative overflow-hidden rounded-t-2xl">
-                      <Image
-                        width={280}
-                        height={200}
-                        className="w-full h-[200px] object-cover transition-all duration-700 group-hover:scale-105"
-                        src={"/images/dummy_7.png"}
-                        alt="no-img"
-                      />
-                      <div className="absolute inset-0 bg-blue-cyan/20 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
-                    </div>
-                    <h3 className="text-2xl font-bold transition-all duration-500 group-hover:text-blue-cyan text-gray-1200 text-center pt-4 pb-3 tracking-wide">
-                      Adult Islamic Studies
-                    </h3>
-                    <span className="inline-flex items-center gap-2 transition-all duration-500 group-hover:bg-blue-cyan group-hover:text-white group-hover:border-blue-cyan py-2 px-6 rounded-full border-2 border-gray-1200 text-gray-1200 bg-white shadow group-hover:shadow-lg">
-                      <svg className="w-4 h-4 transition-transform duration-500 group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                      </svg>
-                      Learn More
-                    </span>
-                    <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-32 h-32 bg-blue-cyan/10 rounded-full blur-2xl z-0"></div>
-                  </Link>
-
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="text-center"
+            >
+              <div className="w-16 h-16 bg-gradient-to-r from-[#1b5e3f] to-[#237a4f] rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C20.832 18.477 19.246 18 17.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                </svg>
               </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Authentic Teaching</h3>
+              <p className="text-gray-600">Qualified scholars providing traditional Islamic education with modern teaching methods</p>
+            </motion.div>
 
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="text-center"
+            >
+              <div className="w-16 h-16 bg-gradient-to-r from-[#1b5e3f] to-[#237a4f] rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Community Focused</h3>
+              <p className="text-gray-600">Building strong bonds within our community through shared learning and spiritual growth</p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              viewport={{ once: true }}
+              className="text-center"
+            >
+              <div className="w-16 h-16 bg-gradient-to-r from-[#1b5e3f] to-[#237a4f] rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Flexible Learning</h3>
+              <p className="text-gray-600">Accommodating different schedules and learning styles for students of all ages</p>
+            </motion.div>
           </div>
         </div>
       </section>

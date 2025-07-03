@@ -1,23 +1,19 @@
 import type { Metadata } from "next";
-import { Nunito_Sans, Poppins, Berkshire_Swash } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
-const nunito = Nunito_Sans({
-  variable: "--font-nunito-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
-});
-const berkshire_swash = Berkshire_Swash({
-  variable: "--font-berkshire_swash",
-  weight: ['400'],
-  subsets: ["latin"],
+  display: 'swap',
 });
 
-const poppins = Poppins({
-  weight: ['400', '500', '600', '700'],
-  variable: "--font-poppins",
+const plusJakartaSans = Plus_Jakarta_Sans({
+  variable: "--font-plus-jakarta",
   subsets: ["latin"],
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -32,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${nunito.variable} ${berkshire_swash.variable} ${poppins.variable} font-nunito-sans antialiased`}>
+      <body className={`${inter.variable} ${plusJakartaSans.variable} antialiased`}>
         <Header/>
         {children}
         <Footer/>
