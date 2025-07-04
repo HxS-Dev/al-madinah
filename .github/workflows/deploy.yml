@@ -24,17 +24,11 @@ jobs:
       - name: Build static site
         run: npm run build
 
-      - name: Echo FTP config
-        run: |
-          echo "FTP_HOST: ${{ secrets.FTP_HOST }}"
-          echo "FTP_USERNAME: ${{ secrets.FTP_USERNAME }}"
-          echo "FTP_REMOTE_DIR: ${{ secrets.FTP_REMOTE_DIR }}"
-
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_USERNAME }}
+          server: ftp.fasthosts.co.uk
+          username: githubaction
           password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: ${{ secrets.FTP_REMOTE_DIR }}
+          server-dir: htdocs/
           local-dir: .next/
