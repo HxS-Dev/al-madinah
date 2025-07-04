@@ -26,6 +26,24 @@ export const scheduleType = defineType({
       initialValue: false,
     }),
     defineField({
+      name: 'programmeDate',
+      title: 'Programme Date',
+      type: 'string',
+      description: 'The date when this programme will take place (e.g., "Saturday 15th June 2024")',
+    }),
+    defineField({
+      name: 'programmeStartTime',
+      title: 'Programme Start Time',
+      type: 'string',
+      description: 'Start time for the programme (e.g., "9:00 AM")',
+    }),
+    defineField({
+      name: 'programmeEndTime',
+      title: 'Programme End Time',
+      type: 'string',
+      description: 'End time for the programme (e.g., "5:00 PM")',
+    }),
+    defineField({
       name: 'author',
       type: 'reference',
       to: {type: 'author'},

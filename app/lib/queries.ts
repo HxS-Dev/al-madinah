@@ -56,6 +56,9 @@ export const allScheduleQuery = `*[_type == "post"] | order(publishedAt desc){
   title,
   slug,
   isNewSchedule,
+  programmeDate,
+  programmeStartTime,
+  programmeEndTime,
   author->{
     name
   },
