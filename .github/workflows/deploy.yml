@@ -28,7 +28,7 @@ jobs:
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ftp.fasthosts.co.uk
-          username: githubaction
+          username: al-madinah.org.uk
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: htdocs/
           local-dir: .next/
