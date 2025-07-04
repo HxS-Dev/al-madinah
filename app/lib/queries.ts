@@ -50,6 +50,10 @@ export const allArticleQuery = `*[_type == "article"] | order(publishedAt desc){
   body
 }`;
 
+export const allArticleSlugsQuery = `*[_type == "article" && defined(slug.current)]{
+  "slug": slug.current
+}`;
+
 
 export const allScheduleQuery = `*[_type == "post"] | order(publishedAt desc){
   _id,

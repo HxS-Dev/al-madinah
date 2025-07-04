@@ -1,5 +1,5 @@
 import { sanityClient } from '@/app/lib/sanity';
-import { singleArticleQuery } from '@/app/lib/queries';
+import { singleArticleQuery, allArticleSlugsQuery } from '@/app/lib/queries';
 import { urlFor } from '@/app/lib/imageBuilder';
 import Image from 'next/image';
 import { PortableText } from 'next-sanity';
@@ -7,6 +7,11 @@ import React from 'react';
 
 interface Props {
   params: Promise<{ slug: string }>;
+}
+
+export async function generateStaticParams() {
+  const slugs: { slug: string }[] = await sanityClient.fetch(allArticleSlugsQuery);
+  return slugs.map((s) => ({ slug: s.slug }));
 }
 
 const ArticleDetailPage = async ({ params }: Props) => {
