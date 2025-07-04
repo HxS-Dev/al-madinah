@@ -6,11 +6,12 @@ import { PortableText } from 'next-sanity';
 import React from 'react';
 
 interface Props {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 const ArticleDetailPage = async ({ params }: Props) => {
-  const article = await sanityClient.fetch(singleArticleQuery, { slug: params.slug });
+  const resolvedParams = await params;
+  const article = await sanityClient.fetch(singleArticleQuery, { slug: resolvedParams.slug });
 
   if (!article) {
     return (
