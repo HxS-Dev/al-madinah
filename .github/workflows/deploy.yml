@@ -3,7 +3,7 @@ name: Deploy to FestHosts
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   deploy:
