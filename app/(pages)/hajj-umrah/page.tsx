@@ -25,18 +25,18 @@ const HajjUmrahPage = () => {
       icon: "🕌",
       title: "Hajj Guidance Seminars",
       description: "Comprehensive workshops covering essential rituals, travel tips, and spiritual preparation for the sacred journey.",
-      features: ["Essential rituals training", "Travel preparation", "Spiritual guidance", "Group booking support"]
+      features: ["Spiritual & Physical Preparation prior to departure", "Iḥram & its rulings", "Different types of Ḥajj", "In-depth rulings of the 5-days of Hajj", "Practical Advices", "Visiting Madīnah Munawwarah", "Literature available"]
     },
     {
       icon: "🌙",
       title: "Umrah Workshops",
-      description: "Step-by-step guidance and practical advice for performing Umrah with confidence and understanding.",
-      features: ["Practical guidance", "Q&A with scholars", "Travel checklists", "Saudi regulations updates"]
+      description: "Go through the Umrah method step-by-step with practical advices to increase your understanding and confidence. Group sessions and individual sessions available.",
+      features: ["Travel Tips & Advice", "Spiritual & Physical Preparation prior to departure", "Iḥram & its rulings", "In-dept rulings of Umrah", "How to use the Nusuk app to obtain Rawdah permit", "Literature available"]
     },
     {
       icon: "👨‍🏫",
       title: "Expert Guidance",
-      description: "Learn from experienced scholars and guides who have extensive knowledge of the pilgrimage requirements.",
+      description: "Learn from experienced ‘ulamā who are well versed regarding the rulings, rights & requirements of the Pilgrimage.",
       features: ["Qualified instructors", "Personal consultation", "Group support", "Ongoing assistance"]
     }
   ];
@@ -98,12 +98,15 @@ const HajjUmrahPage = () => {
               <h2 className='text-3xl lg:text-5xl font-bold text-gray-900 mb-6'>
                 Our <span className="text-[#1b5e3f]">Services</span>
               </h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Comprehensive support and guidance for your pilgrimage journey
+              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+                Comprehensive support and guidance for your blessed journey to the Haramain Sharīfain
               </p>
               <div className="mt-8 flex justify-center">
                 <div className="w-24 h-1 bg-gradient-to-r from-[#1b5e3f] to-[#237a4f] rounded-full"></div>
               </div>
+              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              <em>‘And as a right of Allah, it is obligatory upon the people to perform Hajj of the House - whoever has the ability to manage (his) way to it’<br /></em>(3:97)
+              </p>
             </div>
           </FadeInUp>
 
@@ -122,8 +125,7 @@ const HajjUmrahPage = () => {
                   <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-[#1b5e3f] transition-colors duration-300">
                     {service.title}
                   </h3>
-                  <p className="text-gray-600 mb-6 leading-relaxed">
-                    {service.description}
+                  <p className="text-gray-600 mb-6 leading-relaxed" dangerouslySetInnerHTML={{ __html: service.description }}>
                   </p>
                   <ul className="space-y-3">
                     {service.features.map((feature, idx) => (

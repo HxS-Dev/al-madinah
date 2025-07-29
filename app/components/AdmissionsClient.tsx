@@ -30,14 +30,14 @@ const AdmissionsClient = () => {
     {
       id: 2,
       title: "Provide Student Information",
-      description: "Our dedicated admissions team will contact you to request your child's details and discuss their educational needs and background.",
+      description: "Our dedicated admissions officer will contact you to request your child's details and discuss their educational needs and background.",
       icon: "📝",
       status: "process",
       color: "from-blue-500 to-indigo-600",
       details: [
         "Personal consultation with our team",
         "Discussion of your child's needs",
-        "Assessment of suitable programs"
+        "Assessment of suitable class"
       ]
     },
     {
@@ -52,6 +52,28 @@ const AdmissionsClient = () => {
         "Transparent selection process",
         "Welcome to our community"
       ]
+    },
+        {
+      id: 4,
+      title: "Confirm Your Space",
+      description: "",
+      icon: "✅",
+      status: "confirm",
+      color: "from-emerald-500 to-teal-600",
+      details: [
+        "Parents will be requested to come into the Madrasah to process their application",
+        "All Madrasah related information will be shared",
+        "Forms will be filled and fees set up via bank transfer on the day"
+      ]
+    },
+        {
+      id: 5,
+      title: "First day at Madrasah",
+      description: "Date & Time will be shared with the Parents.",
+      icon: "🎓",
+      status: "first-day",
+      color: "from-emerald-500 to-teal-600",
+      details: []
     }
   ];
 
@@ -59,22 +81,22 @@ const AdmissionsClient = () => {
     {
       icon: "🕌",
       title: "Islamic Environment",
-      description: "Learn in an authentic Islamic setting with qualified scholars"
-    },
-    {
-      icon: "📚",
-      title: "Comprehensive Curriculum",
-      description: "Complete Islamic education including Quran, Arabic, and Islamic studies"
-    },
-    {
-      icon: "👨‍👩‍👧‍👦",
-      title: "Family Community",
-      description: "Join a welcoming community of families committed to Islamic values"
+      description: "Learn in a structured traditional Islamic environment with qualified teachers"
     },
     {
       icon: "🌟",
       title: "Quality Education",
-      description: "Excellence in both Islamic and academic achievement"
+      description: "Benefit from our comprehensive curriculum including the Noble Qur’ān, memorisation of Du’ās and Sūrahs and Islamic Studies"
+    },
+    {
+      icon: "👨‍👩‍👧‍👦",
+      title: "Character Development",
+      description: "Encouraging our students to become living examples of the sublime Islamic teachings of Nabī ﷺ"
+    },
+    {
+      icon: "📚",
+      title: "Spiritual Growth",
+      description: "Instil self discipline and develop brotherhood, compassion, fairness, tolerance and other beautiful teachings of Islām in one’s private and public life"
     }
   ];
 
@@ -105,9 +127,9 @@ const AdmissionsClient = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-xl lg:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed"
+              className="text-xl lg:text-2xl text-gray-600 mb-8 max-w-4xl mx-auto leading-relaxed"
             >
-              Begin your child's Islamic education journey with our simple 3-step admission process
+              <em>Connecting Future Generations with the Legacy of the Pious through Knowledge & Tarbiyah</em>
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -247,7 +269,7 @@ const AdmissionsClient = () => {
               Why Choose <span className="text-[#1b5e3f]">Our Institute</span>
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Discover the benefits of joining our Islamic educational community
+              Discover some the benefits of joining our Madrasah
             </p>
           </motion.div>
 
@@ -317,7 +339,7 @@ const AdmissionsClient = () => {
                 </h2>
                 <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                   Our admissions team is here to help you through every step of the process. 
-                  Don't hesitate to reach out with any questions about our programs or admission requirements.
+                  Don't hesitate to reach out with any questions about our programmes or admission requirements.
                 </p>
                 <div className="space-y-4">
                   <div className="flex items-center gap-4">
@@ -328,7 +350,7 @@ const AdmissionsClient = () => {
                     </div>
                     <div>
                       <p className="font-semibold text-gray-900">Email Us</p>
-                      <p className="text-gray-600">admissions@al-madinah.org.uk</p>
+                      <p className="text-gray-600">admin@al-madinah.org.uk</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-4">
