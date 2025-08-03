@@ -43,7 +43,8 @@ const AdultStudiesPage = () => {
   ];
 
   const images = [
-];
+    '/images/dummy_11.png',
+  ];
 
   return (
     <main className='overflow-hidden bg-gradient-to-br from-green-50/30 via-white to-emerald-50/20 min-h-screen'>
