@@ -12,7 +12,7 @@ const AdultStudiesPage = () => {
     {
       title: "Basics Course",
       description: "Perfect for those new to Islam, those who haven't had the opportunity to study when young, or those who want to refresh their core knowledge of Islam.",
-      duration: "x minute sessions",
+      duration: "3 x half an hour sessions",
       color: "from-[#1b5e3f] to-[#237a4f]",
       icon: "📚",
       subjects: ["Hadīth", "Aqīdah", "Fiqh", "Sīrah"]
@@ -20,26 +20,30 @@ const AdultStudiesPage = () => {
     {
       title: "Advanced Course", 
       description: "A more detailed study in Islamic subjects for those seeking to advance their Islamic knowledge.",
-      duration: "y minute lessons per day",
+      duration: "2 x 45 minutes sessions",
       color: "from-blue-500 to-indigo-600",
       icon: "🎓",
       subjects: ["Hadīth", "Aqīdah", "Fiqh", "Sīrah"]
+    },
+    {
+      title: "Tajweed Course", 
+      description: "Learn the Arabic alphabet with the correct makhārij (pronunciation). Learn to recite the Qur’an confidently and fluently whilst applying the rules of tajweed in your recitation.",
+      duration: "1 x 1 hour session",
+      color: "from-green-500 to-teal-600",
+      icon: "📖",
+      subjects: ["Makhārij", "Tajweed Rules", "Fluency", "Recitation"]
     }
   ];
 
   const keyPoints = [
-    { icon: "📅", title: "Weekly Schedule", detail: "Every Thursday, 8:00 PM - 9:30 PM" },
-    { icon: "👨‍🏫", title: "Expert Teachers", detail: "Taught by qualified 'Ulama" },
-    { icon: "🌍", title: "English Language", detail: "Conducted in English for accessibility" },
-    { icon: "📞", title: "Contact", detail: "07542 775651 for enrollment" }
+    { icon: "📅", title: "Weekly Schedule", detail: "Timings to be confirmed - Look out for the Posters." },
+    { icon: "👨‍🏫", title: "Expert Teachers", detail: "Experienced ‘Ulamā - All our courses are taught by qualified ‘Ulamā with teaching experience" },
+    { icon: "🌍", title: "English Language", detail: "All our courses are taught in English to accommodate all parts of society" },
+    { icon: "📞", title: "Contact", detail: "To enrol, for further information or a friendly chat contact us on 07353868127 or info@al-madinah.org.uk" }
   ];
 
   const images = [
-    "/images/dummy_8.png",
-    "/images/dummy_9.png", 
-    "/images/dummy_9.png",
-    "/images/dummy_10.png"
-  ];
+];
 
   return (
     <main className='overflow-hidden bg-gradient-to-br from-green-50/30 via-white to-emerald-50/20 min-h-screen'>
@@ -69,7 +73,7 @@ const AdultStudiesPage = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-xl lg:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed"
             >
-              Comprehensive Islamic education for adult learners
+              Comprehensive structured Islamic education for adults
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -102,30 +106,42 @@ const AdultStudiesPage = () => {
                 
                 {/* Questions Section */}
                 <div className="mb-8">
-                  <h3 className="text-xl font-bold text-[#1b5e3f] mb-4">Are You Looking To:</h3>
+                  <h3 className="text-xl font-bold text-[#1b5e3f] mb-4">Are You:</h3>
                   <ul className="space-y-3">
                     <li className="flex items-start gap-3">
                       <span className="text-[#1b5e3f] text-xl mt-1">❓</span>
-                      <span className="text-base lg:text-lg text-gray-700">Study the <strong>basics</strong> of deen?</span>
+                      <span className="text-base lg:text-lg text-gray-700">Seeking to learn the fundamentals of the Dīn?</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="text-[#1b5e3f] text-xl mt-1">❓</span>
-                      <span className="text-base lg:text-lg text-gray-700">Get guided <strong>step by step</strong> as someone new to Islam?</span>
+                      <span className="text-base lg:text-lg text-gray-700">New to Islām and in need of sincere step-by-step guidance?</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="text-[#1b5e3f] text-xl mt-1">❓</span>
-                      <span className="text-base lg:text-lg text-gray-700">Feel your knowledge of Islam needs strengthening?</span>
+                      <span className="text-base lg:text-lg text-gray-700">Feeling that your Islamic knowledge is limited or needs refreshing?</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="text-[#1b5e3f] text-xl mt-1">❓</span>
-                      <span className="text-base lg:text-lg text-gray-700"><strong>Advance</strong> in your Islamic knowledge?</span>
+                      <span className="text-base lg:text-lg text-gray-700">Experiencing doubts and looking for clarity?</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="text-[#1b5e3f] text-xl mt-1">❓</span>
+                      <span className="text-base lg:text-lg text-gray-700">Eager to grow spiritually and strengthen your relationship with Allah ﷻ?</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="text-[#1b5e3f] text-xl mt-1">❓</span>
+                      <span className="text-base lg:text-lg text-gray-700">Wanting to increase your preparation for the Hereafter?</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="text-[#1b5e3f] text-xl mt-1">❓</span>
+                      <span className="text-base lg:text-lg text-gray-700">Desirous of acquiring pious environment or sitting in meaningful company?</span>
                     </li>
                   </ul>
                 </div>
                 
                 <div className="bg-gradient-to-r from-emerald-50 to-teal-50 p-6 rounded-xl">
                   <p className='text-base lg:text-lg text-gray-700 leading-relaxed font-medium text-center'>
-                    Then these classes are definitely for you
+                    If so, these courses are for you
                   </p>
                 </div>
                 
@@ -166,7 +182,17 @@ const AdultStudiesPage = () => {
                 Course <span className="text-[#1b5e3f]">Options</span>
               </h2>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Choose the course that best fits your learning needs and Islamic knowledge level
+                Al-Madinah Institute will be offering a variety of courses tailored for adults in college, university, full-time employment or with other commitments, making it easier for them to take out time and prioritise learning their Dīn. These programmes are ideal for those who wish to increase their knowledge in an accessible, traditional manner, combining academic learning with spiritual development.
+                <br /><br />
+                Classes will take place in a supportive and structured classroom environment, by qualified and reliable ‘Ulamā, committed to your personal growth and understanding, with a strong focus on Akhlāq and self-reformation.
+                <br /><br />
+                Make your home a cradle of knowledge and ‘amal — nurture an environment where Imān, love, understanding and righteous actions flourish.
+                <br /><br />
+                You are warmly invited to enroll and take that meaningful step towards seeking sacred knowledge.
+                <br /><br />
+                Sayyidunā Abū Hurairah narrates that Nabī ﷺ said, ‘Whoever treads a path in search of knowledge Allah makes the way to Jannah easy for him’ (Muslim)
+                <br /><br />
+                For more info or to register, please contact 07353867127
               </p>
               <div className="mt-8 flex justify-center">
                 <div className="w-24 h-1 bg-gradient-to-r from-[#1b5e3f] to-[#237a4f] rounded-full"></div>
@@ -268,6 +294,14 @@ const AdultStudiesPage = () => {
                       <span className="text-[#1b5e3f] text-xl">✓</span>
                       <span className="text-gray-700">Taught by qualified 'Ulama in English</span>
                     </li>
+                    <li className="flex items-start gap-3">
+                      <span className="text-[#1b5e3f] text-xl">✓</span>
+                      <span className="text-gray-700">We cater for people of all levels</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="text-[#1b5e3f] text-xl">✓</span>
+                      <span className="text-gray-700">Traditional classroom environment</span>
+                    </li>
                   </ul>
                 </div>
                 
@@ -275,9 +309,9 @@ const AdultStudiesPage = () => {
                   <h4 className="text-xl font-bold text-[#1b5e3f] mb-4 text-center">Venue</h4>
                   <div className="text-center space-y-1">
                     <p className="font-bold text-gray-900">Al-Madinah Institute</p>
-                    <p className="text-gray-700">783-785 High Rd</p>
-                    <p className="text-gray-700">IG3 8RW, Seven Kings</p>
-                    <p className="text-gray-700">London</p>
+                    <p className="text-gray-700">PO BOX 1408</p>
+                    <p className="text-gray-700">Crawley</p>
+                    <p className="text-gray-700">RH10 0TD</p>
                   </div>
                 </div>
               </div>
@@ -292,7 +326,7 @@ const AdultStudiesPage = () => {
           <FadeInUp>
             <div className="text-center mb-16">
               <h2 className='text-3xl lg:text-5xl font-bold text-gray-900 mb-6'>
-                Learning <span className="text-[#1b5e3f]">Environment</span>
+                Courses Coming Soon…
               </h2>
             </div>
           </FadeInUp>
