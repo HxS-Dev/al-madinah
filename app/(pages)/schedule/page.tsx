@@ -124,7 +124,7 @@ const SchedulePage = () => {
                   Latest <span className="text-[#1b5e3f]">Programme</span>
                 </h2>
                 <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                  Our newest programme schedule with detailed timeline and activities
+                  Our latest Programme Schedule with detailed timelines and activities.
                 </p>
                 <div className="mt-8 flex justify-center">
                   <div className="w-24 h-1 bg-gradient-to-r from-[#1b5e3f] to-[#237a4f] rounded-full"></div>
