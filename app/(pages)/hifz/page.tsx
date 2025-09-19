@@ -121,7 +121,7 @@ const HifzPage = () => {
             <SlideInRight delay={0.2}>
                 <div className="relative overflow-hidden rounded-2xl shadow-2xl sticky mt-18">
                   <Image 
-                    src={"/images/ihsaan-academy-premises-2.jpg"} 
+                    src={"/images/hifz.jpg"} 
                     alt='Hifz Programme at Al-Madinah Institute'
                     className='transform hover:scale-105 transition-transform duration-700 w-full h-auto'
                     width={570}
