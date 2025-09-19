@@ -28,6 +28,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Scheherazade+New&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body className={`${inter.variable} ${plusJakartaSans.variable} antialiased`}>
         <Header/>
         {children}

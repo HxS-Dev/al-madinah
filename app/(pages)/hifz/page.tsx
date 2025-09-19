@@ -7,6 +7,7 @@ import type { Metadata } from "next";
 import SubscribeSection from '@/app/components/SubscribeSection';
 import { GlassCard, FloatingCard } from '@/app/components/GlassCard';
 import { FadeInUp, SlideInLeft, SlideInRight, FloatingElement } from '@/app/components/AnimationUtils';
+import { RA, SAW, SWT } from "@/app/components/IslamicLigatures";
 
 const HifzPage = () => {
   const plannerLinks = [
@@ -37,7 +38,7 @@ const HifzPage = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className='text-4xl lg:text-6xl xl:text-7xl font-bold text-gray-900 mb-6'
             >
-              <span className="block bg-gradient-to-r from-[#1b5e3f] to-[#237a4f] bg-clip-text text-transparent">
+              <span className="block bg-gradient-to-r from-[#1b5e3f] to-[#237a4f] bg-clip-text text-transparent leading-tight">
                 Hifz Programme
               </span>
             </motion.h1>
@@ -66,13 +67,14 @@ const HifzPage = () => {
                   
                   <p className='text-base lg:text-lg text-gray-700 mb-6 leading-relaxed'>
                     Memorising the Noble Qur'ān holds immense reward in Islām and includes one in the select
-                    people of Allāh Ta'ālā. Rasūlullāh صلى الله عليه وسلم has said, 'Those dedicated to the Qur'ān are truly the
-                    friends of Allāh and His special ones.' (Aḥmad)
+                    people of Allāh <SWT />. Rasūlullāh <SAW /> has said, 'Those dedicated to the Qur'ān are truly the
+                    friends of Allāh <SWT /> and His special ones.' (Aḥmad)
                   </p>
                   
                   <div className="bg-[#1b5e3f]/5 p-6 rounded-xl mb-6">
                     <p className='text-base lg:text-lg text-gray-700 leading-relaxed italic'>
-                      Shaykh Fuḍayl ibn 'Iyāḍ Raḥimahullāh Ta'ālā has said, 'The bearer of the Qur'ān is the flagbearer of Islām.'
+                      Sayyidunā ‘Abdullāh ibn ‘Amr <RA /> narrates that Nabī <SAW /> said, ’It will be said to the companion of the Qur’ān (the one who memorised it and held on fast to it [together with practising upon it], Recite and ascend, and recite just as you would recite in the world, for your abode (in Jannah) will be the last verse you recite.’<br/>
+                      (Tirmidhī & Abū Dāwūd)
                     </p>
                   </div>
                   
@@ -100,14 +102,14 @@ const HifzPage = () => {
                   
                   <p className='text-base lg:text-lg text-gray-700 mb-6 leading-relaxed'>
                     We wholeheartedly encourage parents to inspire and support their children in this sacred pursuit.
-                    With the grace and mercy of Allāh Ta'ālā, our aim is to cultivate not only Ḥuffāẓ who have
+                    With the grace and mercy of Allāh <SWT />, our aim is to cultivate not only Ḥuffāẓ who have
                     preserved the Noble Qur'ān in their hearts, but also young individuals who reflect its teachings
                     through noble character and righteous conduct.
                   </p>
                   
                   <div className="bg-gradient-to-r from-emerald-50 to-teal-50 p-6 rounded-xl">
                     <p className='text-base lg:text-lg text-gray-700 leading-relaxed font-medium'>
-                      May Allāh make your child's journey of Ḥifẓ a means of barakah (blessing) in both this world
+                      May Allāh <SWT /> make your child's journey of Ḥifẓ a means of barakah (blessing) in both this world
                       and the Hereafter. Their success, InshāAllāh, is our success.
                     </p>
                   </div>
@@ -128,6 +130,11 @@ const HifzPage = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-[#1b5e3f]/20 to-transparent pointer-events-none" />
                 </div>
             </SlideInRight>
+          </div>
+          <div className="mt-12 text-center">
+            <Link href="/admissions" className="inline-block px-8 py-4 bg-gradient-to-r from-emerald-500 to-teal-600 text-white rounded-xl font-semibold hover:shadow-lg transition-all duration-300">
+              Hifz 2024/2025 YEAR PLANNER
+            </Link>
           </div>
         </div>
       </section>
