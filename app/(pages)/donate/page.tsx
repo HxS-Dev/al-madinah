@@ -117,6 +117,14 @@ const Donate = () => {
             >
               <div className="w-24 h-1 bg-gradient-to-r from-[#1b5e3f] to-[#237a4f] rounded-full"></div>
             </motion.div>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-xl lg:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed"
+            >
+             ‘Those who spend their wealth night and day, secretly and openly, they have their reward with their Rabb, and there is no fear for them, nor shall they grieve’ <br />(2:274)
+            </motion.p>
           </motion.div>
         </div>
       </section>
