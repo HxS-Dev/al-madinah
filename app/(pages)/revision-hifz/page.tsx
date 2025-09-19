@@ -7,6 +7,7 @@ import type { Metadata } from "next";
 import SubscribeSection from '@/app/components/SubscribeSection';
 import { GlassCard, FloatingCard } from '@/app/components/GlassCard';
 import { FadeInUp, SlideInLeft, SlideInRight, FloatingElement } from '@/app/components/AnimationUtils';
+import { RA, SAW, SWT } from "@/app/components/IslamicLigatures";
 
 const HifzRevisionPage = () => {
   const revisionFeatures = [
@@ -16,12 +17,12 @@ const HifzRevisionPage = () => {
       description: "Flexible revision sessions tailored to your individual needs and schedule"
     },
     {
-      icon: "💪",
+      icon: "🔗",
       title: "Strengthen Connection",
       description: "Maintain and deepen your relationship with the Noble Qur'ān"
     },
     {
-      icon: "🧠",
+      icon: "📚",
       title: "Memory Retention",
       description: "Proven techniques to preserve and strengthen your memorisation"
     },
@@ -94,6 +95,14 @@ const HifzRevisionPage = () => {
             >
               Maintain and strengthen your connection with the Noble Qur'ān
             </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-lg lg:text-xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed"
+            >
+              Sayyidunā ‘Abdullāh ibn ‘Amr <RA /> narrates that Nabī <SAW /> said, ’The likeness of the one who memorises the Qur’ān is that of the owner of a hobbled camel. If he looks after it, he will hold on to it, but if he lets it free, he will lose it.’ <br />(Bukhārī)
+            </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -119,17 +128,27 @@ const HifzRevisionPage = () => {
                 <div className="prose prose-lg max-w-none">
                   <div className="bg-gradient-to-r from-[#1b5e3f]/10 to-[#237a4f]/10 p-6 rounded-xl mb-8">
                     <p className='text-base lg:text-lg text-gray-700 leading-relaxed font-medium'>
-                      Alḥamdulillāh, by the infinite grace of Allāh Taʿālā, you have achieved one of the greatest
+                      Alḥamdulillāh, by the infinite grace of Allāh <SWT />, you have achieved one of the greatest
                       honours — the memorisation of the Noble Qur'ān. This sacred gift places you among those
-                      specially chosen to preserve the divine speech of Allāh Ta'ālā.
+                      specially chosen to preserve the divine speech of Allāh <SWT />.
                     </p>
                   </div>
                   
                   <p className='text-base lg:text-lg text-gray-700 mb-6 leading-relaxed'>
-                    But memorisation is only the beginning. Rasūlullāh صلى الله عليه وسلم likened the memorisation of the Glorious
+                    But memorisation is only the beginning. Rasūlullāh <SAW /> likened the memorisation of the Glorious
                     Qur'ān to a hobbled camel — if cared for, it remains; if neglected, it escapes. Without regular
                     revision, what was once firmly held can be lost.
                   </p>
+
+                  <div className="bg-gradient-to-r from-emerald-50 to-teal-50 p-6 rounded-xl mb-8">
+                    <h3 className="text-xl font-bold text-[#1b5e3f] mb-4 flex items-center gap-2">
+                      <span className="text-2xl">🎯</span>
+                      Dear Ḥuffāẓ, Recognise Your Worth!
+                    </h3>
+                    <p className='text-base lg:text-lg text-gray-700 leading-relaxed'>
+You have been given something most precious — and in the sight of Allāh <SWT />, your value is immense. What greater honour is there than having the divine speech of Allāh <SWT /> stored within your heart? Every blessing demands shukr — sincere gratitude. This means staying on top of your revision, living a life of Taqwa, Humility, Submission, and Obedience to Allāh <SWT />.
+                    </p>
+                  </div>
                   
                   <div className="bg-gradient-to-r from-emerald-50 to-teal-50 p-6 rounded-xl mb-8">
                     <h3 className="text-xl font-bold text-[#1b5e3f] mb-4 flex items-center gap-2">
@@ -150,7 +169,7 @@ const HifzRevisionPage = () => {
             <SlideInRight delay={0.2}>
                 <div className="relative overflow-hidden rounded-2xl shadow-2xl sticky top-8 mt-18">
                   <Image 
-                    src={"/images/ihsaan-academy-premises-2.jpg"} 
+                    src={"/images/revision-hifz.webp"} 
                     alt='Hifz Revision Programme at Al-Madinah Institute'
                     className='transform hover:scale-105 transition-transform duration-700 w-full h-auto'
                     width={570}
@@ -172,7 +191,7 @@ const HifzRevisionPage = () => {
                 Revision <span className="text-[#1b5e3f]">Benefits</span>
               </h2>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Our comprehensive revision programme offers personalised support for Huffāẓ
+                Our comprehensive revision programme offers personalised support for Ḥuffāẓ
               </p>
               <div className="mt-8 flex justify-center">
                 <div className="w-24 h-1 bg-gradient-to-r from-[#1b5e3f] to-[#237a4f] rounded-full"></div>
@@ -211,18 +230,11 @@ const HifzRevisionPage = () => {
         <div className="max-w-7xl mx-auto px-6">
           <FadeInUp>
             <div className="text-center mb-16">
-              <h2 className='text-3xl lg:text-5xl font-bold text-gray-900 mb-6'>
-                Sign up <span className="text-[#1b5e3f]">Now</span>
-              </h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Access our comprehensive 
+              <p className="text-lg text-gray-600 max-w-5xl mx-auto">
+                Whether you are a Ḥāfiẓ or wish to revise some selected chapters of the Noble Qur’ān get in touch now.
               </p>
-              <div className="mt-8 flex justify-center">
-                <div className="w-24 h-1 bg-gradient-to-r from-[#1b5e3f] to-[#237a4f] rounded-full"></div>
-              </div>
             </div>
           </FadeInUp>
-
           <div className="center">
             {plannerLinks.map((link, index) => (
               <motion.div
