@@ -69,10 +69,10 @@ const Donate = () => {
       gradient: "from-blue-500 to-indigo-600"
     },
     {
-      title: "Golden Giving",
+      title: "KindLink",
       subtitle: "Easy Online Regular Donations",
-      description: "Setup a regular donations via Golden Giving and reap reward continuously. A very easy online option to donate.",
-      link: "https://givealittle.co/c/7doBUit5CUQjFkAwc9qBN7",
+      description: "Setup a regular donations via KindLink and reap reward continuously. A very easy online option to donate.",
+      link: "https://donate.kindlink.com/Al-Madinah-Institute/8174",
       icon: "✨",
       gradient: "from-amber-500 to-orange-600"
     }
@@ -139,6 +139,19 @@ const Donate = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
+            <h3 className='text-lg lg:text-xl font-semibold text-gray-900 mb-4'>
+              Become a part of this As-Sadaqah al-Jāriyah (continuous reward) by:
+            </h3>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              <ol className="text-lg text-gray-600 max-w-2xl mx-auto text-left list-decimal pl-6">
+                <li>Making du‘ā for the acceptance and success of Al-Madinah Institute.</li>
+                <li>Benefitting from all of the Al-Madinah Institute’s activities.</li>
+                <li>Referring others who may benefit.</li>
+                <li>Distributing Al-Madinah Institute’s literature and advertising its events in your area.</li>
+                <li>Providing financial support.</li>
+              </ol>
+            </p>
+            <br />
             <h2 className='text-3xl lg:text-5xl font-bold text-gray-900 mb-6'>
               Ways to <span className="text-[#1b5e3f]">Donate</span>
             </h2>
@@ -446,7 +459,7 @@ const Donate = () => {
                       Gift Aid My Donation
                     </label>
                     <p className='text-sm text-gray-700 leading-relaxed'>
-                      I want to gift aid all donations made in the past or I make in the future to Al-Madinah Institute since 6th April 2017. I am a UK taxpayer and understand that if I pay less income tax and/or capital gains than the amount of gift aid on all my donations in that tax year it is my responsibility to pay any difference.
+                      I want to gift aid all donations made in the past or I make in the future to Al-Madinah Institute since 5th April 2023. I am a UK taxpayer and understand that if I pay less income tax and/or capital gains than the amount of gift aid on all my donations in that tax year it is my responsibility to pay any difference.
                     </p>
                   </div>
                 </div>
