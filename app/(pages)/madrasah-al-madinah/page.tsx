@@ -69,6 +69,48 @@ const MadrasahPage = () => {
         </div>
       </section>
 
+      {/* Islamic Quotations Section */}
+      <section className="py-12 lg:py-16 bg-gradient-to-r from-green-50/30 to-emerald-50/20">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* First Hadith */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="text-center"
+            >
+              <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 h-full flex flex-col justify-center">
+                <div className="text-3xl mb-6">📚</div>
+                <p className="text-lg text-gray-700 leading-relaxed italic mb-4">
+                  "Nabī ﷺ said, 'Whoever treads a path in which he seeks knowledge, Allāh makes the path to Jannah easy for him'"
+                </p>
+                <p className="text-sm text-gray-500">
+                  (Muslim)
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Second Quote */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="text-center"
+            >
+              <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 h-full flex flex-col justify-center">
+                <div className="text-3xl mb-6">🌟</div>
+                <p className="text-lg text-gray-700 leading-relaxed italic mb-4">
+                  "Teaching children the Qur'ān is a fundamental duty from the fundamentals of Islām. As a result, they will grow up with fiṭrah (a pure nature which is not influenced by unnatural factors). Added to that, the anwār (spiritual light) of wisdom will reach their hearts before desires overcome it and it becomes tainted with the stains of sin and deviation."
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* Main Content Section */}
       <section className='py-16 lg:py-24'>
         <div className="max-w-7xl mx-auto px-6">
@@ -80,18 +122,24 @@ const MadrasahPage = () => {
                 <div className="text-6xl mb-6 text-center">🕌</div>
                 
                 <div className="prose prose-lg max-w-none">
+                  <p className='text-base lg:text-lg text-gray-700 mb-6 leading-relaxed'>
+                    The core objective of the Madrasah is to ignite in young hearts the flame of Īmān and instill in them the foundational teachings of Islām. Through nurturing good akhlāq (character), respect for others we aim to raise youngsters who are academically and spiritually enriched and valuable contributors to society. The Madrasah serves as a vital bridge, bringing Dīnī environment into our homes and communities.
+                  </p>
+
                   <p className='text-base lg:text-lg text-gray-700 mb-8 leading-relaxed'>
-                    One of the fundamental aims of the Academy is to equip young people with the basics and essentials of their religion so they may establish a connection with their Lord through worship. To achieve this; a Maktab (evening Madrasah) was initiated in October 2014 for children aged 5-15 operating between 5pm-7pm on weekdays wherein children are taught the essentials of worship such as Qur'an recitation, establishing prayer, alongside many other subjects including Aqidah (integral beliefs), Seerah (Islamic History), Fiqh (Islamic Rulings) and Duas (verbal form of worship), with a key focus on Tarbiyyah (sound nurturing and upbringing) of the child in aspects of their religious and moral development.
+                    To fulfill this vision, we plan to establish an evening Madrasah, operating from <span className="font-bold">4:45pm–7:00pm</span> on weekdays, InshāAllāh. Students will be guided through essential Islamic subjects including Qur'ān recitation with tajwīd, ṣalāh (prayer), Aqīdah (core beliefs), Sīrah and Islamic history, Fiqh (Islamic rulings), and Du'ās (verbal supplications).
                   </p>
                   
                   <div className="bg-gradient-to-r from-[#1b5e3f]/5 to-[#237a4f]/5 p-6 rounded-xl mb-8">
-                    <h3 className="text-xl font-bold text-[#1b5e3f] mb-4 flex items-center gap-2">
-                      <span className="text-2xl">👥</span>
-                      Community Impact
-                    </h3>
-                    <p className='text-base lg:text-lg text-gray-700 leading-relaxed font-medium'>
-                      The Evening Madrasah facilitates comprehensive Islamic education for 300 children in our community.
-                    </p>
+                    <div className="text-center">
+                      <div className="text-3xl mb-4">📖</div>
+                      <p className='text-base lg:text-lg text-gray-700 leading-relaxed italic mb-3'>
+                        "Sayyidunā 'Uthmān رضي الله عنه narrates that Nabī ﷺ said, 'The best amongst you is he who learns the Qur'ān and teaches it.'"
+                      </p>
+                      <p className="text-sm text-gray-500">
+                        (Bukhārī)
+                      </p>
+                    </div>
                   </div>
                 </div>
               </GlassCard>
@@ -176,11 +224,98 @@ const MadrasahPage = () => {
                 </div>
                 <div className="bg-[#1b5e3f]/5 p-6 rounded-xl">
                   <h3 className="text-xl font-bold text-[#1b5e3f] mb-2">Timing</h3>
-                  <p className="text-lg text-gray-700 font-medium">5:00 PM - 7:00 PM</p>
+                  <p className="text-lg text-gray-700 font-medium"><span className="font-bold">4:45 PM - 7:00 PM</span></p>
                 </div>
               </div>
             </GlassCard>
           </FadeInUp>
+        </div>
+      </section>
+
+      {/* Year Planners Section */}
+      <section className='py-16 lg:py-24'>
+        <div className="max-w-6xl mx-auto px-6">
+          <FadeInUp>
+            <div className="text-center mb-12">
+              <h2 className='text-3xl lg:text-4xl font-bold text-gray-900 mb-6'>
+                Academic <span className="text-[#1b5e3f]">Year Planners</span>
+              </h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                Download our comprehensive year planners for the 2025/2026 academic year
+              </p>
+              <div className="mt-6 flex justify-center">
+                <div className="w-24 h-1 bg-gradient-to-r from-[#1b5e3f] to-[#237a4f] rounded-full"></div>
+              </div>
+            </div>
+          </FadeInUp>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {/* Madrasah Calendar Planner */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="group"
+            >
+              <GlassCard className="p-8 text-center hover:shadow-2xl transition-all duration-500 group-hover:scale-105">
+                <div className="text-6xl mb-6">🕌</div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-[#1b5e3f] transition-colors duration-300">
+                  Madrasah Calendar 2025/26
+                </h3>
+                <p className="text-gray-600 mb-6 leading-relaxed">
+                  Complete term dates, holidays, and academic calendar for Madrasah students (1447/48 Hijri)
+                </p>
+                <motion.a
+                  href="/downloads/Madrasah Yearly Planner 202526.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#1b5e3f] to-[#237a4f] text-white rounded-full font-semibold hover:shadow-xl transition-all duration-300 group"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3a2 2 0 012-2h4a2 2 0 012 2v4m-6 0h6m-6 0a2 2 0 00-2 2v6a2 2 0 002 2h6a2 2 0 002-2V9a2 2 0 00-2-2m-6 0V7" />
+                  </svg>
+                  Download Calendar
+                  <span className="text-xs opacity-80">PDF</span>
+                </motion.a>
+              </GlassCard>
+            </motion.div>
+
+            {/* Holiday Notes & Guidelines */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="group"
+            >
+              <GlassCard className="p-8 text-center hover:shadow-2xl transition-all duration-500 group-hover:scale-105">
+                <div className="text-6xl mb-6">📋</div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-[#1b5e3f] transition-colors duration-300">
+                  Holiday Notes & Guidelines
+                </h3>
+                <p className="text-gray-600 mb-6 leading-relaxed">
+                  Important attendance policies, leave procedures, and academic guidelines for parents
+                </p>
+                <motion.a
+                  href="/downloads/Holiday Notes & Guidelines.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#1b5e3f] to-[#237a4f] text-white rounded-full font-semibold hover:shadow-xl transition-all duration-300 group"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                  Download Guidelines
+                  <span className="text-xs opacity-80">PDF</span>
+                </motion.a>
+              </GlassCard>
+            </motion.div>
+          </div>
         </div>
       </section>
 

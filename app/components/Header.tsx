@@ -54,7 +54,7 @@ const Header = () => {
               <motion.img
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.2 }}
-                  className="min-w-[120px] md:w-[140px] w-[120px] h-auto"
+                  className="min-w-[120px] md:w-[140px] w-[120px] h-auto hover:scale-105 transition-transform duration-200"
                   src="/logo.png"
                   alt="logo"
                   />
@@ -69,24 +69,25 @@ const Header = () => {
                       </NavLink>
                   </li>
                   <li>
+                      <NavLink href="/new-premises-appeal" className='text-base whitespace-nowrap px-4 font-medium text-gray-700 hover:text-[#1b5e3f] transition-all duration-300 relative group'>
+                          New Premises Appeal
+                          <span className="absolute bottom-0 left-4 right-4 h-0.5 bg-[#1b5e3f] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+                      </NavLink>
+                  </li>
+                  <li>
                       <NavLink href="/events" className='text-base whitespace-nowrap px-4 font-medium text-gray-700 hover:text-[#1b5e3f] transition-all duration-300 relative group'>
                           Events
                           <span className="absolute bottom-0 left-4 right-4 h-0.5 bg-[#1b5e3f] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
                       </NavLink>
                   </li>
-                  <li>
-                      <NavLink href="/articles" className='text-base whitespace-nowrap px-4 font-medium text-gray-700 hover:text-[#1b5e3f] transition-all duration-300 relative group'>
-                          Articles
-                          <span className="absolute bottom-0 left-4 right-4 h-0.5 bg-[#1b5e3f] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
-                      </NavLink>
-                  </li>
-                  <li className='relative group py-2'>
-                      <button className='text-base whitespace-nowrap px-4 font-medium text-gray-700 hover:text-[#1b5e3f] transition-all duration-300 flex items-center gap-1'>
+                  <li className='relative group'>
+                      <span className='text-lg font-semibold whitespace-nowrap px-4 text-gray-700 hover:text-[#1b5e3f] transition-all duration-300 relative cursor-pointer'>
                           Services
-                          <svg className="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                          <svg className="w-4 h-4 ml-1 transition-transform duration-300 group-hover:rotate-180 inline" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                           </svg>
-                      </button>
+                          <span className="absolute bottom-0 left-4 right-4 h-0.5 bg-[#1b5e3f] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+                      </span>
                       <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-xl shadow-xl border border-gray-100 invisible opacity-0 transform -translate-y-2 transition-all duration-300 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0">
                           <ul className='py-2'>
                               <li>
@@ -127,6 +128,11 @@ const Header = () => {
                               <li>
                                   <NavLink href="/revision-hifz" className='block px-6 py-3 text-base font-medium text-gray-700 hover:text-[#1b5e3f] hover:bg-green-50 transition-all duration-300'>
                                       Hifz Revision
+                                  </NavLink>
+                              </li>
+                              <li>
+                                  <NavLink href="/articles" className='block px-6 py-3 text-base font-medium text-gray-700 hover:text-[#1b5e3f] hover:bg-green-50 transition-all duration-300'>
+                                      Articles
                                   </NavLink>
                               </li>
                           </ul>
@@ -199,11 +205,11 @@ const Header = () => {
                 <Link href="/about-institute" onClick={closeMenu} className="block py-3 px-4 text-gray-700 hover:text-[#1b5e3f] hover:bg-green-50 rounded-lg transition-all duration-300">
                   About The Institute
                 </Link>
+                <Link href="/new-premises-appeal" onClick={closeMenu} className="block py-3 px-4 text-gray-700 hover:text-[#1b5e3f] hover:bg-green-50 rounded-lg transition-all duration-300">
+                  New Premises Appeal
+                </Link>
                 <Link href="/events" onClick={closeMenu} className="block py-3 px-4 text-gray-700 hover:text-[#1b5e3f] hover:bg-green-50 rounded-lg transition-all duration-300">
                   Events
-                </Link>
-                <Link href="/articles" onClick={closeMenu} className="block py-3 px-4 text-gray-700 hover:text-[#1b5e3f] hover:bg-green-50 rounded-lg transition-all duration-300">
-                  Articles
                 </Link>
                 <div>
                   <button
@@ -246,6 +252,9 @@ const Header = () => {
                       </Link>
                       <Link href="/revision-hifz" onClick={closeMenu} className="block py-2 px-3 text-sm text-gray-600 hover:text-[#1b5e3f] hover:bg-white rounded transition-all duration-300">
                         Hifz Revision
+                      </Link>
+                      <Link href="/articles" onClick={closeMenu} className="block py-2 px-3 text-sm text-gray-600 hover:text-[#1b5e3f] hover:bg-white rounded transition-all duration-300">
+                        Articles
                       </Link>
                     </div>
                   </div>

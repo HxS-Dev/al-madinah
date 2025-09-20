@@ -196,7 +196,7 @@ export default function Hero3D() {
             className="flex gap-4 justify-center"
           >
             <button className="px-8 py-4 bg-gradient-to-r from-green-600 to-green-700 text-white rounded-xl font-semibold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 hover:from-green-700 hover:to-green-800 border border-green-500/20">
-              Explore Programs
+            Our Programmes
             </button>
             <button className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-xl font-semibold text-lg border border-white/20 hover:bg-white/20 hover:shadow-2xl hover:scale-105 transition-all duration-300 ring-1 ring-white/10">
               Learn More

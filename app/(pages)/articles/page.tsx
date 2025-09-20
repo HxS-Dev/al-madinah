@@ -26,7 +26,7 @@ const Articles =  async () => {
       <section className='w-full lg:py-32 py-20 bg-[url(/images/drone-pic-alihsaan.jpg)] bg-fixed bg-cover bg-center bg-no-repeat relative after:absolute after:left-0 after:top-0 after:w-full after:h-full after:bg-black/50'>
         <div className="w-full max-w-[1440px] px-5 mx-auto relative z-10">
           <div className="w-full">
-            <h1 className='lg:text-[50px] text-4xl text-center font-bold font-poppins text-white'>All Articles</h1>
+            <h1 className='lg:text-[50px] text-4xl text-center font-bold font-poppins !text-white' style={{color: '#ffffff'}}>Miscellaneous Articles</h1>
           </div> 
         </div>
       </section>

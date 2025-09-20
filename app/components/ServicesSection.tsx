@@ -22,27 +22,27 @@ interface ServicesSectionProps {
 const ServicesSection = ({ showTitle = true, isHomepage = false, className = '' }: ServicesSectionProps) => {
   const services: Service[] = [
     {
-      id: 'hifz',
-      title: 'Hifz Classes',
-      description: 'Comprehensive Quran memorization program for students of all ages with qualified instructors',
-      image: '/images/dummy_4.png',
-      link: '/hifz',
-      icon: '📖',
-      gradient: 'from-emerald-500 to-teal-600'
-    },
-    {
       id: 'madrasah',
       title: 'Madrasah Al-Madinah',
-      description: 'Traditional Islamic education combining Quranic studies, Arabic language, and Islamic sciences',
+      description: "Learn the basics of your Din in an enjoyable environment. Emphasis on Ta’leem (authentic education) with Tarbiyah (spiritual and moral nurturing).",
       image: '/images/dummy_5.png',
       link: '/madrasah-al-madinah',
       icon: '🕌',
       gradient: 'from-[#1b5e3f] to-[#237a4f]'
     },
     {
+      id: 'hifz',
+      title: 'Hifz Classes',
+      description: 'Join our comprehensive Ḥifẓ Programme for students aged 10+ with emphasis on Tajweed (Correct intonation and phonetics) and Tarbiyah.',
+      image: '/images/dummy_4.png',
+      link: '/hifz',
+      icon: '📖',
+      gradient: 'from-emerald-500 to-teal-600'
+    },
+    {
       id: 'adult-classes',
       title: 'Adult Islamic Classes',
-      description: 'Structured learning programs for adults covering Islamic theology, jurisprudence, and spiritual development',
+      description: 'Structured courses for adults who are keen to enhance their basic Islamic knowledge. Taught by qualified ‘Ulamā.',
       image: '/images/dummy_6.png',
       link: '/adult-islamic-studies',
       icon: '👨‍🏫',
@@ -51,7 +51,7 @@ const ServicesSection = ({ showTitle = true, isHomepage = false, className = '' 
     {
       id: 'hajj-umrah',
       title: 'Hajj & Umrah',
-      description: 'Comprehensive guidance and support for pilgrimage journeys with experienced scholars',
+      description: 'Comprehensive set by step guidance for ‘Umrah & Ḥajj journeys delivered by experienced qualified ‘Ulamā.',
       image: '/images/dummy_7.png',
       link: '/hajj-umrah',
       icon: '🕋',

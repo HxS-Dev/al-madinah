@@ -358,6 +358,57 @@ const AdultStudiesPage = () => {
         </div>
       </section>
 
+      {/* How to Apply Section */}
+      <section className='py-16 lg:py-24'>
+        <div className="max-w-4xl mx-auto px-6">
+          <FadeInUp>
+            <div className="text-center mb-12">
+              <h2 className='text-3xl lg:text-4xl font-bold text-gray-900 mb-6'>
+                How to <span className="text-[#1b5e3f]">Apply</span>
+              </h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                Download our application form for Adult Islamic Studies programmes
+              </p>
+              <div className="mt-6 flex justify-center">
+                <div className="w-24 h-1 bg-gradient-to-r from-[#1b5e3f] to-[#237a4f] rounded-full"></div>
+              </div>
+            </div>
+          </FadeInUp>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="group max-w-md mx-auto"
+          >
+            <GlassCard className="p-8 text-center hover:shadow-2xl transition-all duration-500 group-hover:scale-105">
+              <div className="text-6xl mb-6">📋</div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-[#1b5e3f] transition-colors duration-300">
+                Application Form
+              </h3>
+              <p className="text-gray-600 mb-6 leading-relaxed">
+                Complete our application form to register for Adult Islamic Studies courses
+              </p>
+              <motion.a
+                href="/downloads/Adult Studies Application Form.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#1b5e3f] to-[#237a4f] text-white rounded-full font-semibold hover:shadow-xl transition-all duration-300 group"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3a2 2 0 012-2h4a2 2 0 012 2v4m-6 0h6m-6 0a2 2 0 00-2 2v6a2 2 0 002 2h6a2 2 0 002-2V9a2 2 0 00-2-2m-6 0V7" />
+                </svg>
+                Download Form
+                <span className="text-xs opacity-80">PDF</span>
+              </motion.a>
+            </GlassCard>
+          </motion.div>
+        </div>
+      </section>
+
       <SubscribeSection />
     </main>
   );

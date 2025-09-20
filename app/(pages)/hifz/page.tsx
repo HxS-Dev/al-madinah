@@ -54,6 +54,27 @@ const HifzPage = () => {
         </div>
       </section>
 
+      {/* Hifz Course Info Section */}
+      <section className="py-12 lg:py-16 bg-gradient-to-r from-green-50/30 to-emerald-50/20">
+        <div className="max-w-5xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center"
+          >
+            <div className="bg-white rounded-2xl p-8 lg:p-10 shadow-lg border border-gray-100">
+              <div className="text-4xl mb-6">📚</div>
+              <h2 className="text-2xl lg:text-3xl font-bold text-[#1b5e3f] mb-6">Hifz Course</h2>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                This course has been designed for those enthusiastic to memorise the Noble Qur'ān but are constrained with time commitment due to work, university or college. The students have the option of agreeing a time of their choice on a weekly basis with their teacher in order to balance their learning with other commitments. Time slots are available from <span className="font-bold">7am to 10pm seven days a week</span> to suit one's availability.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Main Content Section */}
       <section className='py-16 lg:py-24'>
         <div className="max-w-7xl mx-auto px-6">
@@ -131,62 +152,108 @@ const HifzPage = () => {
                 </div>
             </SlideInRight>
           </div>
-          <div className="mt-12 text-center">
-            <Link href="/admissions" className="inline-block px-8 py-4 bg-gradient-to-r from-emerald-500 to-teal-600 text-white rounded-xl font-semibold hover:shadow-lg transition-all duration-300">
-              Hifz 2024/2025 YEAR PLANNER
-            </Link>
-          </div>
         </div>
       </section>
 
-      {/* Resources Section */}
-      <section className='py-16 lg:py-24 bg-gradient-to-br from-green-50/50 to-emerald-50/30'>
-        <div className="max-w-7xl mx-auto px-6">
+      {/* Hifz Planner Section */}
+      <section className='py-16 lg:py-24'>
+        <div className="max-w-4xl mx-auto px-6">
           <FadeInUp>
-            <div className="text-center mb-16">
-              <h2 className='text-3xl lg:text-5xl font-bold text-gray-900 mb-6'>
-                Sign up <span className="text-[#1b5e3f]">Now</span>
+            <div className="text-center mb-12">
+              <h2 className='text-3xl lg:text-4xl font-bold text-gray-900 mb-6'>
+                Ḥifẓ <span className="text-[#1b5e3f]">Planner</span>
               </h2>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Access our comprehensive educational resources and join our community of learners dedicated to the memorisation and understanding of the Qur'ān.
+                Download our comprehensive Ḥifẓ planner for the 2025/2026 academic year
               </p>
-              <div className="mt-8 flex justify-center">
+              <div className="mt-6 flex justify-center">
                 <div className="w-24 h-1 bg-gradient-to-r from-[#1b5e3f] to-[#237a4f] rounded-full"></div>
               </div>
             </div>
           </FadeInUp>
 
-          <div className="center">
-            {plannerLinks.map((link, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="group items-center justify-center flex"
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="group max-w-md mx-auto"
+          >
+            <GlassCard className="p-8 text-center hover:shadow-2xl transition-all duration-500 group-hover:scale-105">
+              <div className="text-6xl mb-6">📖</div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-[#1b5e3f] transition-colors duration-300">
+                Ḥifẓ Planner 2025/26
+              </h3>
+              <p className="text-gray-600 mb-6 leading-relaxed">
+                Comprehensive memorization schedule and progress tracking for Ḥifẓ students (1447/48 Hijri)
+              </p>
+              <motion.a
+                href="/downloads/Hifz Planner 202526.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-emerald-500 to-teal-600 text-white rounded-full font-semibold hover:shadow-xl transition-all duration-300 group"
               >
-                <Link href={link.href}>
-                  <GlassCard className="p-6 h-full hover:shadow-2xl transition-all duration-500 text-center group-hover:scale-105">
-                    <div className="text-4xl mb-4">{link.icon}</div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-4 group-hover:text-[#1b5e3f] transition-colors duration-300">
-                      {link.title}
-                    </h3>
-                    <motion.div 
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className={`inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r ${link.color} text-white rounded-xl font-semibold hover:shadow-lg transition-all duration-300 group`}
-                    >
-                      Sign up
-                      <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-y-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                      </svg>
-                    </motion.div>
-                  </GlassCard>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3a2 2 0 012-2h4a2 2 0 012 2v4m-6 0h6m-6 0a2 2 0 00-2 2v6a2 2 0 002 2h6a2 2 0 002-2V9a2 2 0 00-2-2m-6 0V7" />
+                </svg>
+                Download Planner
+                <span className="text-xs opacity-80">PDF</span>
+              </motion.a>
+            </GlassCard>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* How to Apply Section */}
+      <section className='py-16 lg:py-24 bg-gradient-to-br from-green-50/50 to-emerald-50/30'>
+        <div className="max-w-4xl mx-auto px-6">
+          <FadeInUp>
+            <div className="text-center mb-12">
+              <h2 className='text-3xl lg:text-4xl font-bold text-gray-900 mb-6'>
+                How to <span className="text-[#1b5e3f]">Apply</span>
+              </h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                Download our application form for Ḥifẓ Programme admission
+              </p>
+              <div className="mt-6 flex justify-center">
+                <div className="w-24 h-1 bg-gradient-to-r from-[#1b5e3f] to-[#237a4f] rounded-full"></div>
+              </div>
+            </div>
+          </FadeInUp>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="group max-w-md mx-auto"
+          >
+            <GlassCard className="p-8 text-center hover:shadow-2xl transition-all duration-500 group-hover:scale-105">
+              <div className="text-6xl mb-6">📋</div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-[#1b5e3f] transition-colors duration-300">
+                Application Form
+              </h3>
+              <p className="text-gray-600 mb-6 leading-relaxed">
+                Complete our application form to register for the Ḥifẓ Programme
+              </p>
+              <motion.a
+                href="/downloads/Hifz Application Form.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-emerald-500 to-teal-600 text-white rounded-full font-semibold hover:shadow-xl transition-all duration-300 group"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3a2 2 0 012-2h4a2 2 0 012 2v4m-6 0h6m-6 0a2 2 0 00-2 2v6a2 2 0 002 2h6a2 2 0 002-2V9a2 2 0 00-2-2m-6 0V7" />
+                </svg>
+                Download Form
+                <span className="text-xs opacity-80">PDF</span>
+              </motion.a>
+            </GlassCard>
+          </motion.div>
         </div>
       </section>
 

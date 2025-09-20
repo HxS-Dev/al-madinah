@@ -81,7 +81,7 @@ const Donate = () => {
   return (
     <main className='overflow-hidden bg-gradient-to-br from-green-50/30 via-white to-emerald-50/20 min-h-screen'>
       {/* Hero Section */}
-      <section className='relative pt-24 pb-16 lg:pt-32 lg:pb-20'>
+      <section className='relative pt-32 pb-16 lg:pt-32 lg:pb-20'>
         <div className="absolute inset-0 bg-gradient-to-r from-[#1b5e3f]/5 to-transparent"></div>
         <div className="relative max-w-7xl mx-auto px-6">
           <motion.div

@@ -20,6 +20,16 @@ export default function HeroSection() {
             transition={{ duration: 1, delay: 0.2 }}
             className="relative z-20 lg:z-10 lg:pr-8 w-full lg:w-1/2 order-2 lg:order-1"
           >
+            {/* Arabic Greeting */}
+            <motion.p
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="text-[#1b5e3f] text-lg md:text-xl lg:text-2xl font-medium mb-4 tracking-wide"
+            >
+              Assalāmu 'alaykum wa raḥmatullāhi wabarakātuh
+            </motion.p>
+
             {/* Main Heading */}
             <motion.h1
               initial={{ opacity: 0, x: -50 }}
@@ -31,19 +41,24 @@ export default function HeroSection() {
                 Welcome to
               </span>
               <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.1] bg-gradient-to-r from-[#1b5e3f] to-[#237a4f] bg-clip-text text-transparent">
-                Al-Madinah
+                Al-Madinah Institute
               </span>
             </motion.h1>
 
             {/* Subtitle */}
-            <motion.p
+            <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
               className="text-gray-600 text-base md:text-lg lg:text-xl xl:text-2xl font-normal mb-8 leading-relaxed max-w-lg"
             >
-              A beacon of Islamic knowledge and spiritual growth serving our community with wisdom and compassion
-            </motion.p>
+              <p className="mb-4">
+                Al-Madinah Institute is a UK Registered charity based in Crawley, West Sussex.
+              </p>
+              <p className="text-[#1b5e3f] font-medium">
+                Charity No. 1203391
+              </p>
+            </motion.div>
 
             {/* CTA Buttons */}
             <motion.div
@@ -52,8 +67,8 @@ export default function HeroSection() {
               transition={{ duration: 0.8, delay: 0.8 }}
               className="flex flex-wrap gap-4"
             >
-              <Link href="/schedule" className="px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-[#1b5e3f] to-[#237a4f] text-white rounded-full font-semibold text-base md:text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 hover:from-[#134d32] hover:to-[#1b5e3f] shadow-lg inline-block">
-                Explore Programs
+              <Link href="/schedule" className="px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-[#1b5e3f] to-[#237a4f] text-white rounded-full font-semibold text-base md:text-lg hover:shadow-2xl hover:scale-105 hover:translate-y-[-2px] transition-all duration-300 hover:from-[#134d32] hover:to-[#1b5e3f] shadow-lg inline-block transform">
+               Our Programmes
               </Link>
               <Link href="/contact" className="px-6 md:px-8 py-3 md:py-4 bg-white/80 backdrop-blur-sm text-[#1b5e3f] rounded-full font-semibold text-base md:text-lg border-2 border-[#1b5e3f]/20 hover:bg-[#1b5e3f] hover:text-white hover:border-[#1b5e3f] hover:shadow-2xl hover:scale-105 transition-all duration-300 shadow-lg inline-block">
                 Visit Us
@@ -85,22 +100,6 @@ export default function HeroSection() {
         </div>
       </div>
 
-      
-      {/* Animated scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
-      >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
-          className="w-6 h-10 border-2 border-[#1b5e3f]/40 rounded-full flex justify-center p-2"
-        >
-          <div className="w-1 h-2 bg-[#1b5e3f]/60 rounded-full" />
-        </motion.div>
-      </motion.div>
     </div>
   );
 }

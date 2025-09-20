@@ -3,6 +3,7 @@ import SubscribeSection from '@/app/components/SubscribeSection';
 import AboutAims from '../../components/AboutAims';
 import { motion } from 'framer-motion';
 import type { Metadata } from "next";
+import { SWT } from '@/app/components/IslamicLigatures';
 
 const AboutAia = () => {
   const milestones = [
@@ -12,9 +13,9 @@ const AboutAia = () => {
       description: "Quarterly journals distributed to families in the local area"
     },
     {
-      icon: "👥",
-      title: "Started with 10",
-      description: "Initial Hifz class held in a well-wisher's home"
+      icon: "🏠",
+      title: "Humble Beginnings",
+      description: "Initial Ḥifẓ class held in the house of a well-wisher"
     },
     {
       icon: "🏢",
@@ -24,7 +25,7 @@ const AboutAia = () => {
     {
       icon: "🌟",
       title: "Community Impact",
-      description: "Supporting all walks of life with Islamic values"
+      description: "Promoting Islāmic values, respect and good character to all."
     }
   ];
 
@@ -32,29 +33,29 @@ const AboutAia = () => {
     {
       icon: "🤲",
       title: "Make Du'ā",
-      description: "Continuously pray for the acceptance and success of the institute"
+      description: "Continuously pray for the acceptance and success of our mission"
     },
     {
       icon: "💝",
       title: "Donate Generously",
-      description: "Support our services through online or in-person donations"
+      description: "Support our programmes through online or in-person donations"
     },
     {
       icon: "📖",
       title: "Distribute Literature",
-      description: "Help spread our authentic Islamic literature in your area"
+      description: "Help spread our quarterly journals and authentic Islamic literature"
     },
     {
       icon: "📢",
       title: "Spread Awareness",
-      description: "Share our mission and activities with your community"
+      description: "Inform friends and family about our programmes and activities"
     }
   ];
 
   return (
     <main className='overflow-hidden bg-gradient-to-br from-green-50/30 via-white to-emerald-50/20 min-h-screen'>
       {/* Hero Section */}
-      <section className='relative pt-24 pb-16 lg:pt-32 lg:pb-20'>
+      <section className='relative pt-32 pb-16 lg:pt-32 lg:pb-20'>
         <div className="absolute inset-0 bg-gradient-to-r from-[#1b5e3f]/5 to-transparent"></div>
         <div className="relative max-w-7xl mx-auto px-6">
           <motion.div
@@ -80,7 +81,11 @@ const AboutAia = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-xl lg:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed"
             >
-              A beacon of Islamic knowledge and spiritual growth, nurturing generations with authentic teachings and compassionate guidance
+             A beacon of authentic Islamic
+knowledge and spirituality,
+preserving the traditions of the pious
+predecessors to nurture future
+generations.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -121,6 +126,11 @@ const AboutAia = () => {
               className="space-y-6"
             >
               <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+                <div className="bg-green-50/50 rounded-xl p-6 mb-6 border-l-4 border-[#1b5e3f]">
+                  <p className="text-base text-gray-700 leading-relaxed mb-0">
+                    <strong>Al-Madinah Institute</strong> is a registered UK charity (1203391) in operation since June 2023, based in Crawley, West Sussex.
+                  </p>
+                </div>
                 <p className='text-lg text-gray-700 leading-relaxed mb-6'>
                   Our journey began with the distribution of quarterly journals to over <span className="font-semibold text-[#1b5e3f]">1,200 homes</span> in the local area. These publications aimed to provide authentic, accessible Islamic literature with content suitable for the entire household.
                 </p>
@@ -156,6 +166,29 @@ const AboutAia = () => {
               ))}
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* Hadith Section */}
+      <section className="py-12 lg:py-16 bg-gradient-to-r from-green-50/30 to-emerald-50/20">
+        <div className="max-w-5xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center"
+          >
+            <div className="bg-white rounded-2xl p-8 lg:p-12 shadow-lg border border-gray-100">
+              <div className="text-3xl mb-6">📚</div>
+              <p className="text-lg lg:text-xl text-gray-700 leading-relaxed italic mb-4">
+                "Mu'āwiyah رضي الله عنه reported that Nabī ﷺ said, 'When Allāh wishes good for someone, He gives him understanding of the Dīn.'"
+              </p>
+              <p className="text-sm text-gray-500">
+                Sahīh al-Bukhārī, Kitāb al-'Ilm, 71; Sahīh Muslim, Kitāb al-Imārah, 1037
+              </p>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -202,7 +235,7 @@ const AboutAia = () => {
               <div className="text-4xl mb-6 text-center">🕌</div>
               <h3 className="text-2xl font-bold text-[#1b5e3f] mb-6 text-center">Community Service</h3>
               <p className='text-lg text-gray-700 leading-relaxed mb-4'>
-                Al-Madinah Institute will serve the community as a welcoming space for worship, devotion, and the pursuit of Islāmic knowledge.
+                Al-Madinah Institute will serve the community as a welcoming space for worship, devotion, and the pursuit of authentic Islāmic knowledge.
               </p>
               <p className='text-lg text-gray-700 leading-relaxed'>
                 We are committed to correcting misunderstandings and misrepresentations of Islām, while striving to preserve and strengthen Islamic values in the lives of current and future generations.
@@ -240,7 +273,9 @@ const AboutAia = () => {
               How You Can <span className="text-[#1b5e3f]">Support</span>
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Your support enables us to continue our work and expand our reach
+            Your support will enable
+us to serve the community
+and expand our reach.
             </p>
           </motion.div>
 
@@ -272,9 +307,13 @@ const AboutAia = () => {
             viewport={{ once: true }}
             className="mt-16 bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-8 lg:p-12 text-center"
           >
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Our Prayer</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-6">Our Du'ā</h3>
             <p className='text-lg text-gray-700 leading-relaxed italic'>
-              "We hope and pray that, with the assistance of Allāh Taʿālā, we can continue to sow the seeds—nurturing future generations who will be a source of goodness for us all."
+              "We hope and pray that, with the Grace and
+assistance of Allāh <SWT />, we can continue to
+sow the seeds of His Love—nurturing
+future generations who will be a source of
+goodness for us all."
             </p>
           </motion.div>
         </div>
