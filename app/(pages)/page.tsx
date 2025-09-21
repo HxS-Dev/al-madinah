@@ -1,21 +1,21 @@
 import Image from "next/image";
-import PrimaryLink from "./components/PrimaryLink";
+import PrimaryLink from "../components/PrimaryLink";
 import Link from "next/link";
-import { sanityClient } from "./lib/sanity";
-import { allEventsQuery, salatTimetableQuery } from "./lib/queries";
+import { sanityClient } from "../lib/sanity";
+import { allEventsQuery, salatTimetableQuery } from "../lib/queries";
 import { PortableText } from "next-sanity";
-import { urlFor } from "./lib/imageBuilder";
-import LightboxTimeTable from "./components/LightboxTimeTable";
-import FundraisingProgress from "./components/FundraisingProgress";
+import { urlFor } from "../lib/imageBuilder";
+import LightboxTimeTable from "../components/LightboxTimeTable";
+import FundraisingProgress from "../components/FundraisingProgress";
 import type { Metadata } from "next";
-import SubscribeSection from "./components/SubscribeSection";
-import AosClient from "./components/AosClient";
-import HeroSection from "./components/HeroSection";
-import ServicesSection from "./components/ServicesSection";
-import { IslamicPattern1, AnimatedIslamicPattern } from "./components/IslamicPatterns";
-import { FadeInUp, FadeInScale, SlideInLeft, SlideInRight, FloatingElement } from "./components/AnimationUtils";
-import { GlassCard, FloatingCard } from "./components/GlassCard";
-import AnimatedIslamicBackground from "./components/AnimatedIslamicBackground";
+import SubscribeSection from "../components/SubscribeSection";
+import AosClient from "../components/AosClient";
+import HeroSection from "../components/HeroSection";
+import ServicesSection from "../components/ServicesSection";
+import { IslamicPattern1, AnimatedIslamicPattern } from "../components/IslamicPatterns";
+import { FadeInUp, FadeInScale, SlideInLeft, SlideInRight, FloatingElement } from "../components/AnimationUtils";
+import { GlassCard, FloatingCard } from "../components/GlassCard";
+import AnimatedIslamicBackground from "../components/AnimatedIslamicBackground";
 
 export const metadata: Metadata = {
   title: " Home | Al-Madinah Institute",
