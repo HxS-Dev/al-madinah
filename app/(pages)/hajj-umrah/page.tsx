@@ -6,6 +6,7 @@ import type { Metadata } from "next";
 import SubscribeSection from '@/app/components/SubscribeSection';
 import { GlassCard, FloatingCard } from '@/app/components/GlassCard';
 import { FadeInUp, SlideInLeft, SlideInRight, FloatingElement } from '@/app/components/AnimationUtils';
+import { RA, SAW, TAWJ, SWT } from '@/app/components/IslamicLigatures';
 
 const hajjImages = [
   '/images/Hajj-3.jpg',
@@ -105,7 +106,7 @@ const HajjUmrahPage = () => {
                 <div className="w-24 h-1 bg-gradient-to-r from-[#1b5e3f] to-[#237a4f] rounded-full"></div>
               </div>
               <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              <em>‘And as a right of Allah, it is obligatory upon the people to perform Hajj of the House - whoever has the ability to manage (his) way to it’<br /></em>(3:97)
+              <em>‘And as a right of Allah <SWT />, it is obligatory upon the people to perform Hajj of the House - whoever has the ability to manage (his) way to it’<br /></em>(3:97)
               </p>
             </div>
           </FadeInUp>
