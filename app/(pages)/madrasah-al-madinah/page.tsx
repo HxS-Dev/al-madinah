@@ -12,7 +12,7 @@ import { RA, SAW, TAWJ, SWT } from '@/app/components/IslamicLigatures';
 const MadrasahPage = () => {
   const subjects = [
     { icon: "📖", title: "Qur'an Recitation", description: "Proper pronunciation and Tajweed" },
-    { icon: "🤲", title: "Prayer (Salah)", description: "Establishing connection with Allah " + <SWT /> },
+    { icon: "🤲", title: "Prayer (Salah)", description: (<>Establishing connection with Allah <SWT /></>) },
     { icon: "💫", title: "Aqidah", description: "Integral Islamic beliefs" },
     { icon: "📚", title: "Seerah", description: "Islamic history and prophetic traditions" },
     { icon: "⚖️", title: "Fiqh", description: "Islamic jurisprudence and rulings" },
