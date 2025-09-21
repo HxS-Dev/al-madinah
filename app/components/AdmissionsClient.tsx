@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { GlassCard } from '@/app/components/GlassCard';
 import { FadeInUp, SlideInLeft, SlideInRight } from '@/app/components/AnimationUtils';
+import { SAW } from './IslamicLigatures';
 
 const AdmissionsClient = () => {
   const handleSmsClick = () => {
@@ -91,7 +92,7 @@ const AdmissionsClient = () => {
     {
       icon: "👨‍👩‍👧‍👦",
       title: "Character Development",
-      description: "Encouraging our students to become living examples of the sublime Islamic teachings of Nabī ﷺ"
+        description: (<>Encouraging our students to become living examples of the sublime Islamic teachings of Nabī <SAW /></>)
     },
     {
       icon: "📚",

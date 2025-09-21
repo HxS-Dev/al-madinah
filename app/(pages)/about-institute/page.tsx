@@ -3,6 +3,7 @@ import SubscribeSection from '@/app/components/SubscribeSection';
 import AboutAims from '../../components/AboutAims';
 import { motion } from 'framer-motion';
 import type { Metadata } from "next";
+import { RA, SAW, TAWJ, SWT } from '@/app/components/IslamicLigatures';
 
 const AboutAia = () => {
   const milestones = [
@@ -274,7 +275,7 @@ const AboutAia = () => {
           >
             <h3 className="text-2xl font-bold text-gray-900 mb-6">Our Prayer</h3>
             <p className='text-lg text-gray-700 leading-relaxed italic'>
-              "We hope and pray that, with the assistance of Allāh Taʿālā, we can continue to sow the seeds—nurturing future generations who will be a source of goodness for us all."
+              "We hope and pray that, with the assistance of Allāh <SWT />, we can continue to sow the seeds—nurturing future generations who will be a source of goodness for us all."
             </p>
           </motion.div>
         </div>

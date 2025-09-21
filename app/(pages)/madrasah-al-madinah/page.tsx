@@ -7,11 +7,12 @@ import type { Metadata } from "next";
 import SubscribeSection from '@/app/components/SubscribeSection';
 import { GlassCard, FloatingCard } from '@/app/components/GlassCard';
 import { FadeInUp, SlideInLeft, SlideInRight, FloatingElement } from '@/app/components/AnimationUtils';
+import { RA, SAW, TAWJ, SWT } from '@/app/components/IslamicLigatures';
 
 const MadrasahPage = () => {
   const subjects = [
     { icon: "📖", title: "Qur'an Recitation", description: "Proper pronunciation and Tajweed" },
-    { icon: "🤲", title: "Prayer (Salah)", description: "Establishing connection with Allah" },
+    { icon: "🤲", title: "Prayer (Salah)", description: "Establishing connection with Allah " + <SWT /> },
     { icon: "💫", title: "Aqidah", description: "Integral Islamic beliefs" },
     { icon: "📚", title: "Seerah", description: "Islamic history and prophetic traditions" },
     { icon: "⚖️", title: "Fiqh", description: "Islamic jurisprudence and rulings" },
