@@ -6,6 +6,7 @@ import type { Metadata } from "next";
 import SubscribeSection from '@/app/components/SubscribeSection';
 import { GlassCard, FloatingCard } from '@/app/components/GlassCard';
 import { FadeInUp, SlideInLeft, SlideInRight, FloatingElement } from '@/app/components/AnimationUtils';
+import { RA, SAW, TAWJ, SWT } from '@/app/components/IslamicLigatures';
 
 const AdultStudiesPage = () => {
   const courses = [
@@ -101,7 +102,7 @@ const AdultStudiesPage = () => {
                 {/* Hadith Quote */}
                 <div className="bg-gradient-to-r from-[#1b5e3f]/10 to-[#237a4f]/10 p-6 rounded-xl mb-8">
                   <p className='text-base lg:text-lg text-gray-700 leading-relaxed italic text-center'>
-                    The Messenger of Allah ﷺ said: "the acquisition of knowledge is incumbent upon every Muslim" (Ibn Majah & Bayhaqi)
+                    The Messenger of Allah <SWT /> said: "the acquisition of knowledge is incumbent upon every Muslim" (Ibn Majah & Bayhaqi)
                   </p>
                 </div>
                 
@@ -127,7 +128,7 @@ const AdultStudiesPage = () => {
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="text-[#1b5e3f] text-xl mt-1">❓</span>
-                      <span className="text-base lg:text-lg text-gray-700">Eager to grow spiritually and strengthen your relationship with Allah ﷻ?</span>
+                      <span className="text-base lg:text-lg text-gray-700">Eager to grow spiritually and strengthen your relationship with Allah <SWT />?</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="text-[#1b5e3f] text-xl mt-1">❓</span>
@@ -191,7 +192,7 @@ const AdultStudiesPage = () => {
                 <br /><br />
                 You are warmly invited to enroll and take that meaningful step towards seeking sacred knowledge.
                 <br /><br />
-                Sayyidunā Abū Hurairah narrates that Nabī ﷺ said, ‘Whoever treads a path in search of knowledge Allah makes the way to Jannah easy for him’ (Muslim)
+                Sayyidunā Abū Hurairah <RA /> narrates that Nabī <SAW /> said, ‘Whoever treads a path in search of knowledge Allah <SWT /> makes the way to Jannah easy for him’ (Muslim)
                 <br /><br />
                 For more info or to register, please contact 07353867127
               </p>

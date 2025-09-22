@@ -3,7 +3,7 @@ import SubscribeSection from '@/app/components/SubscribeSection';
 import AboutAims from '../../components/AboutAims';
 import { motion } from 'framer-motion';
 import type { Metadata } from "next";
-import { SWT } from '@/app/components/IslamicLigatures';
+import { RA, SAW, TAWJ, SWT } from '@/app/components/IslamicLigatures';
 
 const AboutAia = () => {
   const milestones = [
