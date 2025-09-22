@@ -37,7 +37,6 @@ export default function RootLayout({
       </head>
       <body className={`${inter.variable} ${plusJakartaSans.variable} antialiased`}>
         {children}
-        <Footer/>
         <BackToTop/>
       </body>
     </html>
