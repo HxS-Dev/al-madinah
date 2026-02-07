@@ -103,6 +103,33 @@ export const allEventsQuery = `*[_type == "events"] | order(publishedAt desc){
   body
 }`;
 
+export const allProgrammeQuery = `*[_type == "programme"] | order(publishedAt desc){
+  _id,
+  title,
+  isNew,
+  programmeDate,
+  programmeStartTime,
+  programmeEndTime,
+  mainImage{
+    asset->{
+      _id,
+      url
+    },
+    alt
+  },
+  publishedAt,
+  body
+}`;
+
+export const hifzQuery = `*[_type == "hifz" && _id == "hifz"][0]{
+  plannerTitle,
+  plannerDescription,
+  "plannerFileUrl": plannerFile.asset->url,
+  applicationFormTitle,
+  applicationFormDescription,
+  "applicationFormFileUrl": applicationFormFile.asset->url
+}`;
+
 export const singleArticleQuery = `*[_type == "article" && slug.current == $slug][0]{
   _id,
   title,

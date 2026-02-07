@@ -30,7 +30,7 @@ const NewPremisesAppeal = () => {
   const impactGoals = [
     {
       icon: "📖",
-      title: "Expand Hifz Programme",
+      title: "Expand Ḥifẓ Programme",
       description: "Increase capacity from 10 to 100+ students with dedicated memorization halls"
     },
     {

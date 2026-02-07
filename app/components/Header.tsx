@@ -122,12 +122,12 @@ const Header = () => {
                               </li>
                               <li>
                                   <NavLink href="/hifz" className='block px-6 py-3 text-base font-medium text-gray-700 hover:text-[#1b5e3f] hover:bg-green-50 transition-all duration-300'>
-                                      Hifz
+                                      Ḥifẓ
                                   </NavLink>
                               </li>
                               <li>
                                   <NavLink href="/revision-hifz" className='block px-6 py-3 text-base font-medium text-gray-700 hover:text-[#1b5e3f] hover:bg-green-50 transition-all duration-300'>
-                                      Hifz Revision
+                                      Ḥifẓ Revision
                                   </NavLink>
                               </li>
                               <li>
@@ -248,10 +248,10 @@ const Header = () => {
                         Islamic Literature
                       </Link>
                       <Link href="/hifz" onClick={closeMenu} className="block py-2 px-3 text-sm text-gray-600 hover:text-[#1b5e3f] hover:bg-white rounded transition-all duration-300">
-                        Hifz
+                        Ḥifẓ
                       </Link>
                       <Link href="/revision-hifz" onClick={closeMenu} className="block py-2 px-3 text-sm text-gray-600 hover:text-[#1b5e3f] hover:bg-white rounded transition-all duration-300">
-                        Hifz Revision
+                        Ḥifẓ Revision
                       </Link>
                       <Link href="/articles" onClick={closeMenu} className="block py-2 px-3 text-sm text-gray-600 hover:text-[#1b5e3f] hover:bg-white rounded transition-all duration-300">
                         Articles

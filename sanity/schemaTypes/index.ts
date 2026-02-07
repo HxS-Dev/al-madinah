@@ -10,7 +10,9 @@ import {eventsType} from './eventsType'
 import {donationType} from './donationType'
 import {salatTimetable} from './salatTimetable'
 import {authorType} from './authorType'
+import {programmeType} from './programmeType'
+import {hifzType} from './hifzType'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [blockContentType, categoryType, scheduleType, eventsType,articlesType,articleAuthorType,articleCategoryType, donationType ,authorType, salatTimetable],
+  types: [blockContentType, categoryType, scheduleType, eventsType,articlesType,articleAuthorType,articleCategoryType, donationType ,authorType, salatTimetable, programmeType, hifzType],
 }

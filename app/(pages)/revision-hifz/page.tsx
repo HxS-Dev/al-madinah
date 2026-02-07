@@ -56,15 +56,6 @@ const HifzRevisionPage = () => {
     }
   ];
 
-  const plannerLinks = [
-    {
-      title: "Click Here for Admissions",
-      href: "/admissions",
-      color: "from-emerald-500 to-teal-600",
-      icon: "🎓"
-    }
-  ];
-
   return (
     <main className='overflow-hidden bg-gradient-to-br from-green-50/30 via-white to-emerald-50/20 min-h-screen'>
       {/* Hero Section */}
@@ -84,7 +75,7 @@ const HifzRevisionPage = () => {
               className='text-4xl lg:text-6xl xl:text-7xl font-bold text-gray-900 mb-6'
             >
               <span className="block bg-gradient-to-r from-[#1b5e3f] to-[#237a4f] bg-clip-text text-transparent">
-                Hifz Revision
+                Ḥifẓ Revision
               </span>
             </motion.h1>
             <motion.p
@@ -111,6 +102,27 @@ const HifzRevisionPage = () => {
             >
               <div className="w-24 h-1 bg-gradient-to-r from-[#1b5e3f] to-[#237a4f] rounded-full"></div>
             </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Hifz Course Info Section */}
+      <section className="py-12 lg:py-16 bg-gradient-to-r from-green-50/30 to-emerald-50/20">
+        <div className="max-w-5xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center"
+          >
+            <div className="bg-white rounded-2xl p-8 lg:p-10 shadow-lg border border-gray-100">
+              <div className="text-4xl mb-6">📚</div>
+              <h2 className="text-2xl lg:text-3xl font-bold text-[#1b5e3f] mb-6">Hifz Course</h2>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                This course has been designed for those enthusiastic to memorise the Noble Qur'ān but are constrained with time commitment due to work, university or college. The students have the option of agreeing a time of their choice on a weekly basis with their teacher in order to balance their learning with other commitments. Time slots are available from <span className="font-bold">7am to 10pm seven days a week</span> to suit one's availability.
+              </p>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -170,7 +182,7 @@ You have been given something most precious — and in the sight of Allāh <SWT 
                 <div className="relative overflow-hidden rounded-2xl shadow-2xl sticky top-8 mt-18">
                   <Image 
                     src={"/images/revision-hifz.webp"} 
-                    alt='Hifz Revision Programme at Al-Madinah Institute'
+                    alt='Ḥifẓ Revision Programme at Al-Madinah Institute'
                     className='transform hover:scale-105 transition-transform duration-700 w-full h-auto'
                     width={570}
                     height={428}
@@ -236,35 +248,21 @@ You have been given something most precious — and in the sight of Allāh <SWT 
             </div>
           </FadeInUp>
           <div className="center">
-            {plannerLinks.map((link, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="group items-center justify-center flex"
-              >
-                <Link href={link.href}>
-                  <GlassCard className="p-6 h-full hover:shadow-2xl transition-all duration-500 text-center group-hover:scale-105">
-                    <div className="text-4xl mb-4">{link.icon}</div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-4 group-hover:text-[#1b5e3f] transition-colors duration-300">
-                      {link.title}
-                    </h3>
-                    <motion.div 
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className={`inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r ${link.color} text-white rounded-xl font-semibold hover:shadow-lg transition-all duration-300 group`}
-                    >
-                      Sign up
-                      <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-y-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                      </svg>
-                    </motion.div>
-                  </GlassCard>
-                </Link>
-              </motion.div>
-            ))}
+            <motion.div
+              key="hifz-revision-contact"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="group items-center justify-center flex"
+            >
+                <GlassCard className="p-6 h-full hover:shadow-2xl transition-all duration-500 text-center group-hover:scale-105">
+                  <div className="text-4xl mb-4"></div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-4 group-hover:text-[#1b5e3f] transition-colors duration-300">
+                    For more information or to enrol call us on 07353 867 127 or email us on admin@al-madinah.org.uk
+                  </h3>
+                </GlassCard>
+            </motion.div>
           </div>
         </div>
       </section>

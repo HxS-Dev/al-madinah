@@ -78,7 +78,7 @@ const Footer = () => {
               </li>
               <li>
                 <a href="/hifz" className="!text-white text-sm transition-colors duration-300 hover:translate-x-1 inline-block" style={{color: 'rgba(255, 255, 255, 0.9)'}}>
-                  Hifz Programme
+                  Ḥifẓ Programme
                 </a>
               </li>
               <li>

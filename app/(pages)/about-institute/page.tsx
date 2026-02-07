@@ -135,7 +135,7 @@ generations.
                   Our journey began with the distribution of quarterly journals to over <span className="font-semibold text-[#1b5e3f]">1,200 homes</span> in the local area. These publications aimed to provide authentic, accessible Islamic literature with content suitable for the entire household.
                 </p>
                 <p className='text-lg text-gray-700 leading-relaxed mb-6'>
-                  The Institute started with a small Hifz class of <span className="font-semibold text-[#1b5e3f]">10 students</span>, held in the home of a well-wisher. While this marked a valuable start, it naturally limited the range of services and activities the Institute could offer.
+                  The Institute started with a small Ḥifẓ class of <span className="font-semibold text-[#1b5e3f]">10 students</span>, held in the home of a well-wisher. While this marked a valuable start, it naturally limited the range of services and activities the Institute could offer.
                 </p>
                 <p className='text-lg text-gray-700 leading-relaxed'>
                   To support the growth of our programmes and provide dedicated salāh and educational facilities, the Institute has been actively seeking a suitable premises to further its objectives.

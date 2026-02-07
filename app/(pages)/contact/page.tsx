@@ -16,7 +16,7 @@ const Contact = () => {
           <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-5">
             <div className="mb-8 md:mb-0">
               <p className='text-xs text-black font-medium tracking-[4px] uppercase'>Contact</p>
-              <h1 className='text-2xl md:text-[65px] font-bold text-primary leading-[110%] font-poppins pb-3 tracking-tight'>For any enquiries please email
+              <h1 className='text-2xl md:text-[65px] font-bold text-primary leading-[110%] font-poppins pb-3 tracking-tight'>For any general enquiries please email
               </h1>
               <a className='text-lg md:text-[23px] font-medium text-secondary opacity-50 transition-all duration-300 hover:opacity-100 break-all' href="mailto:info@al-madinah.org.uk">info@al-madinah.org.uk</a>
             </div>

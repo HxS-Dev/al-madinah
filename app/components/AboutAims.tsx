@@ -20,7 +20,7 @@ const AboutAims = () => {
     {
       icon: "📚",
       title: "Educational Foundation",
-      description: "The Institute began with a small Hifz class of 10 students, held in the home of a well-wisher. While this marked a valuable start, it naturally limited the range of services and activities the Institute could offer.",
+      description: "The Institute began with a small Ḥifẓ class of 10 students, held in the home of a well-wisher. While this marked a valuable start, it naturally limited the range of services and activities the Institute could offer.",
       gradient: "from-blue-500 to-indigo-600"
     },
     {

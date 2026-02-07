@@ -32,7 +32,7 @@ const ServicesSection = ({ showTitle = true, isHomepage = false, className = '' 
     },
     {
       id: 'hifz',
-      title: 'Hifz Classes',
+      title: 'Ḥifẓ Classes',
       description: 'Join our comprehensive Ḥifẓ Programme for students aged 10+ with emphasis on Tajweed (Correct intonation and phonetics) and Tarbiyah.',
       image: '/images/dummy_4.png',
       link: '/hifz',

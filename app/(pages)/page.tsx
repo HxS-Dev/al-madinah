@@ -68,7 +68,7 @@ export default function Home() {
                   well-wishers, tailored to the season or occasion.
                 </p>
                 <p className="lg:text-lg text-base text-gray-1000 lg:mb-6 mb-4">
-                  The Institute began with a small Hifz class of 10 students, held
+                  The Institute began with a small Ḥifẓ class of 10 students, held
                   in the home of a well-wisher. While this marked a valuable
                   start, it naturally limited the range of services and activities
                   the Institute could offer.
@@ -85,7 +85,7 @@ export default function Home() {
               <FloatingElement>
                 <div className="relative overflow-hidden rounded-2xl shadow-2xl">
                   <Image
-                    src={"/images/dummy-about-img.png"}
+                    src={"/images/collage.png"}
                     width={600}
                     height={400}
                     alt="img"
