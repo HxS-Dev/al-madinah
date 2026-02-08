@@ -121,6 +121,38 @@ export const allProgrammeQuery = `*[_type == "programme"] | order(publishedAt de
   body
 }`;
 
+export const hajjPublicationsQuery = `*[_type == "hajjPublication"] | order(order asc){
+  _id,
+  title,
+  coverImage{
+    asset->{
+      _id,
+      url
+    },
+    alt
+  },
+  link,
+  note,
+  order
+}`;
+
+export const hajjAudioQuery = `*[_type == "hajjAudio"] | order(order asc){
+  _id,
+  title,
+  link,
+  order
+}`;
+
+export const adultStudiesQuery = `*[_type == "adultStudies" && _id == "adultStudies"][0]{
+  poster{
+    asset->{
+      _id,
+      url
+    },
+    alt
+  }
+}`;
+
 export const hifzQuery = `*[_type == "hifz" && _id == "hifz"][0]{
   plannerTitle,
   plannerDescription,
@@ -128,6 +160,16 @@ export const hifzQuery = `*[_type == "hifz" && _id == "hifz"][0]{
   applicationFormTitle,
   applicationFormDescription,
   "applicationFormFileUrl": applicationFormFile.asset->url
+}`;
+
+export const madrasahYearlyPlannerQuery = `*[_type == "yearlyPlanner" && _id == "madrasahYearlyPlanner"][0]{
+  title,
+  url
+}`;
+
+export const hifzYearlyPlannerQuery = `*[_type == "yearlyPlanner" && _id == "hifzYearlyPlanner"][0]{
+  title,
+  url
 }`;
 
 export const singleArticleQuery = `*[_type == "article" && slug.current == $slug][0]{

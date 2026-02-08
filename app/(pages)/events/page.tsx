@@ -8,7 +8,7 @@ import { PortableText } from 'next-sanity'
 import { urlFor } from '@/app/lib/imageBuilder'
 import SubscribeSection from '@/app/components/SubscribeSection'
 import { GlassCard } from '@/app/components/GlassCard'
-import { FadeInUp, SlideInLeft, SlideInRight } from '@/app/components/AnimationUtils'
+import { FadeInUp } from '@/app/components/AnimationUtils'
 
 interface Event {
   _id: string;
@@ -57,8 +57,8 @@ const EventsPage = () => {
     setExpandedEvent(expandedEvent === eventId ? null : eventId);
   };
 
-  const newEvents = allEvents.filter(event => event.isNew);
-  const pastEvents = allEvents.filter(event => !event.isNew);
+  const weeklyProgrammes = allEvents.filter(event => event.isNew);
+  const pastProgrammes = allEvents.filter(event => !event.isNew);
 
   if (loading) {
     return (
@@ -82,7 +82,7 @@ const EventsPage = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-12"
           >
-            <motion.h1 
+            <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -96,15 +96,26 @@ const EventsPage = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-xl lg:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed"
+              className="text-xl lg:text-2xl text-gray-600 mb-6 max-w-3xl mx-auto leading-relaxed"
             >
               Stay connected with our community through weekly programmes and special events
             </motion.p>
+            {allEvents.length === 0 && (
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+                className="text-xl text-[#1b5e3f]"
+                style={{ fontFamily: "'Scheherazade New', serif" }}
+              >
+                InshāAllāh coming soon
+              </motion.p>
+            )}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="flex justify-center mb-8"
+              className="flex justify-center mb-8 mt-6"
             >
               <div className="w-24 h-1 bg-gradient-to-r from-[#1b5e3f] to-[#237a4f] rounded-full"></div>
             </motion.div>
@@ -112,26 +123,26 @@ const EventsPage = () => {
         </div>
       </section>
 
-      {/* Current Events Section */}
-      {newEvents.length > 0 && (
-        <section className='py-16 lg:py-24'>
-          <div className="max-w-7xl mx-auto px-6">
-            <FadeInUp>
-              <div className="text-center mb-16">
-                <h2 className='text-3xl lg:text-5xl font-bold text-gray-900 mb-6'>
-                  Current <span className="text-[#1b5e3f]">Events</span>
-                </h2>
-                <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                  Join our latest events and activities designed to strengthen your connection with the community
-                </p>
-                <div className="mt-8 flex justify-center">
-                  <div className="w-24 h-1 bg-gradient-to-r from-[#1b5e3f] to-[#237a4f] rounded-full"></div>
-                </div>
+      {/* Weekly Programmes Section */}
+      <section className='py-16 lg:py-24'>
+        <div className="max-w-7xl mx-auto px-6">
+          <FadeInUp>
+            <div className="text-center mb-16">
+              <h2 className='text-3xl lg:text-5xl font-bold text-gray-900 mb-6'>
+                Weekly <span className="text-[#1b5e3f]">Programmes</span>
+              </h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                Join our weekly events and activities designed to strengthen your connection with the community
+              </p>
+              <div className="mt-8 flex justify-center">
+                <div className="w-24 h-1 bg-gradient-to-r from-[#1b5e3f] to-[#237a4f] rounded-full"></div>
               </div>
-            </FadeInUp>
+            </div>
+          </FadeInUp>
 
+          {weeklyProgrammes.length > 0 ? (
             <div className="space-y-8">
-              {newEvents.map((event, index) => (
+              {weeklyProgrammes.map((event, index) => (
                 <motion.div
                   key={event._id}
                   initial={{ opacity: 0, y: 30 }}
@@ -141,16 +152,15 @@ const EventsPage = () => {
                   className="group"
                 >
                   <GlassCard className="overflow-hidden hover:shadow-2xl transition-all duration-500">
-                    <div 
+                    <div
                       className="cursor-pointer p-8 lg:p-10"
                       onClick={() => toggleExpanded(event._id)}
                     >
                       <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
-                        {/* Event Poster */}
-                        <div className="flex-shrink-0 w-full lg:w-72">
-                          {event.mainImage && (
+                        {event.mainImage && (
+                          <div className="flex-shrink-0 w-full lg:w-72">
                             <div className="relative overflow-hidden rounded-xl shadow-lg">
-                              <Image 
+                              <Image
                                 src={urlFor(event.mainImage).width(350).height(600).url()}
                                 alt={event.mainImage.alt || event.title}
                                 width={350}
@@ -158,15 +168,10 @@ const EventsPage = () => {
                                 className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
                               />
                               <div className="absolute inset-0 bg-gradient-to-t from-[#1b5e3f]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                              {/* Event Poster Label */}
-                              <div className="absolute top-4 left-4 bg-gradient-to-r from-[#1b5e3f] to-[#237a4f] text-white px-3 py-1 rounded-full text-sm font-medium">
-                                🎪 Event Poster
-                              </div>
                             </div>
-                          )}
-                        </div>
+                          </div>
+                        )}
 
-                        {/* Content */}
                         <div className="flex-1">
                           <div className="flex items-start justify-between mb-4">
                             <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 group-hover:text-[#1b5e3f] transition-colors duration-300">
@@ -182,8 +187,7 @@ const EventsPage = () => {
                               </svg>
                             </motion.div>
                           </div>
-                          
-                          {/* Preview content */}
+
                           <div className="text-gray-600 leading-relaxed mb-4">
                             <div className="portablecontent2">
                               <PortableText value={event.body} />
@@ -206,7 +210,6 @@ const EventsPage = () => {
                       </div>
                     </div>
 
-                    {/* Expanded Content */}
                     <AnimatePresence>
                       {expandedEvent === event._id && (
                         <motion.div
@@ -218,13 +221,13 @@ const EventsPage = () => {
                         >
                           <div className="px-8 lg:px-10 pb-8 lg:pb-10 border-t border-gray-200">
                             <div className="pt-6">
-                              <h4 className="text-xl font-bold text-[#1b5e3f] mb-4">Event Details</h4>
+                              <h4 className="text-xl font-bold text-[#1b5e3f] mb-4">Programme Details</h4>
                               <div className="prose prose-lg max-w-none text-gray-700">
                                 <div className="portablecontent2">
                                   <PortableText value={event.body} />
                                 </div>
                               </div>
-                              
+
                               {event.author && (
                                 <div className="mt-6 pt-6 border-t border-gray-100">
                                   <div className="flex items-center gap-3">
@@ -232,7 +235,7 @@ const EventsPage = () => {
                                       {event.author.name.charAt(0)}
                                     </div>
                                     <div>
-                                      <p className="text-sm text-gray-600">Event by</p>
+                                      <p className="text-sm text-gray-600">By</p>
                                       <p className="font-medium text-gray-900">{event.author.name}</p>
                                     </div>
                                   </div>
@@ -247,30 +250,38 @@ const EventsPage = () => {
                 </motion.div>
               ))}
             </div>
-          </div>
-        </section>
-      )}
+          ) : (
+            <div className="text-center py-12">
+              <GlassCard className="py-12 px-8 max-w-md mx-auto">
+                <h3 className="text-xl text-[#1b5e3f] mb-2" style={{ fontFamily: "'Scheherazade New', serif" }}>
+                  InshāAllāh coming soon
+                </h3>
+              </GlassCard>
+            </div>
+          )}
+        </div>
+      </section>
 
-      {/* Other Events Section */}
-      {pastEvents.length > 0 && (
-        <section className='py-16 lg:py-24 bg-gradient-to-br from-green-50/50 to-emerald-50/30'>
-          <div className="max-w-7xl mx-auto px-6">
-            <FadeInUp>
-              <div className="text-center mb-16">
-                <h2 className='text-3xl lg:text-5xl font-bold text-gray-900 mb-6'>
-                  Other <span className="text-[#1b5e3f]">Events</span>
-                </h2>
-                <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                  Explore our other events and programmes that bring our community together
-                </p>
-                <div className="mt-8 flex justify-center">
-                  <div className="w-24 h-1 bg-gradient-to-r from-[#1b5e3f] to-[#237a4f] rounded-full"></div>
-                </div>
+      {/* Past Programmes Section */}
+      <section className='py-16 lg:py-24 bg-gradient-to-br from-green-50/50 to-emerald-50/30'>
+        <div className="max-w-7xl mx-auto px-6">
+          <FadeInUp>
+            <div className="text-center mb-16">
+              <h2 className='text-3xl lg:text-5xl font-bold text-gray-900 mb-6'>
+                Past <span className="text-[#1b5e3f]">Programmes</span>
+              </h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                Explore our previous programmes and events
+              </p>
+              <div className="mt-8 flex justify-center">
+                <div className="w-24 h-1 bg-gradient-to-r from-[#1b5e3f] to-[#237a4f] rounded-full"></div>
               </div>
-            </FadeInUp>
+            </div>
+          </FadeInUp>
 
+          {pastProgrammes.length > 0 ? (
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {pastEvents.map((event, index) => (
+              {pastProgrammes.map((event, index) => (
                 <motion.div
                   key={event._id}
                   initial={{ opacity: 0, y: 30 }}
@@ -280,14 +291,13 @@ const EventsPage = () => {
                   className="group"
                 >
                   <GlassCard className="h-full overflow-hidden hover:shadow-2xl transition-all duration-500">
-                    <div 
+                    <div
                       className="cursor-pointer p-6 lg:p-8 h-full flex flex-col"
                       onClick={() => toggleExpanded(event._id)}
                     >
-                      {/* Event Poster */}
                       {event.mainImage && (
                         <div className="relative overflow-hidden rounded-xl shadow-lg mb-6">
-                          <Image 
+                          <Image
                             src={urlFor(event.mainImage).width(400).height(600).url()}
                             alt={event.mainImage.alt || event.title}
                             width={400}
@@ -295,14 +305,9 @@ const EventsPage = () => {
                             className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-[#1b5e3f]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                          {/* Event Poster Label */}
-                          <div className="absolute top-4 left-4 bg-gradient-to-r from-[#1b5e3f] to-[#237a4f] text-white px-3 py-1 rounded-full text-sm font-medium">
-                            🎪 Event
-                          </div>
                         </div>
                       )}
 
-                      {/* Content */}
                       <div className="flex-1 flex flex-col">
                         <div className="flex items-start justify-between mb-4">
                           <h3 className="text-xl lg:text-2xl font-bold text-gray-900 group-hover:text-[#1b5e3f] transition-colors duration-300 flex-1">
@@ -318,8 +323,7 @@ const EventsPage = () => {
                             </svg>
                           </motion.div>
                         </div>
-                        
-                        {/* Preview */}
+
                         <div className="text-gray-600 leading-relaxed mb-4 flex-1">
                           <div className="portablecontent2 line-clamp-3">
                             <PortableText value={event.body} />
@@ -346,7 +350,6 @@ const EventsPage = () => {
                       </div>
                     </div>
 
-                    {/* Expanded Content */}
                     <AnimatePresence>
                       {expandedEvent === event._id && (
                         <motion.div
@@ -358,17 +361,17 @@ const EventsPage = () => {
                         >
                           <div className="px-6 lg:px-8 pb-6 lg:pb-8 border-t border-gray-200">
                             <div className="pt-6">
-                              <h4 className="text-lg font-bold text-[#1b5e3f] mb-4">Event Details</h4>
+                              <h4 className="text-lg font-bold text-[#1b5e3f] mb-4">Programme Details</h4>
                               <div className="prose max-w-none text-gray-700">
                                 <div className="portablecontent2">
                                   <PortableText value={event.body} />
                                 </div>
                               </div>
-                              
+
                               {event.publishedAt && (
                                 <div className="mt-4 pt-4 border-t border-gray-100">
                                   <p className="text-sm text-gray-500">
-                                    Event Date: {new Date(event.publishedAt).toLocaleDateString('en-GB', {
+                                    Date: {new Date(event.publishedAt).toLocaleDateString('en-GB', {
                                       year: 'numeric',
                                       month: 'long',
                                       day: 'numeric'
@@ -385,9 +388,17 @@ const EventsPage = () => {
                 </motion.div>
               ))}
             </div>
-          </div>
-        </section>
-      )}
+          ) : (
+            <div className="text-center py-12">
+              <GlassCard className="py-12 px-8 max-w-md mx-auto">
+                <h3 className="text-xl text-[#1b5e3f] mb-2" style={{ fontFamily: "'Scheherazade New', serif" }}>
+                  InshāAllāh coming soon
+                </h3>
+              </GlassCard>
+            </div>
+          )}
+        </div>
+      </section>
 
       <SubscribeSection />
     </main>

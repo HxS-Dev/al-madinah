@@ -45,13 +45,13 @@ const AdmissionsClient = () => {
       id: 3,
       title: "Placement Allocation",
       description: "Your child's place will be offered based on our comprehensive Admissions Policy, ensuring fair and transparent allocation.",
-      icon: "🎓",
+      icon: "📋",
       status: "complete",
       color: "from-emerald-500 to-teal-600",
       details: [
         "Fair allocation based on policy",
         "Transparent selection process",
-        "Welcome to our community"
+        "Welcome to Madrasah Al-Madinah"
       ]
     },
         {
@@ -71,7 +71,7 @@ const AdmissionsClient = () => {
       id: 5,
       title: "First day at Madrasah",
       description: "Date & Time will be shared with the Parents.",
-      icon: "🎓",
+      icon: "🕌",
       status: "first-day",
       color: "from-emerald-500 to-teal-600",
       details: []
@@ -181,7 +181,7 @@ const AdmissionsClient = () => {
                 Simple <span className="text-[#1b5e3f]">Application Process</span>
               </h2>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Our streamlined 3-step process makes applying for admission quick and straightforward
+                Our streamlined 5-step process makes applying for admission quick and straightforward
               </p>
               <div className="mt-8 flex justify-center">
                 <div className="w-24 h-1 bg-gradient-to-r from-[#1b5e3f] to-[#237a4f] rounded-full"></div>
@@ -189,8 +189,9 @@ const AdmissionsClient = () => {
             </div>
           </FadeInUp>
 
+          {/* First row: Steps 1-3 */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
-            {steps.map((step, index) => (
+            {steps.slice(0, 3).map((step, index) => (
               <motion.div
                 key={step.id}
                 initial={{ opacity: 0, y: 30 }}
@@ -200,37 +201,20 @@ const AdmissionsClient = () => {
                 className="relative"
               >
                 <GlassCard className="h-full p-8 text-center hover:shadow-2xl transition-shadow duration-500">
-                  {/* Step Number */}
                   <div className={`absolute -top-4 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-gradient-to-r ${step.color} rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg`}>
                     {step.id}
                   </div>
-                  
-                  {/* Icon */}
-                  <div className="text-6xl mb-6 mt-4">
-                    {step.icon}
-                  </div>
-                  
-                  {/* Title */}
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">
-                    {step.title}
-                  </h3>
-                  
-                  {/* Description */}
-                  <p className="text-gray-600 mb-6 leading-relaxed">
-                    {step.description}
-                  </p>
-                  
-                  {/* Details List */}
+                  <div className="text-6xl mb-6 mt-4">{step.icon}</div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">{step.title}</h3>
+                  <p className="text-gray-600 mb-6 leading-relaxed">{step.description}</p>
                   <ul className="space-y-2 text-sm text-gray-500">
                     {step.details.map((detail, idx) => (
                       <li key={idx} className="flex items-center gap-2">
-                        <div className="w-1.5 h-1.5 bg-[#1b5e3f] rounded-full"></div>
+                        <div className="w-1.5 h-1.5 bg-[#1b5e3f] rounded-full flex-shrink-0"></div>
                         {detail}
                       </li>
                     ))}
                   </ul>
-                  
-                  {/* Special action for step 1 */}
                   {step.id === 1 && (
                     <div className="mt-6">
                       <button
@@ -245,9 +229,41 @@ const AdmissionsClient = () => {
                     </div>
                   )}
                 </GlassCard>
-                
-                {/* Connection Line */}
-                {index < steps.length - 1 && (
+                {index < 2 && (
+                  <div className="hidden lg:block absolute top-1/2 -right-6 transform -translate-y-1/2 w-12 h-0.5 bg-gradient-to-r from-[#1b5e3f] to-[#237a4f]"></div>
+                )}
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Second row: Steps 4-5 centered */}
+          <div className="flex justify-center gap-8 lg:gap-12 mt-8 lg:mt-12 flex-col lg:flex-row">
+            {steps.slice(3).map((step, index) => (
+              <motion.div
+                key={step.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: (index + 3) * 0.2 }}
+                viewport={{ once: true }}
+                className="relative w-full lg:w-1/3"
+              >
+                <GlassCard className="h-full p-8 text-center hover:shadow-2xl transition-shadow duration-500">
+                  <div className={`absolute -top-4 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-gradient-to-r ${step.color} rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg`}>
+                    {step.id}
+                  </div>
+                  <div className="text-6xl mb-6 mt-4">{step.icon}</div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">{step.title}</h3>
+                  <p className="text-gray-600 mb-6 leading-relaxed">{step.description}</p>
+                  <ul className="space-y-2 text-sm text-gray-500">
+                    {step.details.map((detail, idx) => (
+                      <li key={idx} className="flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 bg-[#1b5e3f] rounded-full flex-shrink-0"></div>
+                        {detail}
+                      </li>
+                    ))}
+                  </ul>
+                </GlassCard>
+                {index === 0 && (
                   <div className="hidden lg:block absolute top-1/2 -right-6 transform -translate-y-1/2 w-12 h-0.5 bg-gradient-to-r from-[#1b5e3f] to-[#237a4f]"></div>
                 )}
               </motion.div>

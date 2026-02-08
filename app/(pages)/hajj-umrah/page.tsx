@@ -1,12 +1,33 @@
 'use client';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import type { Metadata } from "next";
+import { sanityClient } from '@/app/lib/sanity';
+import { hajjPublicationsQuery, hajjAudioQuery } from '@/app/lib/queries';
+import { urlFor } from '@/app/lib/imageBuilder';
 import SubscribeSection from '@/app/components/SubscribeSection';
-import { GlassCard, FloatingCard } from '@/app/components/GlassCard';
+import { GlassCard } from '@/app/components/GlassCard';
 import { FadeInUp, SlideInLeft, SlideInRight, FloatingElement } from '@/app/components/AnimationUtils';
-import { RA, SAW, TAWJ, SWT } from '@/app/components/IslamicLigatures';
+import { SWT } from '@/app/components/IslamicLigatures';
+
+interface HajjPublication {
+  _id: string;
+  title: string;
+  coverImage?: {
+    asset: { _id: string; url: string };
+    alt?: string;
+  };
+  link: string;
+  note?: string;
+  order: number;
+}
+
+interface HajjAudio {
+  _id: string;
+  title: string;
+  link: string;
+  order: number;
+}
 
 const hajjImages = [
   '/images/Hajj-3.jpg',
@@ -21,24 +42,43 @@ const umrahImages = [
 ];
 
 const HajjUmrahPage = () => {
+  const [publications, setPublications] = useState<HajjPublication[]>([]);
+  const [audioResources, setAudioResources] = useState<HajjAudio[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const [pubs, audio] = await Promise.all([
+          sanityClient.fetch(hajjPublicationsQuery),
+          sanityClient.fetch(hajjAudioQuery),
+        ]);
+        setPublications(pubs);
+        setAudioResources(audio);
+      } catch (error) {
+        console.error('Error fetching hajj data:', error);
+      }
+    };
+    fetchData();
+  }, []);
+
   const services = [
     {
-      icon: "🕌",
+      icon: "🕋",
       title: "Hajj Guidance Seminars",
       description: "Comprehensive workshops covering essential rituals, travel tips, and spiritual preparation for the sacred journey.",
       features: ["Spiritual & Physical Preparation prior to departure", "Iḥram & its rulings", "Different types of Ḥajj", "In-depth rulings of the 5-days of Hajj", "Practical Advices", "Visiting Madīnah Munawwarah", "Literature available"]
     },
     {
-      icon: "🌙",
+      icon: "🕌",
       title: "Umrah Workshops",
       description: "Go through the Umrah method step-by-step with practical advices to increase your understanding and confidence. Group sessions and individual sessions available.",
-      features: ["Travel Tips & Advice", "Spiritual & Physical Preparation prior to departure", "Iḥram & its rulings", "In-dept rulings of Umrah", "How to use the Nusuk app to obtain Rawdah permit", "Literature available"]
+      features: ["Travel Tips & Advice", "Spiritual & Physical Preparation prior to departure", "Iḥram & its rulings", "In-dept rulings of Umrah and Ziyārah", "How to use the Nusuk app to obtain Rawdah permit", "Literature available"]
     },
     {
-      icon: "👨‍🏫",
+      icon: <Image src="/images/golden-arabic-lantern.jpg" alt="Islamic lantern" width={48} height={64} className="mx-auto object-contain" />,
       title: "Expert Guidance",
-      description: "Learn from experienced ‘ulamā who are well versed regarding the rulings, rights & requirements of the Pilgrimage.",
-      features: ["Qualified instructors", "Personal consultation", "Group support", "Ongoing assistance"]
+      description: "Learn from experienced ‘ulamā who are well versed regarding the rulings, rights & requirements of this blessed journey.",
+      features: ["Qualified 'Ulamā", "Personal consultation", "Group support", "Ongoing assistance"]
     }
   ];
 
@@ -160,7 +200,7 @@ const HajjUmrahPage = () => {
           <FadeInUp>
             <div className="text-center mb-12">
               <h2 className='text-3xl lg:text-5xl font-bold text-gray-900 mb-6'>
-                Free <span className="text-[#1b5e3f]">Literature</span>
+                Hajj & Umrah <span className="text-[#1b5e3f]">Related Publications</span>
               </h2>
               <p className="text-lg text-gray-600 max-w-3xl mx-auto">
                 Download comprehensive guides and resources to prepare for your sacred journey
@@ -171,56 +211,51 @@ const HajjUmrahPage = () => {
             </div>
           </FadeInUp>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-            {[
-              { title: "How to Perform Hajj", img: "170523_how_to_perform_hajj.jpg", pdf: "https://www.idauk.org/pdf/200319_hajj.pdf", size: "1.7 MB" },
-              { title: "Tashīlul-Hajj", img: "tashilul-hajj.jpg", pdf: "https://www.at-tazkiyah.com/publications/booklet_urdu/tashilul-hajj_part-1_130624.pdf", size: "21.7 MB", note: "Part 1" },
-              { title: "How to Perform 'Umrah", img: "170523_umrah.jpg", pdf: "https://www.idauk.org/pdf/170523_umrah.pdf", size: "1.3 MB" },
-              { title: "Tashīlul-'Umrah", img: "tashilul_umrah.jpg", pdf: "https://at-tazkiyah.com/publications/booklet_urdu/tashilul_umrah_020724.pdf", size: "15.7 MB" },
-              { title: "How to Perform Ziyārah", img: "200319_ziyarah.jpg", pdf: "https://www.idauk.org/pdf/200319_ziyarah.pdf", size: "1.3 MB" },
-              { title: "Tashīluz-Ziyārah", img: "tashiluz_ziyarah.jpg", pdf: "https://www.at-tazkiyah.com/publications/booklet_urdu/tashiluz_ziyarah_170624.pdf", size: "11 MB" },
-              { title: "Sanctity of Haramayn Sharīfayn", img: "haramayn_211217.jpg", pdf: "https://www.idauk.org/pdf/haramayn_211217.pdf", size: "2.4 MB" },
-              { title: "Useful Advice for Travellers", img: "useful_advices_160123.jpg", pdf: "https://www.idauk.org/pdf/useful_advices_160123.pdf", size: "1.9 MB" },
-              { title: "Salāt & Salām", img: "salaat_and_salaam_290420.jpg", pdf: "https://www.at-tazkiyah.com/publications/booklet_eng/salaat_and_salaam_220322.pdf", size: "1.5 MB" },
-              { title: "100 Durūd", img: "100_durood_230822.jpg", pdf: "https://www.at-tazkiyah.com/publications/booklet_eng/100_durood_eng_230724.pdf", size: "4.3 MB" },
-              { title: "Gift of Salām", img: "gift_of_salam_210724.jpg", pdf: "https://www.at-tazkiyah.com/publications/booklet_eng/gift_of_salam_210724.pdf", size: "10.8 MB" },
-              { title: "Luminous Prayers", img: "luminous_prayers_200419.jpg", pdf: "https://www.at-tazkiyah.com/publications/booklet_eng/luminous_prayers_250419.pdf", size: "2.7 MB" },
-              { title: "Jāmi'ud-Du'ā", img: "jamiud_dua_280420.jpg", pdf: "https://www.at-tazkiyah.com/publications/booklet_eng/jamiud_dua_210524.pdf", size: "5.4 MB" },
-              { title: "Istighfār", img: "istighfar.jpg", pdf: "https://www.at-tazkiyah.com/publications/booklet_eng/istighfar_230322.pdf", size: "2.2 MB" },
-              { title: "Hizbul-A'zam", img: "hizbul_azam_120719.jpg", pdf: "https://www.at-tazkiyah.com/publications/booklet_eng/hizbul_azam_210524.pdf", size: "2.4 MB" },
-              { title: "Mu'awwadhāt", img: "muawwadhat_120719.jpg", pdf: "https://at-tazkiyah.com/publications/booklet_eng/muawwadhat_210524.pdf", size: "4.3 MB" },
-            ].map((pub, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.05 }}
-                viewport={{ once: true }}
-              >
-                <GlassCard className="p-3 h-full hover:shadow-xl transition-all duration-300 group">
-                  <div className="relative mb-2 overflow-hidden rounded-lg">
-                    <Image
-                      src={`/images/${pub.img}`}
-                      alt={pub.title}
-                      width={200}
-                      height={280}
-                      className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-                  <h3 className="text-sm font-bold text-gray-900 mb-2 line-clamp-2 min-h-[2.5rem]">{pub.title}</h3>
-                  <a
-                    href={pub.pdf}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-1 bg-gradient-to-r from-[#1b5e3f] to-[#237a4f] text-white font-medium text-xs px-3 py-2 rounded-lg hover:shadow-lg transition-all duration-300 w-full"
-                  >
-                    <span>📥</span>
-                    <span>{pub.note ? `${pub.note} - ` : ''}{pub.size}</span>
-                  </a>
-                </GlassCard>
-              </motion.div>
-            ))}
-          </div>
+          {publications.length > 0 ? (
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+              {publications.map((pub, index) => (
+                <motion.div
+                  key={pub._id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.05 }}
+                  viewport={{ once: true }}
+                >
+                  <GlassCard className="p-3 h-full hover:shadow-xl transition-all duration-300 group">
+                    <div className="relative mb-2 overflow-hidden rounded-lg">
+                      <Image
+                        src={pub.coverImage ? urlFor(pub.coverImage).width(200).height(280).url() : `https://image.thum.io/get/width/200/crop/280/${pub.link}`}
+                        alt={pub.coverImage?.alt || pub.title}
+                        width={200}
+                        height={280}
+                        className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                    </div>
+                    <h3 className="text-sm font-bold text-gray-900 mb-2 line-clamp-2 min-h-[2.5rem]">{pub.title}</h3>
+                    <a
+                      href={pub.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-1 bg-gradient-to-r from-[#1b5e3f] to-[#237a4f] text-white font-medium text-xs px-3 py-2 rounded-lg hover:shadow-lg transition-all duration-300 w-full"
+                    >
+                      <span>📥</span>
+                      <span>{pub.note ? pub.note : 'Download'}</span>
+                    </a>
+                  </GlassCard>
+                </motion.div>
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-12">
+              <GlassCard className="py-12 px-8 max-w-md mx-auto">
+                <div className="text-5xl mb-4">📚</div>
+                <h3 className="text-xl text-[#1b5e3f] mb-2" style={{ fontFamily: "'Scheherazade New', serif" }}>
+                  InshāAllāh coming soon
+                </h3>
+                <p className="text-gray-600 text-sm">Publications will be available shortly</p>
+              </GlassCard>
+            </div>
+          )}
 
           {/* Audio Section */}
           <div className="mt-16">
@@ -235,62 +270,47 @@ const HajjUmrahPage = () => {
               </div>
             </FadeInUp>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
-              >
-                <GlassCard className="p-6 hover:shadow-xl transition-all duration-300">
-                  <div className="flex items-center gap-4">
-                    <div className="text-4xl">🎧</div>
-                    <div className="flex-1">
-                      <h4 className="font-bold text-gray-900 mb-2">Hajj Guidance Seminar 2023</h4>
-                      <a
-                        href="https://www.idauk.org/audio/hajj-guidance-seminar-22/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-[#1b5e3f] hover:underline font-medium text-sm"
-                      >
-                        <span>▶️</span>
-                        <span>Listen Now</span>
-                      </a>
-                    </div>
-                  </div>
-                </GlassCard>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
-              >
-                <GlassCard className="p-6 hover:shadow-xl transition-all duration-300">
-                  <div className="flex items-center gap-4">
-                    <div className="text-4xl">🎧</div>
-                    <div className="flex-1">
-                      <h4 className="font-bold text-gray-900 mb-2">Hajj Guidance Seminar 2022</h4>
-                      <a
-                        href="https://www.idauk.org/audio/hajj-guidance-seminar-22/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-[#1b5e3f] hover:underline font-medium text-sm"
-                      >
-                        <span>▶️</span>
-                        <span>Listen Now</span>
-                      </a>
-                    </div>
-                  </div>
-                </GlassCard>
-              </motion.div>
-            </div>
+            {audioResources.length > 0 ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                {audioResources.map((audio, index) => (
+                  <motion.div
+                    key={audio._id}
+                    initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6 }}
+                    viewport={{ once: true }}
+                  >
+                    <GlassCard className="p-6 hover:shadow-xl transition-all duration-300">
+                      <div className="flex items-center gap-4">
+                        <div className="text-4xl">🎧</div>
+                        <div className="flex-1">
+                          <h4 className="font-bold text-gray-900 mb-2">{audio.title}</h4>
+                          <a
+                            href={audio.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 text-[#1b5e3f] hover:underline font-medium text-sm"
+                          >
+                            <span>▶️</span>
+                            <span>Listen Now</span>
+                          </a>
+                        </div>
+                      </div>
+                    </GlassCard>
+                  </motion.div>
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-8">
+                <p className="text-gray-500 text-sm">Audio resources coming soon</p>
+              </div>
+            )}
           </div>
 
           <div className="mt-12 text-center space-y-3">
             <p className="text-sm text-gray-600 italic">
-              The above publications are also available to purchase in print format.
+              The above publications are also available to purchase in print format. <br />
+              Please contact us on 07353867127 or email us on info@al-madinah.org.uk for more information.
             </p>
             <p className="text-sm text-gray-500">
               Resources courtesy of <a href="https://www.idauk.org" target="_blank" rel="noopener noreferrer" className="text-[#1b5e3f] hover:underline font-medium">Islāmic Da'wah Academy</a>

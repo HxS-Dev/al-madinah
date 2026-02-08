@@ -1,22 +1,50 @@
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import type { Metadata } from "next";
+import { sanityClient } from '@/app/lib/sanity';
+import { madrasahYearlyPlannerQuery, hifzYearlyPlannerQuery } from '@/app/lib/queries';
 import SubscribeSection from '@/app/components/SubscribeSection';
 import { GlassCard, FloatingCard } from '@/app/components/GlassCard';
 import { FadeInUp, SlideInLeft, SlideInRight, FloatingElement } from '@/app/components/AnimationUtils';
 import { RA, SAW, TAWJ, SWT } from '@/app/components/IslamicLigatures';
 
+interface YearlyPlanner {
+  title: string;
+  url?: string;
+}
+
 const MadrasahPage = () => {
+  const [madrasahPlanner, setMadrasahPlanner] = useState<YearlyPlanner | null>(null);
+  const [hifzPlanner, setHifzPlanner] = useState<YearlyPlanner | null>(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const [madrasah, hifz] = await Promise.all([
+          sanityClient.fetch(madrasahYearlyPlannerQuery),
+          sanityClient.fetch(hifzYearlyPlannerQuery),
+        ]);
+        setMadrasahPlanner(madrasah);
+        setHifzPlanner(hifz);
+      } catch (error) {
+        console.error('Error fetching planner data:', error);
+      }
+    };
+    fetchData();
+  }, []);
+
   const subjects = [
     { icon: "📖", title: "Qur'an Recitation", description: "Proper pronunciation and Tajweed" },
-    { icon: "🤲", title: "Prayer (Salah)", description: (<>Establishing connection with Allah <SWT /></>) },
+    { icon: "🤲", title: "Ṣalāh", description: "Learn how to establish ṣalāh" },
     { icon: "💫", title: "Aqidah", description: "Integral Islamic beliefs" },
-    { icon: "📚", title: "Seerah", description: "Islamic history and prophetic traditions" },
+    { icon: "📚", title: "Sīrah", description: (<>Know your Nabī <SAW /> and Islamic History</>) },
     { icon: "⚖️", title: "Fiqh", description: "Islamic jurisprudence and rulings" },
-    { icon: "🤲", title: "Duas", description: "Verbal forms of worship and supplication" }
+    { icon: "🤲", title: "Duas", description: "Verbal forms of worship and supplication" },
+    { icon: "🤝", title: "Akhlāq", description: "Learn to fulfil the rights of others" },
+    { icon: "🕋", title: "Sūrahs", description: "Learn by heart selected chapters from the Noble Qur'ān" },
+    { icon: "🕌", title: "Practical", description: "5 daily ṣalāh, Janāzah, 'Īd" }
   ];
 
   const plannerLinks = [
@@ -85,7 +113,7 @@ const MadrasahPage = () => {
               <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 h-full flex flex-col justify-center">
                 <div className="text-3xl mb-6">📚</div>
                 <p className="text-lg text-gray-700 leading-relaxed italic mb-4">
-                  "Nabī ﷺ said, 'Whoever treads a path in which he seeks knowledge, Allāh makes the path to Jannah easy for him'"
+                  "Nabī <SAW /> said, 'Whoever treads a path in which he seeks knowledge, Allāh makes the path to Jannah easy for him'"
                 </p>
                 <p className="text-sm text-gray-500">
                   (Muslim)
@@ -104,11 +132,23 @@ const MadrasahPage = () => {
               <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 h-full flex flex-col justify-center">
                 <div className="text-3xl mb-6">🌟</div>
                 <p className="text-lg text-gray-700 leading-relaxed italic mb-4">
-                  "Teaching children the Qur'ān is a fundamental duty from the fundamentals of Islām. As a result, they will grow up with fiṭrah (a pure nature which is not influenced by unnatural factors). Added to that, the anwār (spiritual light) of wisdom will reach their hearts before desires overcome it and it becomes tainted with the stains of sin and deviation."
+                  "Teaching children the Qur'ān is a fundamental duty from the fundamentals of Islām. As a result, they will grow up with fiṭrah (a pure nature which is not influenced by unnatural factors). Added to that, the anwār (spiritual light) of wisdom will reach their hearts before desires overcome it and it becomes tainted with the stains of sin and deviation."<br />
+                  -- Allāmah Suyūṭī rahimahullāh --
                 </p>
               </div>
             </motion.div>
           </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="mt-10 text-center max-w-3xl mx-auto"
+          >
+            <p className="text-lg text-gray-700 leading-relaxed italic">
+              The madrasah is not an insignificant institute. The flame of Īmān (faith) is first kindled in the madrasah. The light of Īmān first permeates the heart of a Muslim child in this environment. It teaches our young children moral values.
+            </p>
+          </motion.div>
         </div>
       </section>
 
@@ -128,7 +168,7 @@ const MadrasahPage = () => {
                   </p>
 
                   <p className='text-base lg:text-lg text-gray-700 mb-8 leading-relaxed'>
-                    To fulfill this vision, we plan to establish an evening Madrasah, operating from <span className="font-bold">4:45pm–7:00pm</span> on weekdays, InshāAllāh. Students will be guided through essential Islamic subjects including Qur'ān recitation with tajwīd, ṣalāh (prayer), Aqīdah (core beliefs), Sīrah and Islamic history, Fiqh (Islamic rulings), and Du'ās (verbal supplications).
+                    To fulfill this vision, we plan to establish an evening Madrasah, operating from <span className="font-bold">4:45pm–7:00pm</span> on weekdays, InshāAllāh. Students will be guided through essential Islamic subjects including Qur'ān recitation with tajwīd, ṣalāh (prayer), Aqīdah (core beliefs), Sīrah and Islamic history, Fiqh (Islamic rulings), and Du'ās (verbal supplications) with a strong emphasis on Tarbiyah (nurturing sound character) and spiritual development.
                   </p>
                   
                   <div className="bg-gradient-to-r from-[#1b5e3f]/5 to-[#237a4f]/5 p-6 rounded-xl mb-8">
@@ -262,29 +302,32 @@ const MadrasahPage = () => {
               <GlassCard className="p-8 text-center hover:shadow-2xl transition-all duration-500 group-hover:scale-105">
                 <div className="text-6xl mb-6">🕌</div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-[#1b5e3f] transition-colors duration-300">
-                  Madrasah Calendar 2025/26
+                  {madrasahPlanner?.title || 'Madrasah Yearly Planner'}
                 </h3>
                 <p className="text-gray-600 mb-6 leading-relaxed">
-                  Complete term dates, holidays, and academic calendar for Madrasah students (1447/48 Hijri)
+                  Complete term dates, holidays, and academic calendar for Madrasah students
                 </p>
-                <motion.a
-                  href="/downloads/Madrasah Yearly Planner 202526.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#1b5e3f] to-[#237a4f] text-white rounded-full font-semibold hover:shadow-xl transition-all duration-300 group"
-                >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3a2 2 0 012-2h4a2 2 0 012 2v4m-6 0h6m-6 0a2 2 0 00-2 2v6a2 2 0 002 2h6a2 2 0 002-2V9a2 2 0 00-2-2m-6 0V7" />
-                  </svg>
-                  Download Calendar
-                  <span className="text-xs opacity-80">PDF</span>
-                </motion.a>
+                {madrasahPlanner?.url ? (
+                  <motion.a
+                    href={madrasahPlanner.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#1b5e3f] to-[#237a4f] text-white rounded-full font-semibold hover:shadow-xl transition-all duration-300 group"
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3a2 2 0 012-2h4a2 2 0 012 2v4m-6 0h6m-6 0a2 2 0 00-2 2v6a2 2 0 002 2h6a2 2 0 002-2V9a2 2 0 00-2-2m-6 0V7" />
+                    </svg>
+                    Download Calendar
+                  </motion.a>
+                ) : (
+                  <p className="text-gray-400 italic text-sm">Coming soon</p>
+                )}
               </GlassCard>
             </motion.div>
 
-            {/* Holiday Notes & Guidelines */}
+            {/* Hifz Yearly Planner */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -293,27 +336,30 @@ const MadrasahPage = () => {
               className="group"
             >
               <GlassCard className="p-8 text-center hover:shadow-2xl transition-all duration-500 group-hover:scale-105">
-                <div className="text-6xl mb-6">📋</div>
+                <div className="text-6xl mb-6">📖</div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-[#1b5e3f] transition-colors duration-300">
-                  Holiday Notes & Guidelines
+                  {hifzPlanner?.title || 'Hifz Yearly Planner'}
                 </h3>
                 <p className="text-gray-600 mb-6 leading-relaxed">
-                  Important attendance policies, leave procedures, and academic guidelines for parents
+                  Comprehensive yearly schedule and calendar for Ḥifẓ students
                 </p>
-                <motion.a
-                  href="/downloads/Holiday Notes & Guidelines.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#1b5e3f] to-[#237a4f] text-white rounded-full font-semibold hover:shadow-xl transition-all duration-300 group"
-                >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                  </svg>
-                  Download Guidelines
-                  <span className="text-xs opacity-80">PDF</span>
-                </motion.a>
+                {hifzPlanner?.url ? (
+                  <motion.a
+                    href={hifzPlanner.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#1b5e3f] to-[#237a4f] text-white rounded-full font-semibold hover:shadow-xl transition-all duration-300 group"
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3a2 2 0 012-2h4a2 2 0 012 2v4m-6 0h6m-6 0a2 2 0 00-2 2v6a2 2 0 002 2h6a2 2 0 002-2V9a2 2 0 00-2-2m-6 0V7" />
+                    </svg>
+                    Download Planner
+                  </motion.a>
+                ) : (
+                  <p className="text-gray-400 italic text-sm">Coming soon</p>
+                )}
               </GlassCard>
             </motion.div>
           </div>
