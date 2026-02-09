@@ -33,7 +33,7 @@ const AdultStudiesPage = () => {
   }, []);
 
   const hasPoster = !!data?.poster;
-  const posterUrl = hasPoster ? urlFor(data.poster).width(570).height(806).url() : '';
+  const posterUrl = hasPoster ? urlFor(data!.poster!).width(570).height(806).url() : '';
   const posterAlt = data?.poster?.alt || 'Adult Islamic Studies at Al-Madinah Institute';
   const courses = [
     {
