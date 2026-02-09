@@ -19,5 +19,5 @@ export const TAWJ = () => ( // Tabaaraka wa-ta‘aala
 );
 
 export const SWT = () => ( // subḥānahū wa-taʿālā
-  <span style={commonStyle}>ﷺ</span>
+  <span style={commonStyle}>{'\uFDFE'}</span>
 );

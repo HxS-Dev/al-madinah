@@ -76,7 +76,7 @@ const FundraisingProgress = () => {
                     ))}
                   </Pie>
                   <Tooltip
-                    formatter={(value: number) => formatAmount(value)}
+                    formatter={(value) => formatAmount(Number(value ?? 0))}
                     contentStyle={{
                       backgroundColor: 'white',
                       border: '1px solid #e5e7eb',

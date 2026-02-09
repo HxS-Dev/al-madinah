@@ -1,4 +1,4 @@
-import {definePlugin} from 'sanity'
+import {definePlugin, useDocumentOperation} from 'sanity'
 
 function slugify(text: string): string {
   return text
@@ -20,7 +20,8 @@ export const autoSlugPlugin = definePlugin({
       return prev.map((action) => {
         if (action.action !== 'publish') return action
 
-        return (props) => {
+        const wrappedAction: typeof action = (props) => {
+          const {patch} = useDocumentOperation(props.id, props.type)
           const originalResult = action(props)
           if (!originalResult) return originalResult
 
@@ -30,8 +31,9 @@ export const autoSlugPlugin = definePlugin({
             ...originalResult,
             onHandle: () => {
               const doc = props.draft || props.published
-              if (doc?.title && (!doc?.slug || !doc?.slug?.current)) {
-                props.patch.execute([
+              const slug = doc?.slug as {current?: string} | undefined
+              if (doc?.title && (!slug || !slug?.current)) {
+                patch.execute([
                   {
                     set: {
                       slug: {
@@ -48,6 +50,8 @@ export const autoSlugPlugin = definePlugin({
             },
           }
         }
+        wrappedAction.action = action.action
+        return wrappedAction
       })
     },
   },
