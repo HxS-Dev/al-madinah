@@ -12,13 +12,6 @@ export const eventsType = defineType({
       type: 'string',
     }),
     defineField({
-      name: 'slug',
-      type: 'slug',
-      options: {
-        source: 'title',
-      },
-    }),
-    defineField({
       name: 'isNew',
       title: 'Is New Events?',
       type: 'boolean',
@@ -31,6 +24,12 @@ export const eventsType = defineType({
       type: 'boolean',
       description: 'Mark this if this is a featured.',
       initialValue: false,
+    }),
+    defineField({
+      name: 'eventDate',
+      title: 'Event Date',
+      type: 'datetime',
+      description: 'The date of the event. Used to determine if the event has passed.',
     }),
     defineField({
       name: 'author',
@@ -68,12 +67,17 @@ export const eventsType = defineType({
   preview: {
     select: {
       title: 'title',
-      author: 'author.name',
+      eventDate: 'eventDate',
       media: 'mainImage',
     },
     prepare(selection) {
-      const {author} = selection
-      return {...selection, subtitle: author && `by ${author}`}
+      const {eventDate} = selection
+      return {
+        ...selection,
+        subtitle: eventDate
+          ? new Date(eventDate).toLocaleDateString('en-GB', {day: 'numeric', month: 'short', year: 'numeric'})
+          : 'No date set',
+      }
     },
   },
 })

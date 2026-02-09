@@ -13,9 +13,9 @@ import { FadeInUp } from '@/app/components/AnimationUtils'
 interface Event {
   _id: string;
   title: string;
-  slug: any;
   isNew: boolean;
   isFeatured?: boolean;
+  eventDate?: string;
   author?: {
     name: string;
   };
@@ -57,8 +57,15 @@ const EventsPage = () => {
     setExpandedEvent(expandedEvent === eventId ? null : eventId);
   };
 
-  const weeklyProgrammes = allEvents.filter(event => event.isNew);
-  const pastProgrammes = allEvents.filter(event => !event.isNew);
+  const now = new Date();
+  const weeklyProgrammes = allEvents.filter(event => {
+    if (event.eventDate) return new Date(event.eventDate) >= now;
+    return event.isNew;
+  });
+  const pastProgrammes = allEvents.filter(event => {
+    if (event.eventDate) return new Date(event.eventDate) < now;
+    return !event.isNew;
+  });
 
   if (loading) {
     return (
@@ -368,10 +375,10 @@ const EventsPage = () => {
                                 </div>
                               </div>
 
-                              {event.publishedAt && (
+                              {(event.eventDate || event.publishedAt) && (
                                 <div className="mt-4 pt-4 border-t border-gray-100">
                                   <p className="text-sm text-gray-500">
-                                    Date: {new Date(event.publishedAt).toLocaleDateString('en-GB', {
+                                    Event Date: {new Date(event.eventDate || event.publishedAt).toLocaleDateString('en-GB', {
                                       year: 'numeric',
                                       month: 'long',
                                       day: 'numeric'

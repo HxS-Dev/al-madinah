@@ -309,11 +309,7 @@ and expand our reach.
           >
             <h3 className="text-2xl font-bold text-gray-900 mb-6">Our Du'ā</h3>
             <p className='text-lg text-gray-700 leading-relaxed italic'>
-              "We hope and pray that, with the Grace and
-assistance of Allāh <SWT />, we can continue to
-sow the seeds of His Love—nurturing
-future generations who will be a source of
-goodness for us all."
+              "We hope and pray that we can, with the fadhl (grace) and assistance of Allāh Ta'ala continue to help sow the seeds; creating future generations which will be fruitful for us all."
             </p>
           </motion.div>
         </div>

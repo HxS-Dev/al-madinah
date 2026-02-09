@@ -12,12 +12,6 @@ const AboutAims = () => {
 
   const aims = [
     {
-      icon: "💖",
-      title: "Charitable Giving & Volunteerism",
-      description: "To encourage charitable giving and volunteerism, making a positive impact on the lives of those in need.",
-      gradient: "from-pink-500 to-rose-600"
-    },
-    {
       icon: "📚",
       title: "Educational Foundation",
       description: "The Institute began with a small Ḥifẓ class of 10 students, held in the home of a well-wisher. While this marked a valuable start, it naturally limited the range of services and activities the Institute could offer.",

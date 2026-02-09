@@ -1,7 +1,6 @@
 export const salatTimetableQuery =`*[_type == "salatTimetable"] | order(publishedAt desc){
   _id,
   title,
-  slug,
   mainImage,
   publishedAt,
   body
@@ -10,7 +9,6 @@ export const salatTimetableQuery =`*[_type == "salatTimetable"] | order(publishe
 export const donationQuery = `*[_type == "donation"]{
   _id,
   title,
-  slug,
   description,
   amountCollected,
   targetAmount,
@@ -33,18 +31,12 @@ export const allArticleQuery = `*[_type == "article"] | order(publishedAt desc){
   slug,
   description,
   isFeatured,
-  author->{
-    name
-  },
   mainImage{
     asset->{
       _id,
       url
     },
     alt
-  },
-  categories[]->{
-    title
   },
   publishedAt,
   body
@@ -58,7 +50,6 @@ export const allArticleSlugsQuery = `*[_type == "article" && defined(slug.curren
 export const allScheduleQuery = `*[_type == "post"] | order(publishedAt desc){
   _id,
   title,
-  slug,
   isNewSchedule,
   programmeDate,
   programmeStartTime,
@@ -83,9 +74,9 @@ export const allScheduleQuery = `*[_type == "post"] | order(publishedAt desc){
 export const allEventsQuery = `*[_type == "events"] | order(publishedAt desc){
   _id,
   title,
-  slug,
   isNew,
   isFeatured,
+  eventDate,
   author->{
     name
   },
@@ -172,15 +163,32 @@ export const hifzYearlyPlannerQuery = `*[_type == "yearlyPlanner" && _id == "hif
   url
 }`;
 
+export const islamicLiteratureQuery = `*[_type == "islamicLiterature"] | order(category->order asc, order asc){
+  _id,
+  title,
+  category->{
+    _id,
+    title,
+    order
+  },
+  coverImage{
+    asset->{
+      _id,
+      url
+    },
+    alt
+  },
+  link,
+  note,
+  order
+}`;
+
 export const singleArticleQuery = `*[_type == "article" && slug.current == $slug][0]{
   _id,
   title,
   slug,
   description,
   isFeatured,
-  author->{
-    name
-  },
   mainImage{
     asset->{
       _id,
@@ -188,10 +196,6 @@ export const singleArticleQuery = `*[_type == "article" && slug.current == $slug
     },
     alt
   },
-  categories[]->{
-    title
-  },
   publishedAt,
   body
 }`;
-

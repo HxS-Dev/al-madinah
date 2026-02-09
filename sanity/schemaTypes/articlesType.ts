@@ -1,5 +1,5 @@
 import {DocumentTextIcon} from '@sanity/icons'
-import {defineArrayMember, defineField, defineType} from 'sanity'
+import {defineField, defineType} from 'sanity'
 
 export const articlesType = defineType({
   name: 'article',
@@ -17,6 +17,7 @@ export const articlesType = defineType({
       options: {
         source: 'title',
       },
+      hidden: true,
     }),
     defineField({
       name: 'description',
@@ -28,11 +29,6 @@ export const articlesType = defineType({
       type: 'boolean',
       description: 'Mark this if this is a featured.',
       initialValue: false,
-    }),
-    defineField({
-      name: 'author',
-      type: 'reference',
-      to: {type: 'articleAuthor'},
     }),
     defineField({
       name: 'mainImage',
@@ -49,11 +45,6 @@ export const articlesType = defineType({
       ]
     }),
     defineField({
-      name: 'categories',
-      type: 'array',
-      of: [defineArrayMember({type: 'reference', to: {type: 'articleCategory'}})],
-    }),
-    defineField({
       name: 'publishedAt',
       type: 'datetime',
     }),
@@ -65,12 +56,7 @@ export const articlesType = defineType({
   preview: {
     select: {
       title: 'title',
-      author: 'articleAuthor.name',
       media: 'mainImage',
-    },
-    prepare(selection) {
-      const {author} = selection
-      return {...selection, subtitle: author && `by ${author}`}
     },
   },
 })

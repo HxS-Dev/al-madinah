@@ -1,28 +1,92 @@
 import type {StructureResolver} from 'sanity/structure'
 
 const singletons = ['hifz', 'adultStudies', 'madrasahYearlyPlanner', 'hifzYearlyPlanner']
-const hiddenTypes = ['category', 'author', 'blockContent', ...singletons]
+const hiddenTypes = ['category', 'author', 'blockContent', 'yearlyPlanner', 'islamicLiteratureCategory', ...singletons]
 
 export const structure: StructureResolver = (S) =>
   S.list()
     .title('Content')
     .items([
-      // --- Services ---
+      // --- About ---
+      S.listItem()
+        .title('About')
+        .id('about')
+        .child(
+          S.list()
+            .title('About')
+            .items([]),
+        ),
+
+      // --- Appeal ---
+      S.listItem()
+        .title('Appeal')
+        .id('appeal')
+        .child(
+          S.list()
+            .title('Appeal')
+            .items([
+              S.documentTypeListItem('donation').title('Donations'),
+            ]),
+        ),
+
+      // --- Events ---
+      S.listItem()
+        .title('Events')
+        .id('events-folder')
+        .child(
+          S.list()
+            .title('Events')
+            .items([
+              S.documentTypeListItem('events').title('Events'),
+            ]),
+        ),
+
+      // --- Services (matches website Services dropdown) ---
       S.listItem()
         .title('Services')
         .child(
           S.list()
             .title('Services')
             .items([
+              // Madrasah Al-Madinah
               S.listItem()
-                .title('Hifz')
-                .id('hifz')
+                .title('Madrasah')
                 .child(
-                  S.document()
-                    .schemaType('hifz')
-                    .documentId('hifz')
-                    .title('Hifz'),
+                  S.list()
+                    .title('Madrasah')
+                    .items([
+                      S.listItem()
+                        .title('Madrasah Yearly Planner')
+                        .id('madrasahYearlyPlanner')
+                        .child(
+                          S.document()
+                            .schemaType('yearlyPlanner')
+                            .documentId('madrasahYearlyPlanner')
+                            .title('Madrasah Yearly Planner'),
+                        ),
+                      S.listItem()
+                        .title('Hifz Yearly Planner')
+                        .id('hifzYearlyPlanner')
+                        .child(
+                          S.document()
+                            .schemaType('yearlyPlanner')
+                            .documentId('hifzYearlyPlanner')
+                            .title('Hifz Yearly Planner'),
+                        ),
+                    ]),
                 ),
+              // Hajj & Umrah
+              S.listItem()
+                .title('Hajj & Umrah')
+                .child(
+                  S.list()
+                    .title('Hajj & Umrah')
+                    .items([
+                      S.documentTypeListItem('hajjPublication').title('Publications'),
+                      S.documentTypeListItem('hajjAudio').title('Audio Resources'),
+                    ]),
+                ),
+              // Adult Islamic Studies
               S.listItem()
                 .title('Adult Islamic Studies')
                 .id('adultStudies')
@@ -32,96 +96,53 @@ export const structure: StructureResolver = (S) =>
                     .documentId('adultStudies')
                     .title('Adult Islamic Studies'),
                 ),
+              // Hifz
+              S.listItem()
+                .title('Hifz')
+                .id('hifz')
+                .child(
+                  S.document()
+                    .schemaType('hifz')
+                    .documentId('hifz')
+                    .title('Hifz'),
+                ),
+              // Islamic Literature
+              S.listItem()
+                .title('Islamic Literature')
+                .child(
+                  S.list()
+                    .title('Islamic Literature')
+                    .items([
+                      S.documentTypeListItem('islamicLiterature').title('Publications'),
+                      S.documentTypeListItem('islamicLiteratureCategory').title('Categories'),
+                    ]),
+                ),
+              // Articles
+              S.documentTypeListItem('article').title('Articles'),
             ]),
         ),
 
-      // --- Yearly Planners ---
+      // --- Schedule ---
       S.listItem()
-        .title('Yearly Planners')
+        .title('Schedule')
+        .id('schedule-folder')
         .child(
           S.list()
-            .title('Yearly Planners')
-            .items([
-              S.listItem()
-                .title('Madrasah Yearly Planner')
-                .id('madrasahYearlyPlanner')
-                .child(
-                  S.document()
-                    .schemaType('yearlyPlanner')
-                    .documentId('madrasahYearlyPlanner')
-                    .title('Madrasah Yearly Planner'),
-                ),
-              S.listItem()
-                .title('Hifz Yearly Planner')
-                .id('hifzYearlyPlanner')
-                .child(
-                  S.document()
-                    .schemaType('yearlyPlanner')
-                    .documentId('hifzYearlyPlanner')
-                    .title('Hifz Yearly Planner'),
-                ),
-            ]),
-        ),
-
-      S.divider(),
-
-      // --- Programmes & Events ---
-      S.listItem()
-        .title('Programmes & Events')
-        .child(
-          S.list()
-            .title('Programmes & Events')
+            .title('Schedule')
             .items([
               S.documentTypeListItem('programme').title('Programmes'),
-              S.documentTypeListItem('events').title('Events'),
+              S.documentTypeListItem('salatTimetable').title('Salat Timetable'),
               S.documentTypeListItem('post').title('Programme Schedule (Legacy)'),
             ]),
         ),
 
-      // --- Articles ---
+      // --- Contact ---
       S.listItem()
-        .title('Articles')
+        .title('Contact')
+        .id('contact')
         .child(
           S.list()
-            .title('Articles')
-            .items([
-              S.documentTypeListItem('article').title('Articles'),
-              S.documentTypeListItem('articleAuthor').title('Authors'),
-              S.documentTypeListItem('articleCategory').title('Categories'),
-            ]),
-        ),
-
-      S.divider(),
-
-      // --- Hajj & Umrah ---
-      S.listItem()
-        .title('Hajj & Umrah')
-        .child(
-          S.list()
-            .title('Hajj & Umrah')
-            .items([
-              S.documentTypeListItem('hajjPublication').title('Publications'),
-              S.documentTypeListItem('hajjAudio').title('Audio Resources'),
-            ]),
-        ),
-
-      S.divider(),
-
-      // --- Masjid ---
-      S.documentTypeListItem('salatTimetable').title('Salat Timetable'),
-      S.documentTypeListItem('donation').title('Donations'),
-
-      S.divider(),
-
-      // --- Settings ---
-      S.listItem()
-        .title('Settings')
-        .child(
-          S.list()
-            .title('Settings')
-            .items([
-              S.documentTypeListItem('author').title('Authors'),
-              S.documentTypeListItem('category').title('Categories'),
-            ]),
+            .title('Contact')
+            .items([]),
         ),
     ])

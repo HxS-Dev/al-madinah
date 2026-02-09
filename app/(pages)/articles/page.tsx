@@ -63,17 +63,7 @@ const Articles =  async () => {
                   )}
                 </div>
                 <div className="py-4">
-                  <div className="w-full flex items-center justify-between">
-                    <span className="text-gray-1000 text-sm underline">
-                      {Array.isArray(article?.categories)
-                        ? article.categories.map((cat: any, idx: number) => (
-                            <span key={cat.title || idx}>
-                              {cat.title}
-                              {idx < article.categories.length - 1 ? ", " : ""}
-                            </span>
-                          ))
-                        : ""}
-                    </span>
+                  <div className="w-full">
                     <p className="text-sm text-gray-1000">
                       {article.publishedAt
                         ? new Date(article.publishedAt).toLocaleDateString('en-US', {

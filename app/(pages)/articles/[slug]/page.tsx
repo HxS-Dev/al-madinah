@@ -46,28 +46,15 @@ const ArticleDetailPage = async ({ params }: Props) => {
             </div>
           )}
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-4 font-poppins">{article.title}</h1>
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mb-6 text-gray-700 text-sm">
-            {article.author?.name && <span>By {article.author.name}</span>}
-            {article.publishedAt && (
-              <span>
-                {new Date(article.publishedAt).toLocaleDateString('en-US', {
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric',
-                })}
-              </span>
-            )}
-            {Array.isArray(article.categories) && article.categories.length > 0 && (
-              <span>
-                Categories: {article.categories.map((cat: any, idx: number) => (
-                  <span key={cat.title || idx}>
-                    {cat.title}
-                    {idx < article.categories.length - 1 ? ', ' : ''}
-                  </span>
-                ))}
-              </span>
-            )}
-          </div>
+          {article.publishedAt && (
+            <p className="mb-6 text-gray-700 text-sm">
+              {new Date(article.publishedAt).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+              })}
+            </p>
+          )}
           {article.description && (
             <p className="text-[15px] leading-loose text-gray-1000 mb-10 sm:mb-14">{article.description}</p>
           )}

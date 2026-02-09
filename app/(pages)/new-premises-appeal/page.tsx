@@ -1,6 +1,8 @@
 'use client';
+import { SAW } from '@/app/components/IslamicLigatures';
 import SubscribeSection from '@/app/components/SubscribeSection';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import Link from 'next/link';
 
 const NewPremisesAppeal = () => {
@@ -18,7 +20,7 @@ const NewPremisesAppeal = () => {
     {
       icon: "👥",
       title: "Community Hall",
-      description: "A multipurpose space for community events, lectures, and social gatherings"
+      description: "A multipurpose space catering for the current and future needs of the community"
     },
     {
       icon: "🏠",
@@ -30,23 +32,23 @@ const NewPremisesAppeal = () => {
   const impactGoals = [
     {
       icon: "📖",
-      title: "Expand Ḥifẓ Programme",
-      description: "Increase capacity from 10 to 100+ students with dedicated memorization halls"
+      title: "Islamic Education & Development",
+      description: "To educate Muslims from all walks of life, especially young Muslims, in all aspects of its spiritual and religious development"
     },
     {
       icon: "👨‍👩‍👧‍👦",
-      title: "Family Services",
-      description: "Provide comprehensive Islamic education for all family members"
+      title: "Community & Social Welfare",
+      description: "To support the Muslim community, and by doing so the wider community, by promoting good morals and conduct and addressing areas of social behaviour"
     },
     {
       icon: "🌟",
-      title: "Youth Development",
-      description: "Create safe spaces for young Muslims to learn and grow in their faith"
+      title: "Dawah & Islamic Awareness",
+      description: "To facilitate a greater awareness and understanding of Islam"
     },
     {
       icon: "🤝",
-      title: "Community Integration",
-      description: "Bridge cultural gaps and promote understanding within the wider community"
+      title: "Preserving Islam for Future Generations",
+      description: "To assist present and future generations of Muslims to preserve and perfect Islam in their lives"
     }
   ];
 
@@ -123,9 +125,13 @@ const NewPremisesAppeal = () => {
                 <p className='text-lg text-gray-700 leading-relaxed mb-6'>
                   Crawley is a town and borough in West Sussex, England. It is <span className="font-semibold text-[#1b5e3f]">28 miles south of London</span>, <span className="font-semibold text-[#1b5e3f]">18 miles north of Brighton</span> and has a population of <span className="font-semibold text-[#1b5e3f]">118,493</span> at the time of the 2021 Census.
                 </p>
-                <p className='text-lg text-gray-700 leading-relaxed'>
+                <p className='text-lg text-gray-700 leading-relaxed mb-8'>
                   Southern parts of the borough lie immediately next to the High Weald National Landscape. From 1974 it is home to <span className="font-semibold text-[#1b5e3f]">Gatwick Airport</span>, Britain's 2nd busiest International Airport and in 2024, the 10th largest in Europe.
                 </p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
+                  <Image src="/images/crawley-1.png" alt="Crawley" width={600} height={400} className="rounded-xl w-full h-auto" />
+                  <Image src="/images/crawley-2.png" alt="Crawley" width={600} height={400} className="rounded-xl w-full h-auto" />
+                </div>
               </div>
             </motion.div>
           </div>
@@ -278,7 +284,7 @@ const NewPremisesAppeal = () => {
               Our <span className="text-[#1b5e3f]">Vision</span> & Impact
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              With your support, we can transform our community's Islamic education and worship experience
+              With your du'as and support, we can expand our prayer and educational facilities
             </p>
           </motion.div>
 
@@ -320,33 +326,11 @@ const NewPremisesAppeal = () => {
               How You Can <span className="text-[#1b5e3f]">Help</span>
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Every contribution, no matter the size, brings us closer to our goal
+              We hope all brothers and sisters will support their Institute through their du‘ās and generous donations
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="text-center"
-            >
-              <div className="bg-white rounded-2xl p-8 shadow-lg mb-6">
-                <div className="text-5xl mb-6">💰</div>
-                <h3 className="text-2xl font-bold text-[#1b5e3f] mb-4">Financial Donation</h3>
-                <p className="text-gray-600 leading-relaxed mb-6">
-                  Direct monetary contributions to help us secure and set up our new premises
-                </p>
-                <Link
-                  href="/donate"
-                  className="inline-block px-6 py-3 bg-gradient-to-r from-[#1b5e3f] to-[#237a4f] text-white rounded-full font-semibold hover:shadow-lg transition-all duration-300"
-                >
-                  Donate Now
-                </Link>
-              </div>
-            </motion.div>
-
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -365,6 +349,28 @@ const NewPremisesAppeal = () => {
                   className="inline-block px-6 py-3 border-2 border-[#1b5e3f] text-[#1b5e3f] rounded-full font-semibold hover:bg-[#1b5e3f] hover:text-white transition-all duration-300"
                 >
                   Get in Touch
+                </Link>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="text-center"
+            >
+              <div className="bg-white rounded-2xl p-8 shadow-lg mb-6">
+                <div className="text-5xl mb-6">💰</div>
+                <h3 className="text-2xl font-bold text-[#1b5e3f] mb-4">Financial Donation</h3>
+                <p className="text-gray-600 leading-relaxed mb-6">
+                  Direct monetary contributions to help us secure and set up our new premises
+                </p>
+                <Link
+                  href="/donate"
+                  className="inline-block px-6 py-3 bg-gradient-to-r from-[#1b5e3f] to-[#237a4f] text-white rounded-full font-semibold hover:shadow-lg transition-all duration-300"
+                >
+                  Donate Now
                 </Link>
               </div>
             </motion.div>
@@ -398,8 +404,7 @@ const NewPremisesAppeal = () => {
           >
             <h3 className="text-2xl font-bold text-gray-900 mb-6">May Allāh Accept Our Efforts</h3>
             <p className='text-lg text-gray-700 leading-relaxed italic'>
-              "And whoever builds a mosque for Allāh, Allāh will build for him a house in Paradise."
-              <span className="block mt-2 text-[#1b5e3f] font-semibold">- Prophet Muhammad ﷺ</span>
+              Sayyiduna 'Uthman radhiyallahu 'anhu narrates that Nabi <SAW /> said, 'Whoever builds a masjid for the pleasure of Allāh, Allāh will build for him a house in Paradise.' <br />(Bukhari & Muslim)
             </p>
           </motion.div>
         </div>

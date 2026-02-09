@@ -12,13 +12,6 @@ export const scheduleType = defineType({
       type: 'string',
     }),
     defineField({
-      name: 'slug',
-      type: 'slug',
-      options: {
-        source: 'title',
-      },
-    }),
-    defineField({
       name: 'isNewSchedule',
       title: 'Is New Schedule?',
       type: 'boolean',
