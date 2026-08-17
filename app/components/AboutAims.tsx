@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react';
+import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import { motion } from 'framer-motion';
@@ -12,28 +13,28 @@ const AboutAims = () => {
 
   const aims = [
     {
-      icon: "📚",
+      image: "/images/aim-education.jpeg",
       title: "Educational Foundation",
       description: "The Institute began with a small Ḥifẓ class of 10 students, held in the home of a well-wisher. While this marked a valuable start, it naturally limited the range of services and activities the Institute could offer.",
-      gradient: "from-blue-500 to-indigo-600"
+      gradient: "from-blue-600/50 to-indigo-800/55"
     },
     {
-      icon: "🏢",
+      image: "/images/aim-growth.jpg",
       title: "Growth & Expansion",
       description: "To support the growth of our programmes and provide dedicated salāh and educational facilities, the Institute has been actively seeking a suitable premises to further its objectives.",
-      gradient: "from-emerald-500 to-teal-600"
+      gradient: "from-emerald-600/50 to-teal-800/55"
     },
     {
-      icon: "👥",
+      image: "/images/aim-community.jpg",
       title: "Community Development",
       description: "Our aim is to educate people from all walks of life—particularly young Muslims—in all areas of religious, spiritual, and personal development. Our goal is to support the wider community by promoting good character and addressing modern-day challenges such as anti-social behaviour, substance abuse, family breakdown, and the misuse of the internet and social media.",
-      gradient: "from-purple-500 to-violet-600"
+      gradient: "from-purple-700/50 to-violet-900/55"
     },
     {
-      icon: "🕌",
+      image: "/images/aim-islamic.jpeg",
       title: "Islamic Knowledge & Values",
       description: "Al-Madinah Institute will serve the community as a welcoming space for worship, devotion, and the pursuit of Islāmic knowledge. We are committed to correcting misunderstandings and misrepresentations of Islām, while striving to preserve and strengthen Islamic values in the lives of current and future generations.",
-      gradient: "from-[#1b5e3f] to-[#237a4f]"
+      gradient: "from-[#1b5e3f]/55 to-[#0f3a26]/60"
     }
   ];
 
@@ -92,12 +93,24 @@ const AboutAims = () => {
       >
         {aims.map((aim, index) => (
           <SwiperSlide key={index}>
-            <motion.div 
-              className={`relative w-full h-full bg-gradient-to-br ${aim.gradient} flex items-center justify-center overflow-hidden`}
+            <motion.div
+              className="relative w-full h-full flex items-center justify-center overflow-hidden"
               initial={{ scale: 1.1 }}
               animate={{ scale: 1 }}
               transition={{ duration: 0.8 }}
             >
+              {/* Background Image */}
+              <Image
+                src={aim.image}
+                alt={aim.title}
+                fill
+                priority={index === 0}
+                sizes="100vw"
+                className="object-cover"
+              />
+              {/* Gradient Overlay for readability */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${aim.gradient}`}></div>
+
               {/* Background Pattern */}
               <div className="absolute inset-0 opacity-10">
                 <div className="absolute top-10 left-10 w-32 h-32 border-2 border-white rounded-full"></div>
@@ -107,16 +120,6 @@ const AboutAims = () => {
               </div>
 
               <div className="relative z-10 w-full max-w-4xl mx-auto px-8 lg:px-16 text-center">
-                {/* Icon */}
-                <motion.div 
-                  className={`text-6xl lg:text-7xl mb-6 ${getAnimateClass(index)}`}
-                  initial={{ scale: 0, rotate: -180 }}
-                  animate={{ scale: 1, rotate: 0 }}
-                  transition={{ duration: 0.8, delay: 0.3 }}
-                >
-                  {aim.icon}
-                </motion.div>
-
                 {/* Title */}
                 <motion.h2 
                   className={`text-3xl lg:text-5xl font-bold mb-8 leading-tight ${getAnimateClass(index)}`}

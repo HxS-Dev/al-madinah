@@ -64,7 +64,7 @@ const AdultStudiesPage = () => {
 
   const keyPoints = [
     { icon: "📅", title: "Weekly Schedule", detail: "Timings to be confirmed - Look out for the Posters." },
-    { icon: "👨‍🏫", title: "Qualified Teachers", detail: "Experienced ‘Ulamā - All our courses are taught by qualified ‘Ulamā with teaching experience" },
+    { icon: "🏫", title: "Qualified Teachers", detail: "Experienced ‘Ulamā - All our courses are taught by qualified ‘Ulamā with teaching experience" },
     { icon: "🌍", title: "English Language", detail: "All our courses are taught in English to accommodate all parts of society" },
     { icon: "📞", title: "Contact", detail: "To enrol, for further information or a friendly chat contact us on 07353868127 or info@al-madinah.org.uk" }
   ];
@@ -120,7 +120,7 @@ const AdultStudiesPage = () => {
             {/* Content Column */}
             <SlideInLeft>
               <GlassCard className="p-8 lg:p-10">
-                <div className="text-6xl mb-6 text-center">👨‍🎓</div>
+                <div className="text-6xl mb-6 text-center">🎓</div>
                 
                 {/* Hadith Quote */}
                 <div className="bg-gradient-to-r from-[#1b5e3f]/10 to-[#237a4f]/10 p-6 rounded-xl mb-8">

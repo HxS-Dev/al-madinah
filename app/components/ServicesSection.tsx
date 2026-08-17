@@ -25,7 +25,7 @@ const ServicesSection = ({ showTitle = true, isHomepage = false, className = '' 
       id: 'madrasah',
       title: 'Madrasah Al-Madinah',
       description: "Learn the basics of your Din in an enjoyable environment. Emphasis on Ta’leem (authentic education) with Tarbiyah (spiritual and moral nurturing).",
-      image: '/images/dummy_5.png',
+      image: '/images/service-madrasah.jpeg',
       link: '/madrasah-al-madinah',
       icon: '🕌',
       gradient: 'from-[#1b5e3f] to-[#237a4f]'
@@ -34,7 +34,7 @@ const ServicesSection = ({ showTitle = true, isHomepage = false, className = '' 
       id: 'hifz',
       title: 'Ḥifẓ Classes',
       description: 'Join our comprehensive Ḥifẓ Programme for students aged 10+ with emphasis on Tajweed (Correct intonation and phonetics) and Tarbiyah.',
-      image: '/images/dummy_4.png',
+      image: '/images/service-hifz.jpg',
       link: '/hifz',
       icon: '📖',
       gradient: 'from-emerald-500 to-teal-600'
@@ -43,7 +43,7 @@ const ServicesSection = ({ showTitle = true, isHomepage = false, className = '' 
       id: 'adult-classes',
       title: 'Adult Islamic Classes',
       description: 'Structured courses for adults who are keen to enhance their basic Islamic knowledge. Taught by qualified ‘Ulamā.',
-      image: '/images/dummy_6.png',
+      image: '/images/service-adult-classes.jpg',
       link: '/adult-islamic-studies',
       icon: '👨‍🏫',
       gradient: 'from-blue-500 to-indigo-600'
@@ -52,7 +52,7 @@ const ServicesSection = ({ showTitle = true, isHomepage = false, className = '' 
       id: 'hajj-umrah',
       title: 'Hajj & Umrah',
       description: 'Comprehensive set by step guidance for ‘Umrah & Ḥajj journeys delivered by experienced qualified ‘Ulamā.',
-      image: '/images/dummy_7.png',
+      image: '/images/service-hajj.jpg',
       link: '/hajj-umrah',
       icon: '🕋',
       gradient: 'from-purple-500 to-violet-600'

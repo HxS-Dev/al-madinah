@@ -37,12 +37,12 @@ const MadrasahPage = () => {
 
   const subjects = [
     { icon: "📖", title: "Qur'an Recitation", description: "Proper pronunciation and Tajweed" },
-    { icon: "🤲", title: "Ṣalāh", description: "Learn how to establish ṣalāh" },
+    { icon: "/images/icon-salah.png", title: "Ṣalāh", description: "Learn how to establish ṣalāh" },
     { icon: "💫", title: "Aqidah", description: "Integral Islamic beliefs" },
     { icon: "📚", title: "Sīrah", description: (<>Know your Nabī <SAW /> and Islamic History</>) },
     { icon: "⚖️", title: "Fiqh", description: "Islamic jurisprudence and rulings" },
-    { icon: "🤲", title: "Duas", description: "Verbal forms of worship and supplication" },
-    { icon: "🤝", title: "Akhlāq", description: "Learn to fulfil the rights of others" },
+    { icon: "📿", title: "Duas", description: "Verbal forms of worship and supplication" },
+    { icon: "💎", title: "Akhlāq", description: "Learn to fulfil the rights of others" },
     { icon: "🕋", title: "Sūrahs", description: "Learn by heart selected chapters from the Noble Qur'ān" },
     { icon: "🕌", title: "Practical", description: "5 daily ṣalāh, Janāzah, 'Īd" }
   ];
@@ -189,8 +189,8 @@ const MadrasahPage = () => {
             {/* Image Column */}
             <SlideInRight delay={0.2}>
                 <div className="relative overflow-hidden rounded-2xl shadow-2xl sticky top-8 mt-18">
-                  <Image 
-                    src={"/images/ihsaan-academy-premises-2.jpg"} 
+                  <Image
+                    src={"/images/madrasah-rihals.jpg"}
                     alt='Madrasah Al-Madinah at Al-Madinah Institute'
                     className='transform hover:scale-105 transition-transform duration-700 w-full h-auto'
                     width={570}
@@ -231,7 +231,19 @@ const MadrasahPage = () => {
                 className="group"
               >
                 <GlassCard className="p-6 h-full hover:shadow-2xl transition-all duration-500 text-center group-hover:scale-105">
-                  <div className="text-4xl mb-4">{subject.icon}</div>
+                  <div className="mb-4 flex justify-center items-center h-12">
+                    {typeof subject.icon === 'string' && subject.icon.startsWith('/') ? (
+                      <Image
+                        src={subject.icon}
+                        alt={subject.title}
+                        width={48}
+                        height={48}
+                        className="h-12 w-auto object-contain"
+                      />
+                    ) : (
+                      <span className="text-4xl leading-none">{subject.icon}</span>
+                    )}
+                  </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#1b5e3f] transition-colors duration-300">
                     {subject.title}
                   </h3>

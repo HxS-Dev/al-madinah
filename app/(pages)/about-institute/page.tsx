@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 import SubscribeSection from '@/app/components/SubscribeSection';
 import AboutAims from '../../components/AboutAims';
 import { motion } from 'framer-motion';
@@ -31,22 +32,22 @@ const AboutAia = () => {
 
   const supportWays = [
     {
-      icon: "🤲",
+      image: "/images/support-dua.jpg",
       title: "Make Du'ā",
       description: "Continuously pray for the acceptance and success of our mission"
     },
     {
-      icon: "💝",
+      image: "/images/support-donate.jpg",
       title: "Donate Generously",
       description: "Support our programmes through online or in-person donations"
     },
     {
-      icon: "📖",
+      image: "/images/support-literature.jpg",
       title: "Distribute Literature",
       description: "Help spread our quarterly journals and authentic Islamic literature"
     },
     {
-      icon: "📢",
+      image: "/images/support-awareness.jpg",
       title: "Spread Awareness",
       description: "Inform friends and family about our programmes and activities"
     }
@@ -289,12 +290,21 @@ and expand our reach.
                 viewport={{ once: true }}
                 className="group"
               >
-                <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-[#1b5e3f]/20 text-center h-full">
-                  <div className="text-4xl mb-6 group-hover:scale-110 transition-transform duration-300">
-                    {way.icon}
+                <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-[#1b5e3f]/20 text-center h-full overflow-hidden flex flex-col">
+                  <div className="relative w-full h-48 overflow-hidden">
+                    <Image
+                      src={way.image}
+                      alt={way.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
                   </div>
-                  <h3 className="text-xl font-bold text-[#1b5e3f] mb-4">{way.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{way.description}</p>
+                  <div className="p-6 flex-grow flex flex-col">
+                    <h3 className="text-xl font-bold text-[#1b5e3f] mb-3">{way.title}</h3>
+                    <p className="text-gray-600 leading-relaxed">{way.description}</p>
+                  </div>
                 </div>
               </motion.div>
             ))}

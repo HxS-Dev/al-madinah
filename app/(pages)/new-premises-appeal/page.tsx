@@ -18,9 +18,9 @@ const NewPremisesAppeal = () => {
       description: "Classrooms and learning spaces to expand our Islamic education programmes"
     },
     {
-      icon: "👥",
-      title: "Community Hall",
-      description: "A multipurpose space catering for the current and future needs of the community"
+      icon: "📖",
+      title: "Islamic Literature",
+      description: "Authentic accessible literature for every occasion and season."
     },
     {
       icon: "🏠",
@@ -36,7 +36,7 @@ const NewPremisesAppeal = () => {
       description: "To educate Muslims from all walks of life, especially young Muslims, in all aspects of its spiritual and religious development"
     },
     {
-      icon: "👨‍👩‍👧‍👦",
+      icon: "🏘️",
       title: "Community & Social Welfare",
       description: "To support the Muslim community, and by doing so the wider community, by promoting good morals and conduct and addressing areas of social behaviour"
     },
@@ -46,7 +46,7 @@ const NewPremisesAppeal = () => {
       description: "To facilitate a greater awareness and understanding of Islam"
     },
     {
-      icon: "🤝",
+      icon: "🌱",
       title: "Preserving Islam for Future Generations",
       description: "To assist present and future generations of Muslims to preserve and perfect Islam in their lives"
     }

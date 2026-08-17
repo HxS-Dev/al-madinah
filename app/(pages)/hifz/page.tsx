@@ -36,7 +36,7 @@ const HifzPage = () => {
 
   const plannerTitle = hifzData?.plannerTitle || 'Ḥifẓ Planner 2025/26';
   const plannerDescription = hifzData?.plannerDescription || 'Comprehensive memorization schedule and progress tracking for Ḥifẓ students (1447/48 Hijri)';
-  const plannerFileUrl = hifzData?.plannerFileUrl;
+  const plannerFileUrl = hifzData?.plannerFileUrl || '/downloads/Madrasah Yearly Planner 202526.pdf';
   const applicationFormTitle = hifzData?.applicationFormTitle || 'Application Form';
   const applicationFormDescription = hifzData?.applicationFormDescription || 'Complete our application form to register for the Ḥifẓ Programme';
   const applicationFormFileUrl = hifzData?.applicationFormFileUrl;
@@ -140,7 +140,8 @@ const HifzPage = () => {
 
             {/* Image Column */}
             <SlideInRight delay={0.2}>
-                <div className="relative overflow-hidden rounded-2xl shadow-2xl sticky mt-18">
+              <div className="sticky mt-18 space-y-6">
+                <div className="relative overflow-hidden rounded-2xl shadow-2xl">
                   <Image
                     src={"/images/hifz.jpg"}
                     alt='Ḥifẓ Programme at Al-Madinah Institute'
@@ -150,6 +151,17 @@ const HifzPage = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#1b5e3f]/20 to-transparent pointer-events-none" />
                 </div>
+                <div className="relative overflow-hidden rounded-2xl shadow-2xl">
+                  <Image
+                    src={"/images/surah-fatihah.jpg"}
+                    alt='Sūrah al-Fātiḥah — illuminated manuscript'
+                    className='transform hover:scale-105 transition-transform duration-700 w-full h-auto'
+                    width={570}
+                    height={428}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#1b5e3f]/20 to-transparent pointer-events-none" />
+                </div>
+              </div>
             </SlideInRight>
           </div>
         </div>

@@ -179,9 +179,10 @@ You have been given something most precious — and in the sight of Allāh <SWT 
             
             {/* Image Column */}
             <SlideInRight delay={0.2}>
-                <div className="relative overflow-hidden rounded-2xl shadow-2xl sticky top-8 mt-18">
-                  <Image 
-                    src={"/images/revision-hifz.webp"} 
+              <div className="sticky top-8 mt-18 space-y-6">
+                <div className="relative overflow-hidden rounded-2xl shadow-2xl">
+                  <Image
+                    src={"/images/revision-hifz.webp"}
                     alt='Ḥifẓ Revision Programme at Al-Madinah Institute'
                     className='transform hover:scale-105 transition-transform duration-700 w-full h-auto'
                     width={570}
@@ -189,6 +190,17 @@ You have been given something most precious — and in the sight of Allāh <SWT 
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#1b5e3f]/20 to-transparent pointer-events-none" />
                 </div>
+                <div className="relative overflow-hidden rounded-2xl shadow-2xl">
+                  <Image
+                    src={"/images/green-dome-blue-sky.jpg"}
+                    alt='The Green Dome of Masjid an-Nabawi in Madinah'
+                    className='transform hover:scale-105 transition-transform duration-700 w-full h-auto'
+                    width={570}
+                    height={428}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#1b5e3f]/20 to-transparent pointer-events-none" />
+                </div>
+              </div>
             </SlideInRight>
           </div>
         </div>
