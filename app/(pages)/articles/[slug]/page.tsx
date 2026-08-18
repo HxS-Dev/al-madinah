@@ -52,6 +52,8 @@ const ArticleDetailPage = async ({ params }: Props) => {
                 year: 'numeric',
                 month: 'long',
                 day: 'numeric',
+                // Pinned so the prerendered date matches the browser's render (hydration).
+                timeZone: 'UTC',
               })}
             </p>
           )}
