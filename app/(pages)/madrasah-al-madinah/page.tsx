@@ -13,7 +13,11 @@ import { RA, SAW, TAWJ, SWT } from '@/app/components/IslamicLigatures';
 interface YearlyPlanner {
   title: string;
   url?: string;
+  fileUrl?: string;
 }
+
+// Prefer a PDF uploaded in Sanity; fall back to an externally hosted link.
+const plannerHref = (planner: YearlyPlanner | null) => planner?.fileUrl || planner?.url;
 
 const MadrasahPage = () => {
   const [madrasahPlanner, setMadrasahPlanner] = useState<YearlyPlanner | null>(null);
@@ -319,9 +323,9 @@ const MadrasahPage = () => {
                 <p className="text-gray-600 mb-6 leading-relaxed">
                   Complete term dates, holidays, and academic calendar for Madrasah students
                 </p>
-                {madrasahPlanner?.url ? (
+                {plannerHref(madrasahPlanner) ? (
                   <motion.a
-                    href={madrasahPlanner.url}
+                    href={plannerHref(madrasahPlanner)}
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.05 }}
@@ -355,9 +359,9 @@ const MadrasahPage = () => {
                 <p className="text-gray-600 mb-6 leading-relaxed">
                   Comprehensive yearly schedule and calendar for Ḥifẓ students
                 </p>
-                {hifzPlanner?.url ? (
+                {plannerHref(hifzPlanner) ? (
                   <motion.a
-                    href={hifzPlanner.url}
+                    href={plannerHref(hifzPlanner)}
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.05 }}

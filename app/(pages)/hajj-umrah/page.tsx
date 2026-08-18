@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { sanityClient } from '@/app/lib/sanity';
 import { hajjPublicationsQuery, hajjAudioQuery } from '@/app/lib/queries';
-import { urlFor } from '@/app/lib/imageBuilder';
+import { publicationCoverUrl } from '@/app/lib/publicationCover';
 import SubscribeSection from '@/app/components/SubscribeSection';
 import { GlassCard } from '@/app/components/GlassCard';
 import { FadeInUp, SlideInLeft, SlideInRight, FloatingElement } from '@/app/components/AnimationUtils';
@@ -63,19 +63,19 @@ const HajjUmrahPage = () => {
 
   const services = [
     {
-      icon: "🕋",
+      icon: "/icons/kabah.svg",
       title: "Hajj Guidance Seminars",
       description: "Comprehensive workshops covering essential rituals, travel tips, and spiritual preparation for the sacred journey.",
       features: ["Spiritual & Physical Preparation prior to departure", "Iḥram & its rulings", "Different types of Ḥajj", "In-depth rulings of the 5-days of Hajj", "Practical Advices", "Visiting Madīnah Munawwarah", "Literature available"]
     },
     {
-      icon: "🕌",
+      icon: "/icons/masjid.svg",
       title: "Umrah Workshops",
       description: "Go through the Umrah method step-by-step with practical advices to increase your understanding and confidence. Group sessions and individual sessions available.",
       features: ["Travel Tips & Advice", "Spiritual & Physical Preparation prior to departure", "Iḥram & its rulings", "In-dept rulings of Umrah and Ziyārah", "How to use the Nusuk app to obtain Rawdah permit", "Literature available"]
     },
     {
-      icon: <Image src="/images/golden-arabic-lantern.jpg" alt="Islamic lantern" width={48} height={64} className="mx-auto object-contain" />,
+      icon: "/icons/lantern.svg",
       title: "Expert Guidance",
       description: "Learn from experienced ‘ulamā who are well versed regarding the rulings, rights & requirements of this blessed journey.",
       features: ["Qualified 'Ulamā", "Personal consultation", "Group support", "Ongoing assistance"]
@@ -162,7 +162,16 @@ const HajjUmrahPage = () => {
                 className="group"
               >
                 <GlassCard className="p-8 h-full hover:shadow-2xl transition-all duration-500 text-center group-hover:scale-105">
-                  <div className="text-5xl mb-6">{service.icon}</div>
+                  <div className="mb-6 flex justify-center">
+                    <img
+                      src={service.icon}
+                      alt=""
+                      aria-hidden="true"
+                      width={64}
+                      height={64}
+                      className="w-16 h-16 object-contain"
+                    />
+                  </div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-[#1b5e3f] transition-colors duration-300">
                     {service.title}
                   </h3>
@@ -222,13 +231,13 @@ const HajjUmrahPage = () => {
                   viewport={{ once: true }}
                 >
                   <GlassCard className="p-3 h-full hover:shadow-xl transition-all duration-300 group">
-                    <div className="relative mb-2 overflow-hidden rounded-lg">
+                    <div className="relative mb-2 overflow-hidden rounded-lg aspect-[5/7] bg-green-50">
                       <Image
-                        src={pub.coverImage ? urlFor(pub.coverImage).width(200).height(280).url() : `https://image.thum.io/get/width/200/crop/280/${pub.link}`}
+                        src={publicationCoverUrl(pub.coverImage, pub.link)}
                         alt={pub.coverImage?.alt || pub.title}
-                        width={200}
-                        height={280}
-                        className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
+                        fill
+                        sizes="(min-width: 1024px) 20vw, (min-width: 768px) 30vw, 45vw"
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                     </div>
                     <h3 className="text-sm font-bold text-gray-900 mb-2 line-clamp-2 min-h-[2.5rem]">{pub.title}</h3>

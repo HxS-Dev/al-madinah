@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Lantern">
+  <circle cx="32" cy="5.5" r="3.4" fill="none" stroke="#c9a227" stroke-width="2"/>
+  <path d="M32 9v3.5" stroke="#c9a227" stroke-width="2" stroke-linecap="round"/>
+  <path d="M32 11.5c4.6 3.6 6.9 6.3 6.9 8.4 0 1.8-2.6 2.4-6.9 2.4s-6.9-.6-6.9-2.4c0-2.1 2.3-4.8 6.9-8.4Z" fill="#c9a227"/>
+  <rect x="19.5" y="22" width="25" height="4.5" rx="1.6" fill="#1b5e3f"/>
+  <path d="M22 26.5h20l-1.4 20.5H23.4L22 26.5Z" fill="#1b5e3f"/>
+  <path d="M26 30h12l-1 14H27l-1-14Z" fill="#c9a227"/>
+  <path d="M32 30v14M28.9 30l-.7 14M35.1 30l.7 14" stroke="#1b5e3f" stroke-opacity=".38" stroke-width="1.2"/>
+  <rect x="20.5" y="46" width="23" height="4.5" rx="1.6" fill="#1b5e3f"/>
+  <path d="M32 59.5c-3.6-3-5.4-5.3-5.4-7.1 0-1.3 2.4-1.9 5.4-1.9s5.4.6 5.4 1.9c0 1.8-1.8 4.1-5.4 7.1Z" fill="#c9a227"/>
+</svg>

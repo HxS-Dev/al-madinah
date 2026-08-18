@@ -155,12 +155,14 @@ export const hifzQuery = `*[_type == "hifz" && _id == "hifz"][0]{
 
 export const madrasahYearlyPlannerQuery = `*[_type == "yearlyPlanner" && _id == "madrasahYearlyPlanner"][0]{
   title,
-  url
+  url,
+  "fileUrl": plannerFile.asset->url
 }`;
 
 export const hifzYearlyPlannerQuery = `*[_type == "yearlyPlanner" && _id == "hifzYearlyPlanner"][0]{
   title,
-  url
+  url,
+  "fileUrl": plannerFile.asset->url
 }`;
 
 export const islamicLiteratureQuery = `*[_type == "islamicLiterature"] | order(category->order asc, order asc){

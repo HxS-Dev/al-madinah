@@ -64,7 +64,7 @@ const AdultStudiesPage = () => {
 
   const keyPoints = [
     { icon: "📅", title: "Weekly Schedule", detail: "Timings to be confirmed - Look out for the Posters." },
-    { icon: "🏫", title: "Qualified Teachers", detail: "Experienced ‘Ulamā - All our courses are taught by qualified ‘Ulamā with teaching experience" },
+    { icon: "/icons/qualified-teachers.svg", title: "Qualified Teachers", detail: "Experienced ‘Ulamā - All our courses are taught by qualified ‘Ulamā with teaching experience" },
     { icon: "🌍", title: "English Language", detail: "All our courses are taught in English to accommodate all parts of society" },
     { icon: "📞", title: "Contact", detail: "To enrol, for further information or a friendly chat contact us on 07353868127 or info@al-madinah.org.uk" }
   ];
@@ -318,7 +318,20 @@ const AdultStudiesPage = () => {
                 viewport={{ once: true }}
               >
                 <GlassCard className="p-6 text-center hover:shadow-xl transition-shadow duration-300">
-                  <div className="text-4xl mb-4">{point.icon}</div>
+                  <div className="mb-4 flex justify-center items-center h-12">
+                    {point.icon.startsWith('/') ? (
+                      <img
+                        src={point.icon}
+                        alt=""
+                        aria-hidden="true"
+                        width={48}
+                        height={48}
+                        className="w-12 h-12 object-contain"
+                      />
+                    ) : (
+                      <span className="text-4xl">{point.icon}</span>
+                    )}
+                  </div>
                   <h3 className="text-lg font-bold text-gray-900 mb-2">{point.title}</h3>
                   <p className="text-gray-600 text-sm leading-relaxed">{point.detail}</p>
                 </GlassCard>

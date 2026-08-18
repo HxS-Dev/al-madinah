@@ -14,22 +14,33 @@ export const yearlyPlannerType = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'plannerFile',
+      title: 'Planner PDF',
+      type: 'file',
+      options: {
+        accept: '.pdf',
+      },
+      description: 'Upload the planner PDF here. This is used in preference to the URL below.',
+    }),
+    defineField({
       name: 'url',
       title: 'URL',
       type: 'url',
-      description: 'Link to the planner (PDF or webpage). Leave blank if not yet available.',
+      description:
+        'Optional. Link to a planner hosted elsewhere. Only used when no PDF is uploaded above. Leave both blank if not yet available.',
     }),
   ],
   preview: {
     select: {
       title: 'title',
       url: 'url',
+      file: 'plannerFile.asset',
     },
     prepare(selection) {
-      const {title, url} = selection
+      const {title, url, file} = selection
       return {
         title,
-        subtitle: url || 'No URL set',
+        subtitle: file ? 'PDF uploaded' : url || 'No planner set',
       }
     },
   },

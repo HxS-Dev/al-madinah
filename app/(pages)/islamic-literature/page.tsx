@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { sanityClient } from '@/app/lib/sanity';
 import { islamicLiteratureQuery } from '@/app/lib/queries';
-import { urlFor } from '@/app/lib/imageBuilder';
+import { publicationCoverUrl } from '@/app/lib/publicationCover';
 import SubscribeSection from '@/app/components/SubscribeSection';
 import { GlassCard } from '@/app/components/GlassCard';
 import { FadeInUp } from '@/app/components/AnimationUtils';
@@ -310,13 +310,13 @@ const IslamicLiteraturePage = () => {
                     viewport={{ once: true }}
                   >
                     <GlassCard className="p-3 h-full hover:shadow-xl transition-all duration-300 group">
-                      <div className="relative mb-2 overflow-hidden rounded-lg">
+                      <div className="relative mb-2 overflow-hidden rounded-lg aspect-[5/7] bg-green-50">
                         <Image
-                          src={pub.coverImage ? urlFor(pub.coverImage).width(200).height(280).url() : `https://image.thum.io/get/width/200/crop/280/${pub.link}`}
+                          src={publicationCoverUrl(pub.coverImage, pub.link)}
                           alt={pub.coverImage?.alt || pub.title}
-                          width={200}
-                          height={280}
-                          className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
+                          fill
+                          sizes="(min-width: 1024px) 20vw, (min-width: 768px) 30vw, 45vw"
+                          className="object-cover group-hover:scale-105 transition-transform duration-500"
                         />
                       </div>
                       <h3 className="text-sm font-bold text-gray-900 mb-2 line-clamp-2 min-h-[2.5rem]">{pub.title}</h3>

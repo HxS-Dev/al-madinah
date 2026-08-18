@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Masjid">
+  <ellipse cx="32" cy="55" rx="27" ry="3.5" fill="#1b5e3f" opacity=".13"/>
+  <rect x="5" y="49" width="54" height="6" rx="2" fill="#237a4f" opacity=".28"/>
+  <rect x="8.5" y="24" width="6.5" height="25" rx="3.25" fill="#1b5e3f"/>
+  <path d="M11.75 15.5c3 3.2 4.4 5.6 4.4 7.4 0 1.9-1.9 2.9-4.4 2.9s-4.4-1-4.4-2.9c0-1.8 1.4-4.2 4.4-7.4Z" fill="#c9a227"/>
+  <rect x="49" y="24" width="6.5" height="25" rx="3.25" fill="#1b5e3f"/>
+  <path d="M52.25 15.5c3 3.2 4.4 5.6 4.4 7.4 0 1.9-1.9 2.9-4.4 2.9s-4.4-1-4.4-2.9c0-1.8 1.4-4.2 4.4-7.4Z" fill="#c9a227"/>
+  <rect x="18" y="32" width="28" height="17" rx="1.5" fill="#1b5e3f"/>
+  <path d="M32 11.5c7 5.6 10.5 10.5 10.5 15 0 4-2.6 5.5-10.5 5.5s-10.5-1.5-10.5-5.5c0-4.5 3.5-9.4 10.5-15Z" fill="#1b5e3f"/>
+  <path d="M32 5.5V11" stroke="#c9a227" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="32" cy="4" r="2.2" fill="#c9a227"/>
+  <path d="M32 36c3.6 0 6.5 2.9 6.5 6.5V49h-13v-6.5c0-3.6 2.9-6.5 6.5-6.5Z" fill="#c9a227"/>
+  <path d="M23.5 40c1.9 0 3.5 1.6 3.5 3.5V49h-7v-5.5c0-1.9 1.6-3.5 3.5-3.5ZM40.5 40c1.9 0 3.5 1.6 3.5 3.5V49h-7v-5.5c0-1.9 1.6-3.5 3.5-3.5Z" fill="#c9a227" opacity=".45"/>
+</svg>
